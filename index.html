@@ -428,7 +428,7 @@ function defaultState(){
     totalAnswered: 0,
     totalCorrect: 0,
     studySeconds: 0,
-    examDate: '2026-11-21', dayKey: '', dayDone: 0, lastBackup: 0,
+    examDate: '2026-11-21', dayKey: '', dayDone: 0, lastBackup: 0, examCount: 0,
     theme: 'auto',
     recentSession: [] // ring buffer of last shown ids (for cooldown), session-scoped but persisted loosely
   };
@@ -441,7 +441,7 @@ function sanitizeState(raw){
   const def = defaultState();
   ['qstats','fishstats'].forEach(k=>{ if(!s[k] || typeof s[k]!=='object' || Array.isArray(s[k])) s[k] = {}; });
   ['examHistory','recentSession'].forEach(k=>{ if(!Array.isArray(s[k])) s[k] = []; });
-  ['xp','dayStreak','turnCounter','fishTurn','totalAnswered','totalCorrect','studySeconds'].forEach(k=>{
+  ['xp','dayStreak','turnCounter','fishTurn','totalAnswered','totalCorrect','studySeconds','examCount'].forEach(k=>{
     if(typeof s[k]!=='number' || !isFinite(s[k])) s[k] = def[k];
   });
   if(!['auto','light','dark'].includes(s.theme)) s.theme = 'auto';
@@ -476,11 +476,11 @@ function fs(name){
   return STATE.fishstats[name];
 }
 
+function countDay(){ const k=new Date().toDateString(); if(STATE.dayKey!==k){ STATE.dayKey=k; STATE.dayDone=0; } STATE.dayDone=(STATE.dayDone||0)+1; }
 function touchDayStreak(){
   const today = new Date(); today.setHours(0,0,0,0);
   const t = today.getTime();
   if(arguments[0]===true){ if(STATE.lastActiveDay && STATE.lastActiveDay < t-86400000) STATE.dayStreak=0; return; }
-  { const k=today.toDateString(); if(STATE.dayKey!==k){ STATE.dayKey=k; STATE.dayDone=0; } STATE.dayDone=(STATE.dayDone||0)+1; }
   if(STATE.lastActiveDay === t) return;
   const oneDay = 86400000;
   if(STATE.lastActiveDay && Math.round((t - STATE.lastActiveDay) / oneDay) === 1){
@@ -597,7 +597,7 @@ function qText(q){
 // Einzelfrage-Runden (aus Suche bzw. Meine Fehler) und ihr Rücksprung
 function isSingle(s){ return !!s && (s.topic==='search' || s.topic==='single'); }
 function singleBackScreen(s){ return (s && s.backTo) || 'search'; }
-function singleBackLabel(s){ return singleBackScreen(s)==='mistakes' ? '← Zurück zu Meine Fehler' : '← Zurück zur Suche'; }
+function singleBackLabel(s){ return singleBackScreen(s)==='fishDetail' ? '← Zurück zum Fisch' : (singleBackScreen(s)==='mistakes' ? '← Zurück zu Meine Fehler' : '← Zurück zur Suche'); }
 // Suchtreffer hervorheben, ohne den Text als HTML zu interpretieren
 function hl(text, term){
   const re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'ig');
@@ -646,6 +646,7 @@ let SESSION = null; // active practice/exam session object
 const APP = document.getElementById('app');
 
 function go(screen, params){
+  if(screen==='fishDetail'){ if(params&&params.fish) window.__lastFish=params.fish; else if(window.__lastFish) params={fish:window.__lastFish}; }
   ROUTE = Object.assign({screen}, params||{});
   render();
   window.scrollTo(0,0);
@@ -694,11 +695,16 @@ function topbar(title, opts){
 }
 function handleBack(){
   const single = isSingle(SESSION);
-  const backTo = single ? singleBackScreen(SESSION) : 'search';
   if(SESSION && !SESSION.finished && !single && (ROUTE.screen==='session' || ROUTE.screen==='examSession' || ROUTE.screen==='fishQuiz')){
-    if(!confirm('Laufende Runde wirklich verlassen? Dein Fortschritt in dieser Runde geht verloren.')) return;
-    SESSION = null;
+    askConfirm('Laufende Runde wirklich verlassen? Dein Fortschritt in dieser Runde geht verloren.', ()=>{
+      SESSION = null;
+      leaveScreen(false, 'search');
+    }, 'Verlassen', 'Weitermachen');
+    return;
   }
+  leaveScreen(single, single ? singleBackScreen(SESSION) : 'search');
+}
+function leaveScreen(single, backTo){
   if(ROUTE.screen==='session' && single){ SESSION = null; go(backTo); return; }
   if(ROUTE.screen==='schonzeit'||ROUTE.screen==='confuse'||ROUTE.screen==='schonTrainer'){ go('knowledge'); return; }
   if(ROUTE.screen==='fishDetail') { go('fishHome'); return; }
@@ -742,6 +748,26 @@ function openCard(innerHtml){
   return div;
 }
 
+// Eigener Bestätigungsdialog statt confirm(): In eingebetteten Ansichten (App-Vorschau, WebView, iframe)
+// werden Browser-Dialoge oft blockiert und liefern still "false" - der Button wirkt dann tot.
+function askConfirm(message, onYes, yesLabel, noLabel){
+  const div = document.createElement('div');
+  div.className = 'modal-overlay';
+  div.style.zIndex = '300';
+  div.innerHTML = `<div class="modal-card" role="dialog" aria-modal="true">
+    <p style="font-size:15px;line-height:1.5;margin-bottom:16px;">${esc(message)}</p>
+    <div style="display:flex;gap:10px;">
+      <button class="btn btn-outline" style="width:auto;flex:1" data-no>${esc(noLabel||'Abbrechen')}</button>
+      <button class="btn btn-gold" style="width:auto;flex:1" data-yes>${esc(yesLabel||'OK')}</button>
+    </div>
+  </div>`;
+  const close = ()=>div.remove();
+  div.querySelector('[data-no]').addEventListener('click', close);
+  div.querySelector('[data-yes]').addEventListener('click', ()=>{ close(); onYes(); });
+  div.addEventListener('click', e=>{ if(e.target===div) close(); });
+  document.body.appendChild(div);
+}
+
 /* ======================= HOME ======================= */
 function renderHome(){
   const li = levelInfo();
@@ -778,7 +804,7 @@ function renderHome(){
 
     <button class="menu-tile accent wide" style="margin-bottom:14px;" onclick="startTodaySession(15)">
       <div class="ico">📅</div>
-      <div><div class="lbl">Was soll ich heute lernen?</div><div class="sub">15 Fragen · ca. 10 Min · automatisch zusammengestellt aus Fehlern, Lückenfragen &amp; Wiederholung</div></div>
+      <div><div class="lbl">Was soll ich heute lernen?</div><div class="sub">15 Fragen · ca. 10 Min · automatisch zusammengestellt aus Fehlern, Lückenfragen &amp; Wiederholung${weakestCat()?' · Schwerpunkt: '+esc(CAT_SHORT[weakestCat()]):''}</div></div>
     </button>
 
     <div class="card quickstart">
@@ -936,6 +962,7 @@ function beginPracticeSession(topic, count){
 function nextQuestionInSession(){
   const s = SESSION;
   s.posIndex++;
+  if(s.forceNext){ const t=s.forceNext; s.forceNext=null; s.current=t; s.selected=[]; s.submitted=false; s.optionOrder=shuffle(t.options.map((o,i)=>i)); return; }
   if(s.fixedQueue){
     const q = s.fixedQueue[s.queueIdx++];
     if(!q){ finishPracticeSession(); return; }
@@ -996,7 +1023,21 @@ function buildTodayPool(count){
     const filler = shuffle(notMastered.filter(q=>!usedIds.has(q.id)));
     mix = mix.concat(takeFrom(filler, count-mix.length));
   }
-  return {list: shuffle(mix), counts:{fehler:partA.length, stale:partB.length, sicher:partC.length, neu:partD.length}};
+  let schwach = 0;
+  const wc = weakestCat();
+  if(wc){
+    const W = Math.ceil(count*0.5), inMix = new Set(mix.map(q=>q.id));
+    let weak = mix.filter(q=>q.category===wc);
+    if(weak.length < W){
+      const sc = q=>{ const x=qs(q.id); return (isMarked(x)?3:0)+(x.wrong>0?2:0)+(x.seen===0?1:0)+Math.random()*0.5; };
+      const cand = QBY_CAT[wc].filter(q=>!inMix.has(q.id) && !qs(q.id).mastered).sort((a,b)=>sc(b)-sc(a));
+      weak = weak.concat(cand.slice(0, W-weak.length));
+    }
+    const others = mix.filter(q=>q.category!==wc).sort((a,b)=>(qs(a.id).mastered?1:0)-(qs(b.id).mastered?1:0));
+    mix = weak.concat(others.slice(0, Math.max(0, count-weak.length)));
+    schwach = weak.length;
+  }
+  return {list: shuffle(mix), counts:{fehler:partA.length, stale:partB.length, sicher:partC.length, neu:partD.length, schwach}};
 }
 
 function startTodaySession(count){
@@ -1078,7 +1119,7 @@ function renderSession(){
       <div class="q-text">${esc(qText(q))}</div>
       <div class="options">${optsHtml}</div>
       ${bannerHtml}
-      ${explainHtml}
+      ${explainHtml}${s.submitted?fishAnsHtml(q):''}${twinHtml(s,q)}
     </div>
   </div>
   <div class="bottom-bar">
@@ -1095,6 +1136,7 @@ function sessionTitle(topic){
   if(topic==='wrong') return '❌ Fehlertraining';
   if(topic==='all') return '🎣 Lernen';
   if(topic==='today') return '📅 Heute lernen';
+  if(topic==='fishq') return '🐟 Fragen zum Fisch';
   if(topic==='hard') return '🔥 Schwere Fragen';
   if(topic==='unsure') return '🤔 Unsichere Fragen';
   if(topic==='retry') return '🔁 Fehler wiederholen';
@@ -1126,6 +1168,7 @@ function submitAnswer(){
   const st = qs(q.id);
   bumpGlobalTurn(st);
   touchDayStreak();
+  if(wasCorrect) countDay();
 
   if(isRetry && wasCorrect){
     // Wiederholungsrunde: richtig zählt nur für diese Runde (kleine XP), die Frage bleibt
@@ -1433,12 +1476,13 @@ function confirmFinishExam(){
   const msg = unanswered>0
     ? `Du hast noch ${unanswered} unbeantwortete Frage(n). Prüfung trotzdem jetzt abgeben?`
     : 'Prüfung jetzt endgültig abgeben?';
-  if(confirm(msg)) finishExam();
+  askConfirm(msg, finishExam, 'Abgeben', 'Zurück');
 }
 
 function finishExam(){
   clearInterval(EXAM_TIMER);
   const s = SESSION;
+  if(!s || s.type!=='exam' || s.submitted) return;
   s.submitted = true;
   let correctTotal = 0;
   const perCat = {};
@@ -1451,12 +1495,33 @@ function finishExam(){
     const isCorrect = sel.length===cor.length && sel.every((v,i)=>v===cor[i]);
     if(sel.length===0) perCat[q.category].unanswered++;
     if(isCorrect){ correctTotal++; perCat[q.category].correct++; } else { wrongIds.push(q.id); }
+    // Prüfungsergebnis in den Lernstand der Frage übernehmen
+    // (falsch oder unbeantwortet -> landet dauerhaft unter "Meine Fehler", bis sie im Üben gemeistert wird;
+    //  richtig -> zählt wie im normalen Üben: Serie +1, bei 3 in Folge gemeistert)
+    const st = qs(q.id);
+    st.seen++;
+    bumpGlobalTurn(st);
+    if(isCorrect){
+      countDay(); // zählt wie im Üben für das Tagesziel
+      st.correct++;
+      st.streak++;
+      if(st.streak>=MASTER_STREAK && !st.mastered){
+        st.mastered = true;
+        st.marked = false;
+      }
+    } else {
+      st.wrong++;
+      st.streak = 0;
+      st.mastered = false;
+    }
   });
   const passTotal = correctTotal >= EXAM_PASS_TOTAL;
   const passPerCat = CATEGORIES.every(c=>perCat[c].correct >= EXAM_PASS_PER_CAT);
   const passed = passTotal && passPerCat;
 
+  touchDayStreak(); // Prüfung verlängert auch die Lernserie
   s.result = {correctTotal, perCat, passed, passTotal, passPerCat, wrongIds, date: Date.now()};
+  STATE.examCount = Math.max(STATE.examCount||0, STATE.examHistory.length) + 1; // Historie ist auf 20 begrenzt, der Zähler nicht
   STATE.examHistory.unshift({date:Date.now(), score:correctTotal, total:EXAM_TOTAL, passed, perCat});
   STATE.examHistory = STATE.examHistory.slice(0,20);
   const xpGain = passed? 100 : 30;
@@ -1517,7 +1582,9 @@ function renderExamReview(){
     const sel = (s.answers[q.id]||[]).slice().sort();
     const cor = q.options.map((o,i)=>o.correct?i:-1).filter(i=>i>=0).sort();
     const isCorrect = sel.length===cor.length && sel.every((v,i)=>v===cor[i]);
-    const optsHtml = q.options.map((opt,idx)=>{
+    const order = (s.optionOrders && s.optionOrders[q.id]) || q.options.map((o,k)=>k); // gleiche Reihenfolge wie in der Prüfung
+    const optsHtml = order.map(idx=>{
+      const opt = q.options[idx];
       let cls='opt disabled';
       if(opt.correct) cls+=' correct';
       else if(sel.includes(idx)) cls+=' wrong';
@@ -1742,7 +1809,7 @@ function submitFishAnswer(){
   s.submitted = true; s.answered++;
   touchDayStreak();
   const wasCorrect = s.selected===f.name;
-  if(wasCorrect){
+  if(wasCorrect){ countDay();
     s.correct++; st.correct++; st.streak++;
     if(st.streak>=MASTER_STREAK && !st.mastered){ st.mastered=true; addXP(15); s.xpEarned+=15; toast('🏅 Art gemeistert! +15 XP'); }
     else { addXP(5); s.xpEarned+=5; }
@@ -1774,7 +1841,7 @@ function renderFishDetail(){
       <p style="font-style:italic;color:var(--ink-soft);margin-bottom:10px;">${esc(f.sci)} · ${esc(f.size)}</p>
       <ul class="fact-list">${f.facts.map(x=>`<li>${esc(x)}</li>`).join('')}</ul>
     </div>
-    ${fkHtml(f)}<p style="font-size:11.5px;color:var(--ink-soft);text-align:center;">F = Fischartenflyer LFV BW · Q = Fragennummer im amtlichen Fragenkatalog</p>
+    ${fkHtml(f)}${fishQHtml(f)}<p style="font-size:11.5px;color:var(--ink-soft);text-align:center;">F = Fischartenflyer LFV BW · Q = Fragennummer im amtlichen Fragenkatalog</p>
   </div>`;
 }
 /* ======================= WISSENSBEREICH ======================= */
@@ -1837,7 +1904,7 @@ function renderStats(){
       <div class="stat-box"><div class="num">${totalCorrect}</div><div class="lbl">richtige Antworten</div></div>
       <div class="stat-box"><div class="num">${totalWrong}</div><div class="lbl">falsche Antworten</div></div>
       <div class="stat-box"><div class="num">${fishQuote}%</div><div class="lbl">Fischbestimmungsquote</div></div>
-      <div class="stat-box"><div class="num">${STATE.examHistory.length}</div><div class="lbl">Prüfungen absolviert</div></div>
+      <div class="stat-box"><div class="num">${Math.max(STATE.examCount||0, STATE.examHistory.length)}</div><div class="lbl">Prüfungen absolviert</div></div>
     </div>
     <div class="card">
       <div class="exam-summary-row"><span>💪 Stärkstes Thema</span><b>${bestCat?esc(CAT_SHORT[bestCat])+' ('+catStats(bestCat).pctMastered+'%)':'–'}</b></div>
@@ -1936,12 +2003,14 @@ function renderSettings(){
 }
 function setTheme(t){ STATE.theme=t; saveState(); render(); }
 function resetProgress(){
-  if(!confirm('Wirklich den GESAMTEN Lernfortschritt löschen? Das kann nicht rückgängig gemacht werden.')) return;
-  if(!confirm('Ganz sicher? XP, Level und alle Statistiken gehen verloren.')) return;
-  STATE = defaultState();
-  saveState();
-  toast('Fortschritt wurde zurückgesetzt.');
-  go('home');
+  askConfirm('Wirklich den GESAMTEN Lernfortschritt löschen? Das kann nicht rückgängig gemacht werden.', ()=>{
+    askConfirm('Ganz sicher? XP, Level und alle Statistiken gehen verloren.', ()=>{
+      STATE = defaultState();
+      saveState();
+      toast('Fortschritt wurde zurückgesetzt.');
+      go('home');
+    }, 'Endgültig löschen', 'Abbrechen');
+  }, 'Weiter', 'Abbrechen');
 }
 function exportProgress(){
   const blob = new Blob([JSON.stringify(STATE,null,1)], {type:'application/json'});
@@ -1982,8 +2051,8 @@ function dayPlan(){
 function planHtml(){
   const p=dayPlan(), done=STATE.dayKey===new Date().toDateString()?(STATE.dayDone||0):0, tg=p&&p.days>0?p.target:15, pct=Math.min(100,Math.round(done/tg*100));
   let txt='';
-  if(p){ txt = p.days>0 ? '📆 Prüfung am '+p.d.toLocaleDateString('de-DE')+' – noch <b>'+p.days+' Tag'+(p.days==1?'':'e')+'</b>. Offen: '+p.rest+' Fragen nicht gemeistert (je 3× richtig in Folge nötig) → ca. <b>'+p.per+' Antworten pro Tag</b>'+(p.days>7?'; die letzten 7 Tage Prüfungssimulationen.':'.') : p.days===0 ? '🍀 Heute ist Prüfungstag – viel Erfolg!' : 'Der Prüfungstermin liegt in der Vergangenheit – bitte in den Einstellungen anpassen.'; }
-  return '<div class="card"><div class="exam-summary-row"><span>🎯 Tagesziel</span><b>'+done+' / '+tg+' Fragen</b></div><div class="bar-track"><div class="bar-fill '+(done>=tg?'green':'')+'" style="width:'+pct+'%"></div></div>'+(txt?'<p style="font-size:13px;line-height:1.5;margin-top:10px">'+txt+'</p>':'')+'<p style="font-size:12px;color:var(--ink-soft);margin-top:6px">💾 '+(STATE.lastBackup?(()=>{const d=Math.floor((Date.now()-STATE.lastBackup)/864e5);return 'Letzte Sicherung '+(d<1?'heute':'vor '+d+' Tag'+(d==1?'':'en'));})():'Noch keine Sicherung – in den Einstellungen exportieren')+'</p></div>';
+  if(p){ txt = p.days>0 ? '📆 Prüfung am '+p.d.toLocaleDateString('de-DE')+' – noch <b>'+p.days+' Tag'+(p.days==1?'':'e')+'</b>. Offen: '+p.rest+' Fragen nicht gemeistert (je 3× richtig in Folge nötig) → ca. <b>'+p.per+' richtige Antworten pro Tag</b>'+(p.days>7?'; die letzten 7 Tage Prüfungssimulationen.':'.') : p.days===0 ? '🍀 Heute ist Prüfungstag – viel Erfolg!' : 'Der Prüfungstermin liegt in der Vergangenheit – bitte in den Einstellungen anpassen.'; }
+  return '<div class="card"><div class="exam-summary-row"><span>🎯 Tagesziel (richtige Antworten)</span><b>'+done+' / '+tg+'</b></div><div class="bar-track"><div class="bar-fill '+(done>=tg?'green':'')+'" style="width:'+pct+'%"></div></div>'+(txt?'<p style="font-size:13px;line-height:1.5;margin-top:10px">'+txt+'</p>':'')+'<p style="font-size:12px;color:var(--ink-soft);margin-top:6px">💾 '+(STATE.lastBackup?(()=>{const d=Math.floor((Date.now()-STATE.lastBackup)/864e5);return 'Letzte Sicherung '+(d<1?'heute':'vor '+d+' Tag'+(d==1?'':'en'));})():'Noch keine Sicherung – in den Einstellungen exportieren')+'</p></div>';
 }
 function examInsightsHtml(){
   const P=q=>{const x=STATE.qstats[q.id];return x&&(x.correct+x.wrong)>0?(x.correct+0.4)/(x.correct+x.wrong+1):0.4;};
@@ -1995,6 +2064,41 @@ function examInsightsHtml(){
   const ex=STATE.examHistory.slice(0,6).reverse();
   if(ex.length) h+='<div class="card"><h3>📈 Verlauf je Sachgebiet</h3><div style="overflow-x:auto"><table class="stbl"><tr><th></th>'+ex.map(e=>'<th>'+new Date(e.date).toLocaleDateString('de-DE',{day:'2-digit',month:'2-digit'})+'</th>').join('')+'</tr>'+CATEGORIES.map(c=>'<tr><td>'+CAT_ICON[c]+'</td>'+ex.map(e=>{const v=e.perCat&&e.perCat[c]?e.perCat[c].correct:null;return '<td style="font-weight:700;color:'+col(v)+'">'+(v==null?'–':v)+'</td>';}).join('')+'</tr>').join('')+'<tr><td><b>Σ</b></td>'+ex.map(e=>'<td style="font-weight:700;color:'+(e.score>=45?'var(--success)':'var(--danger)')+'">'+e.score+'</td>').join('')+'</tr></table></div><p style="font-size:11.5px;color:var(--ink-soft);margin-top:6px">Richtige je Sachgebiet (max. 12) – ab 6 grün; Σ ab 45 grün.</p></div>';
   return h;
+}
+const TWINS={"12": [14, 13], "13": [14, 12], "14": [13, 12], "32": [34], "34": [32], "62": [68], "67": [216, 155], "68": [62], "69": [116], "77": [79], "79": [77], "116": [69], "141": [164], "142": [143], "143": [142], "155": [216, 67], "156": [165], "164": [141], "165": [156], "185": [186], "186": [185], "197": [198], "198": [197], "216": [155, 67], "242": [247], "247": [242], "263": [264], "264": [263], "368": [369], "369": [368], "414": [415], "415": [414], "506": [510, 509], "507": [510, 509], "508": [507], "509": [510, 507], "510": [509, 507], "584": [590], "590": [584], "596": [597], "597": [596], "646": [762], "653": [655], "655": [653], "753": [765], "762": [646], "765": [753]};
+function twinHtml(s,q){
+  if(!s||!s.submitted||isSingle(s)||!s.history.length||s.history[s.history.length-1].wasCorrect) return '';
+  const t=(TWINS[q.id]||[]).map(i=>QBY_ID[i]).filter(Boolean)[0]; if(!t) return '';
+  const queued=s.forceNext&&s.forceNext.id===t.id;
+  return '<div class="card" style="margin-top:10px"><h3>👯 Zwillingsfrage</h3><p style="font-size:14px;line-height:1.5">'+esc(t.question)+'</p>'+(queued?'<p style="font-size:13px;color:var(--success)">✅ Kommt als Nächste – antworte selbst.</p>':'<button class="btn btn-outline btn-sm" onclick="addTwin('+t.id+')">Gleich als Nächste üben</button>')+'</div>';
+}
+function addTwin(id){const s=SESSION,t=QBY_ID[id];if(!s||!t||s.forceNext)return;s.forceNext=t;s.targetCount++;render();}
+const FQ={"Aal": {"ans": [25, 86, 87, 240, 244, 260, 299, 307, 326, 337, 537, 580, 781, 784, 786, 798], "stem": [144, 162, 298, 308, 329, 339, 785]}, "Äsche": {"ans": [20, 109, 138, 145, 167, 251, 273, 289, 305, 464, 606], "stem": [21, 24, 98, 152]}, "Bachforelle": {"ans": [49, 53, 135, 137, 249, 254, 278, 305, 388, 416, 464, 465, 537], "stem": [62, 68, 134, 136, 224, 401]}, "Bachsaibling": {"ans": [288, 783], "stem": []}, "Barbe": {"ans": [121, 146, 218, 232, 270], "stem": [156]}, "Brachse (Brasse)": {"ans": [36, 70, 74, 110, 123, 124, 233, 234, 255, 303, 337, 580, 657], "stem": [8, 159, 235, 689]}, "Döbel (Aitel)": {"ans": [30, 43, 52, 231, 285, 290, 291], "stem": []}, "Elritze": {"ans": [30, 238, 268, 296, 363, 405], "stem": [220]}, "Felchen": {"ans": [137, 227, 228, 248, 274, 336, 366], "stem": [223]}, "Flussbarsch": {"ans": [10, 18, 29, 37, 118, 122, 258, 302, 306, 616], "stem": [33, 141, 164, 175]}, "Giebel": {"ans": [271, 294], "stem": []}, "Groppe": {"ans": [18, 114, 140, 257, 405, 416, 754, 814], "stem": [176, 387, 494]}, "Gründling": {"ans": [256], "stem": []}, "Güster (Blicke)": {"ans": [286, 385], "stem": []}, "Hasel": {"ans": [279], "stem": []}, "Hecht": {"ans": [36, 117, 169, 174, 177, 229, 287, 303, 306, 365, 378, 537, 605, 656], "stem": [153, 154, 172, 230, 555, 603, 607, 660]}, "Karausche": {"ans": [252, 265], "stem": []}, "Karpfen": {"ans": [47, 70, 93, 133, 168, 234, 272, 303, 304, 466, 766, 774], "stem": [97, 160, 173, 236, 309, 372, 645]}, "Nase": {"ans": [5, 72, 73, 145, 167, 284, 292, 337, 606], "stem": []}, "Quappe (Trüsche, Rutte)": {"ans": [18, 54, 139, 222, 259, 465], "stem": [163]}, "Rapfen (Schied)": {"ans": [64, 218, 276, 782], "stem": [157]}, "Regenbogenforelle": {"ans": [60, 226, 277, 783], "stem": []}, "Rotauge": {"ans": [124, 282, 378, 385, 657], "stem": [158, 627, 678, 688]}, "Rotfeder": {"ans": [50, 66, 281, 293], "stem": []}, "Schleie": {"ans": [20, 23, 168, 174, 218, 269, 304, 378], "stem": [22, 161, 237, 295]}, "Schlammpeitzger": {"ans": [105, 106, 221, 263], "stem": [242]}, "Schmerle": {"ans": [264, 403], "stem": [221]}, "Schneider": {"ans": [267, 753], "stem": []}, "Seesaibling": {"ans": [51, 225, 266], "stem": []}, "Steinbeißer": {"ans": [106, 221, 261], "stem": [243, 297]}, "Ukelei (Laube)": {"ans": [283], "stem": [239]}, "Moderlieschen": {"ans": [94, 177, 280], "stem": []}, "Wels": {"ans": [38, 63, 85, 86, 93, 112, 113, 129, 240, 241, 262, 394, 466, 580, 616], "stem": [421, 679]}, "Zander": {"ans": [49, 61, 129, 140, 246, 275, 303], "stem": [165, 302]}};
+function fishQHtml(f){
+  const d=FQ[f.name]; if(!d) return '';
+  const n=d.ans.length+d.stem.length; if(!n) return '';
+  const row=(id,tag)=>{const q=QBY_ID[id];return q?'<div onclick="fishQ('+id+')" style="padding:10px 0;border-top:1px solid var(--line);font-size:14px;line-height:1.4;cursor:pointer">'+tag+' '+esc(q.question)+'</div>':'';};
+  return '<div class="card"><h3>❓ Fragen zu '+esc(f.name.split(' (')[0])+' ('+n+')</h3><button class="btn btn-primary" onclick="startFishQs(\''+esc(f.name)+'\')">Alle '+n+' Fragen üben</button><details style="margin-top:10px"><summary style="cursor:pointer;font-weight:600">Fragen einzeln ansehen</summary>'+d.ans.map(i=>row(i,'✔')).join('')+d.stem.map(i=>row(i,'🔎')).join('')+'<p style="font-size:12px;color:var(--ink-soft);margin-top:8px">✔ = Fisch gehört zur richtigen Antwort · 🔎 = Fisch wird in der Frage genannt. Tippe eine Frage an, um sie zu üben.</p></details></div>';
+}
+function fishQ(id){ answerSingle(id,'fishDetail'); }
+function startFishQs(name){
+  const d=FQ[name]; if(!d) return;
+  const list=shuffle(d.ans.concat(d.stem).map(i=>QBY_ID[i]).filter(Boolean)); if(!list.length) return;
+  SESSION={type:'practice',topic:'fishq',pool:list,targetCount:list.length,answered:0,correct:0,unsureCount:0,xpEarned:0,posIndex:0,history:[],current:null,selected:[],submitted:false,optionOrder:null,fixedQueue:list,queueIdx:0};
+  nextQuestionInSession(); go('session');
+}
+function weakestCat(){
+  let best=null,bv=2;
+  CATEGORIES.forEach(c=>{const L=QBY_CAT[c];const m=L.reduce((a,q)=>{const x=STATE.qstats[q.id];return a+(x&&(x.correct+x.wrong)>0?(x.correct+0.4)/(x.correct+x.wrong+1):0.4);},0)/L.length;if(m<bv){bv=m;best=c;}});
+  return best;
+}
+const QF={"5": ["Nase"], "10": ["Flussbarsch"], "18": ["Flussbarsch", "Groppe", "Quappe (Trüsche, Rutte)"], "20": ["Äsche", "Schleie"], "23": ["Schleie"], "25": ["Aal"], "29": ["Flussbarsch"], "30": ["Döbel (Aitel)", "Elritze"], "36": ["Brachse (Brasse)", "Hecht"], "37": ["Flussbarsch"], "38": ["Wels"], "43": ["Döbel (Aitel)"], "47": ["Karpfen"], "49": ["Bachforelle", "Zander"], "50": ["Rotfeder"], "51": ["Seesaibling"], "52": ["Döbel (Aitel)"], "53": ["Bachforelle"], "54": ["Quappe (Trüsche, Rutte)"], "60": ["Regenbogenforelle"], "61": ["Zander"], "63": ["Wels"], "64": ["Rapfen (Schied)"], "66": ["Rotfeder"], "70": ["Brachse (Brasse)", "Karpfen"], "72": ["Nase"], "73": ["Nase"], "74": ["Brachse (Brasse)"], "85": ["Wels"], "86": ["Aal", "Wels"], "87": ["Aal"], "93": ["Karpfen", "Wels"], "94": ["Moderlieschen"], "105": ["Schlammpeitzger"], "106": ["Schlammpeitzger", "Steinbeißer"], "109": ["Äsche"], "110": ["Brachse (Brasse)"], "112": ["Wels"], "113": ["Wels"], "114": ["Groppe"], "117": ["Hecht"], "118": ["Flussbarsch"], "121": ["Barbe"], "122": ["Flussbarsch"], "123": ["Brachse (Brasse)"], "124": ["Brachse (Brasse)", "Rotauge"], "129": ["Wels", "Zander"], "133": ["Karpfen"], "135": ["Bachforelle"], "137": ["Bachforelle", "Felchen"], "138": ["Äsche"], "139": ["Quappe (Trüsche, Rutte)"], "140": ["Groppe", "Zander"], "145": ["Äsche", "Nase"], "146": ["Barbe"], "167": ["Äsche", "Nase"], "168": ["Karpfen", "Schleie"], "169": ["Hecht"], "174": ["Hecht", "Schleie"], "177": ["Hecht", "Moderlieschen"], "218": ["Barbe", "Rapfen (Schied)", "Schleie"], "221": ["Schlammpeitzger", "Steinbeißer"], "222": ["Quappe (Trüsche, Rutte)"], "225": ["Seesaibling"], "226": ["Regenbogenforelle"], "227": ["Felchen"], "228": ["Felchen"], "229": ["Hecht"], "231": ["Döbel (Aitel)"], "232": ["Barbe"], "233": ["Brachse (Brasse)"], "234": ["Brachse (Brasse)", "Karpfen"], "238": ["Elritze"], "240": ["Aal", "Wels"], "241": ["Wels"], "244": ["Aal"], "246": ["Zander"], "248": ["Felchen"], "249": ["Bachforelle"], "251": ["Äsche"], "252": ["Karausche"], "254": ["Bachforelle"], "263": ["Schlammpeitzger"], "264": ["Schmerle"], "289": ["Äsche"], "290": ["Döbel (Aitel)"], "291": ["Döbel (Aitel)"], "292": ["Nase"], "293": ["Rotfeder"], "294": ["Giebel"], "296": ["Elritze"], "299": ["Aal"], "302": ["Flussbarsch"], "303": ["Brachse (Brasse)", "Hecht", "Karpfen", "Zander"], "304": ["Karpfen", "Schleie"], "305": ["Äsche", "Bachforelle"], "306": ["Flussbarsch", "Hecht"], "307": ["Aal"], "326": ["Aal"], "336": ["Felchen"], "337": ["Aal", "Brachse (Brasse)", "Nase"], "363": ["Elritze"], "365": ["Hecht"], "366": ["Felchen"], "378": ["Hecht", "Rotauge", "Schleie"], "385": ["Güster (Blicke)", "Rotauge"], "388": ["Bachforelle"], "394": ["Wels"], "403": ["Schmerle"], "405": ["Elritze", "Groppe"], "416": ["Bachforelle", "Groppe"], "464": ["Äsche", "Bachforelle"], "465": ["Bachforelle", "Quappe (Trüsche, Rutte)"], "466": ["Karpfen", "Wels"], "537": ["Aal", "Bachforelle", "Hecht"], "580": ["Aal", "Brachse (Brasse)", "Wels"], "605": ["Hecht"], "606": ["Äsche", "Nase"], "616": ["Flussbarsch", "Wels"], "656": ["Hecht"], "657": ["Brachse (Brasse)", "Rotauge"], "753": ["Schneider"], "754": ["Groppe"], "766": ["Karpfen"], "774": ["Karpfen"], "781": ["Aal"], "782": ["Rapfen (Schied)"], "783": ["Bachsaibling", "Regenbogenforelle"], "784": ["Aal"], "786": ["Aal"], "798": ["Aal"], "814": ["Groppe"]};
+function fishAnsHtml(q){
+  const names=QF[q.id]; if(!names||!names.length) return '';
+  const w=names.length>2?'30%':'46%';
+  const tiles=names.map(n=>{const f=FISH.find(x=>x.name===n); if(!f) return '';
+    return '<div style="flex:0 0 '+w+';text-align:center">'+(IMAGES[f.img]?'<img style="width:100%;border-radius:10px;background:#fff" src="data:image/jpeg;base64,'+IMAGES[f.img]+'">':'')+'<div style="font-size:13px;font-weight:700;margin-top:4px">'+esc(n.split(' (')[0])+'</div></div>';}).join('');
+  return '<div class="card" style="margin-top:10px"><h3>🐟 Die richtigen Fische</h3><div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">'+tiles+'</div></div>';
 }
 function hl2(text, term){
   const ws=term.toLowerCase().split(/\s+/).filter(w=>w.length>0).map(w=>w.replace(/[.*+?^${}()|[\]\\]/g,'\\$&').replace(/ss|ß/g,'(?:ss|ß)').replace(/a/g,'[aä]').replace(/o/g,'[oö]').replace(/u/g,'[uü]'));
@@ -2016,7 +2120,7 @@ function stQuestions(){
   return out;
 }
 function startSchonTrainer(){ST={qs:pick(stQuestions(),10).map(x=>Object.assign(x,{opts:shuffle([x.a].concat(x.o))})),i:0,ok:0,sel:null};go('schonTrainer');}
-function stPick(k){const s=ST;if(s.sel!==null)return;s.sel=k;if(s.qs[s.i].opts[k]===s.qs[s.i].a){s.ok++;addXP(5);}touchDayStreak();saveState();render();}
+function stPick(k){const s=ST;if(s.sel!==null)return;s.sel=k;if(s.qs[s.i].opts[k]===s.qs[s.i].a){s.ok++;addXP(5);countDay();}touchDayStreak();saveState();render();}
 function stNext(){ST.i++;ST.sel=null;render();}
 function renderSchonTrainer(){
   const s=ST; if(!s) return renderHome();
