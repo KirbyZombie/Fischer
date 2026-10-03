@@ -1,0 +1,13 @@
+{
+  "name": "Fischereiprüfung BW",
+  "short_name": "Fischprüfung",
+  "start_url": "./",
+  "display": "standalone",
+  "icons": [
+    {
+      "src": "icon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
