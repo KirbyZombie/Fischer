@@ -479,6 +479,8 @@ function sanitizeState(raw){
     .map(e=>({score:Math.floor(e.score), ts:(typeof e.ts==='number' && isFinite(e.ts)) ? e.ts : 0}))
     .sort((a,b)=>b.score-a.score || a.ts-b.ts).slice(0,5);
   if(typeof s.endlessRuns!=='number' || !isFinite(s.endlessRuns)) s.endlessRuns = 0;
+  // Migration: Fragen, die schon aus "Falsche" entfernt waren (nicht gemeistert, aber nach dem letzten Fehler richtig), bleiben entfernt
+  Object.keys(s.qstats).forEach(id=>{ const q=s.qstats[id]; if(q && typeof q==='object' && typeof q.fixed!=='boolean') q.fixed = !!(q.wrong>0 && !q.mastered && q.streak>0); });
   return s;
 }
 
@@ -498,7 +500,7 @@ function saveState(){
   try{ localStorage.setItem(STORAGE_KEY, JSON.stringify(STATE)); }catch(e){ if(!window.__sf){ window.__sf=1; try{ toast('⚠️ Speichern nicht möglich – bitte Fortschritt exportieren!'); }catch(_){} } }
 }
 function qs(id){
-  if(!STATE.qstats[id]) STATE.qstats[id] = {streak:0, seen:0, correct:0, wrong:0, unsure:0, marked:false, lastSeen:-999, lastSeenGlobal:-1, mastered:false};
+  if(!STATE.qstats[id]) STATE.qstats[id] = {streak:0, seen:0, correct:0, wrong:0, unsure:0, marked:false, lastSeen:-999, lastSeenGlobal:-1, mastered:false, fixed:false};
   const st = STATE.qstats[id];
   if(st.unsure===undefined) st.unsure = 0;
   if(st.lastSeenGlobal===undefined) st.lastSeenGlobal = -1;
@@ -599,13 +601,13 @@ function overallStats(){
   });
   return {total, mastered, seenAny, pct: total? Math.round((mastered/total)*100):0};
 }
-// "Falsche": Frage war schon mal falsch UND die letzte Antwort war falsch (streak===0).
-// Einmal richtig beantwortet (Üben, Fehlertraining, Prüfung) nimmt sie aus dieser Liste; "gemeistert" (3x in Folge)
-// und die Liste "Schwere Fragen" behalten ihre 3x-Regel. Wiederholungsrunden ("Falsche nochmal") zählen hier nicht.
+// "Falsche": Frage war schon mal falsch und ist noch nicht "fixed". Aus der Liste kommt sie nur heraus, wenn sie im
+// Fehlertraining (Kategorie "Falsche") einmal richtig beantwortet wird (fixed) oder wenn sie 3x in Folge richtig war
+// (gemeistert). Jeder neue Fehler (Üben, Prüfung, Wiederholungsrunde, Endlos) setzt fixed zurück. "Schwere Fragen": 3x-Regel.
 function wrongQuestions(){
   return QUESTIONS.filter(q=>{
     const s = STATE.qstats[q.id];
-    return s && s.wrong>0 && !s.mastered && !(s.streak>0);
+    return s && s.wrong>0 && !s.mastered && !s.fixed;
   });
 }
 // "Unsicher"-Markierung: bleibt gesetzt, bis die Frage im normalen Üben 3x in Folge richtig
@@ -1133,8 +1135,8 @@ function renderSession(){
     const wasCorrect = last && last.wasCorrect;
     if(wasCorrect){
       bannerHtml = s.topic==='retry'
-        ? `<div class="result-banner ok">✅ Richtig! Die Frage bleibt trotzdem in deiner Fehlerliste, bis du sie im normalen Üben oder im Fehlertraining einmal richtig beantwortest.</div>`
-        : `<div class="result-banner ok">✅ Richtig! ${s.lastXp>0?('+'+s.lastXp+' XP'):''}${(st.wrong>0 && st.streak===1)?' · aus „Falsche“ entfernt':''}</div>`;
+        ? `<div class="result-banner ok">✅ Richtig! Die Frage bleibt trotzdem in deiner Fehlerliste, bis du sie im Fehlertraining (Kategorie „Falsche“) einmal richtig beantwortest.</div>`
+        : `<div class="result-banner ok">✅ Richtig! ${s.lastXp>0?('+'+s.lastXp+' XP'):''}${s.removedNow?' · aus „Falsche“ entfernt':''}</div>`;
     } else {
       bannerHtml = `<div class="result-banner bad">❌ Leider falsch · insgesamt ${st.wrong}× falsch${st.wrong>=HARD_THRESHOLD?' 🔥':''}</div>`;
     }
@@ -1219,7 +1221,7 @@ function submitAnswer(){
 
   if(isRetry && wasCorrect){
     // Wiederholungsrunde: richtig zählt nur für diese Runde (kleine XP), die Frage bleibt
-    // in der Fehlerliste - Entfernen aus "Falsche" (1x richtig) und Meisterung (3x in Folge) gibt es nur im normalen Üben.
+    // in der Fehlerliste - Entfernen aus "Falsche" gibt es nur im Fehlertraining, Meisterung (3x in Folge) nur im normalen Üben.
     s.correct++;
     s.lastXp = 2;
     addXP(2);
@@ -1231,10 +1233,12 @@ function submitAnswer(){
   }
 
   st.seen++;
+  s.removedNow = false;
   if(wasCorrect){
     s.correct++;
     st.correct++;
     st.streak++;
+    if(s.topic==='wrong' && st.wrong>0 && !st.fixed){ st.fixed = true; s.removedNow = true; }  // nur im Fehlertraining
     if(st.streak>=MASTER_STREAK && !st.mastered){
       st.mastered = true;
       st.marked = false; // gemeistert -> "Unsicher"-Markierung fällt weg
@@ -1250,6 +1254,7 @@ function submitAnswer(){
     st.wrong++;   // jeder Fehlversuch zählt mit - auch in der Wiederholungsrunde
     st.streak = 0;
     st.mastered = false;
+    st.fixed = false;
     s.lastXp = 0;
     s.history.push({id:q.id, wasCorrect:false});
     if(st.wrong===HARD_THRESHOLD) toast('🔥 Diese Frage steht jetzt auf der Liste „Schwere Fragen"');
@@ -1380,7 +1385,7 @@ function renderSessionResult(){
       <p style="font-size:12px;color:var(--ink-soft);margin:8px 0 0;">Jeder Fehlversuch wird mitgezählt. 🔥 = steht jetzt auf der Liste „Schwere Fragen" (ab ${HARD_THRESHOLD}× falsch).</p>
     </div>
     <button class="btn btn-gold" style="margin-bottom:10px" onclick="startRetryFromResult()">🔁 Falsche Fragen nochmal (${missed.length})</button>`
-    : (isRetry ? `<div class="card" style="font-size:13.5px;">🎉 Alles richtig! Die Fragen bleiben trotzdem in deiner Fehlerliste, bis du sie im normalen Üben oder im Fehlertraining einmal richtig beantwortest.</div>` : '');
+    : (isRetry ? `<div class="card" style="font-size:13.5px;">🎉 Alles richtig! Die Fragen bleiben trotzdem in deiner Fehlerliste, bis du sie im Fehlertraining (Kategorie „Falsche“) einmal richtig beantwortest.</div>` : '');
   const unsureHtml = unsureIds.length ? `
     <div class="card" style="font-size:13.5px;">🤔 ${unsureIds.length} Frage${unsureIds.length===1?'':'n'} als unsicher markiert – zu finden unter „Meine Fehler → Unsichere Fragen".
       <button class="btn btn-outline btn-sm" style="margin-top:8px;" onclick="beginPracticeSession('unsure', 15)">🤔 Unsichere jetzt üben</button>
@@ -1578,7 +1583,7 @@ function finishExam(){
       const st = qs(q.id);
       bumpGlobalTurn(st);
       st.seen++;
-      if(wset.has(q.id)){ st.wrong++; st.streak = 0; st.mastered = false; }
+      if(wset.has(q.id)){ st.wrong++; st.streak = 0; st.mastered = false; st.fixed = false; }
       else { st.correct++; st.streak++; countDay(); if(st.streak>=MASTER_STREAK && !st.mastered){ st.mastered = true; st.marked = false; } }
     });
     touchDayStreak();
@@ -1680,7 +1685,7 @@ function renderMistakesHome(){
     ${wq.length===0
       ? `<div class="empty-state"><div class="ico">🎉</div>Aktuell keine offenen Fehler.<br>Weiter so!</div>`
       : `<button class="btn btn-primary" style="margin-bottom:14px" onclick="beginPracticeSession('wrong', ${Math.min(wq.length,20)})">Fehlertraining starten (${Math.min(wq.length,20)} Fragen)</button>
-      <p style="font-size:12px;color:var(--ink-soft);margin:-6px 0 14px;">Eine Frage verlässt diese Liste, sobald du sie einmal richtig beantwortest. „Gemeistert“ ist sie nach 3× in Folge richtig.</p>
+      <p style="font-size:12px;color:var(--ink-soft);margin:-6px 0 14px;">Eine Frage verlässt diese Liste erst, wenn du sie im Fehlertraining (Kategorie „Falsche“) einmal richtig beantwortest – oder sie 3× in Folge richtig hast (gemeistert). Ein neuer Fehler holt sie zurück.</p>
       <div class="section-label">Häufigste Fehler</div>
       <div class="card">
         ${list.map(q=>{
@@ -2582,6 +2587,7 @@ function endlessSubmit(){
     st.wrong++;
     st.streak = 0;
     st.mastered = false;
+    st.fixed = false;
     s.lastXp = 0;
     s.history.push({id:q.id, wasCorrect:false});
     s.over = true;
