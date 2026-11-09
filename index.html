@@ -202,6 +202,107 @@ input[type=number]{
 }
 .q-text{font-size:17px;font-weight:700;margin-bottom:14px;line-height:1.4;}
 .q2{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:21px;height:21px;padding:0 6px;margin-right:8px;border-radius:999px;background:var(--gold);color:#3a2a05;font-size:12.5px;font-weight:800;line-height:1;vertical-align:1px;}
+:root[data-skin="rot"]{--water-deep:#5b1815;--water:#832421;--water-light:#b1332f;--water-pale:#f7e4e3;--sand:#f5ebea;--sand-dark:#e3cfce;--line:#e8d5d4;--ink:#321615;--ink-soft:#644140;}
+:root[data-skin="rot"][data-theme="dark"]{--water-deep:#2f0f0e;--water:#541e1c;--water-light:#b63935;--water-pale:#321615;--sand:#1e1515;--sand-dark:#291e1e;--paper:#2c1c1b;--line:#472a2a;--ink:#f5efef;--ink-soft:#cbb9b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="rot"]:not([data-theme="light"]){--water-deep:#2f0f0e;--water:#541e1c;--water-light:#b63935;--water-pale:#321615;--sand:#1e1515;--sand-dark:#291e1e;--paper:#2c1c1b;--line:#472a2a;--ink:#f5efef;--ink-soft:#cbb9b9;}}
+:root[data-skin="blau"]{--water-deep:#15365b;--water:#214e83;--water-light:#2f6cb1;--water-pale:#e3ecf7;--sand:#eaeff5;--sand-dark:#ced8e3;--line:#d4dde8;--ink:#152332;--ink-soft:#405064;}
+:root[data-skin="blau"][data-theme="dark"]{--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="blau"]:not([data-theme="light"]){--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}}
+:root[data-skin="gruen"]{--water-deep:#155b2d;--water:#218341;--water-light:#2fb15b;--water-pale:#e3f7ea;--sand:#eaf5ee;--sand-dark:#cee3d5;--line:#d4e8db;--ink:#15321f;--ink-soft:#40644c;}
+:root[data-skin="gruen"][data-theme="dark"]{--water-deep:#0e2f19;--water:#1c542f;--water-light:#35b660;--water-pale:#15321f;--sand:#151e18;--sand-dark:#1e2922;--paper:#1b2c21;--line:#2a4733;--ink:#eff5f1;--ink-soft:#b9cbbf;}
+@media (prefers-color-scheme: dark){:root[data-skin="gruen"]:not([data-theme="light"]){--water-deep:#0e2f19;--water:#1c542f;--water-light:#35b660;--water-pale:#15321f;--sand:#151e18;--sand-dark:#1e2922;--paper:#1b2c21;--line:#2a4733;--ink:#eff5f1;--ink-soft:#b9cbbf;}}
+:root[data-skin="lila"]{--water-deep:#36155b;--water:#4e2183;--water-light:#6c2fb1;--water-pale:#ece3f7;--sand:#efeaf5;--sand-dark:#d8cee3;--line:#ddd4e8;--ink:#231532;--ink-soft:#504064;}
+:root[data-skin="lila"][data-theme="dark"]{--water-deep:#1d0e2f;--water:#361c54;--water-light:#7135b6;--water-pale:#231532;--sand:#19151e;--sand-dark:#231e29;--paper:#231b2c;--line:#372a47;--ink:#f2eff5;--ink-soft:#c1b9cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="lila"]:not([data-theme="light"]){--water-deep:#1d0e2f;--water:#361c54;--water-light:#7135b6;--water-pale:#231532;--sand:#19151e;--sand-dark:#231e29;--paper:#231b2c;--line:#372a47;--ink:#f2eff5;--ink-soft:#c1b9cb;}}
+:root[data-skin="sonne"]{--water-deep:#5b2a15;--water:#833e21;--water-light:#b1562f;--water-pale:#f7e9e3;--sand:#f5eeea;--sand-dark:#e3d4ce;--line:#e8dad4;--ink:#321e15;--ink-soft:#644a40;--deco:"🌅";}
+:root[data-skin="sonne"][data-theme="dark"]{--water-deep:#2f180e;--water:#542d1c;--water-light:#b65b35;--water-pale:#321e15;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="sonne"]:not([data-theme="light"]){--water-deep:#2f180e;--water:#542d1c;--water-light:#b65b35;--water-pale:#321e15;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}}
+:root[data-skin="eis"]{--water-deep:#154d5b;--water:#216f83;--water-light:#2f97b1;--water-pale:#e3f3f7;--sand:#eaf3f5;--sand-dark:#cedfe3;--line:#d4e4e8;--ink:#152c32;--ink-soft:#405c64;--deco:"🧊";}
+:root[data-skin="eis"][data-theme="dark"]{--water-deep:#0e292f;--water:#1c4954;--water-light:#359cb6;--water-pale:#152c32;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="eis"]:not([data-theme="light"]){--water-deep:#0e292f;--water:#1c4954;--water-light:#359cb6;--water-pale:#152c32;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}}
+:root[data-skin="axolotl"]{--water-deep:#b83a7a;--water:#e8609f;--water-light:#ff8fc0;--water-pale:#ffe6f1;--sand:#fff3f8;--sand-dark:#fbd9e8;--line:#f4cfe0;--ink:#4a1d38;--ink-soft:#7a4a65;--gold:#ff9a8a;--deco:"🩷";}
+:root[data-skin="axolotl"][data-theme="dark"]{--water-deep:#361223;--water:#71284a;--water-light:#e25a9a;--water-pale:#381928;--sand:#1e1519;--sand-dark:#291e23;--paper:#2f1d26;--line:#4d2d3c;--ink:#fff0f7;--ink-soft:#e9b8d0;--gold:#ff9a8a;}
+@media (prefers-color-scheme: dark){:root[data-skin="axolotl"]:not([data-theme="light"]){--water-deep:#361223;--water:#71284a;--water-light:#e25a9a;--water-pale:#381928;--sand:#1e1519;--sand-dark:#291e23;--paper:#2f1d26;--line:#4d2d3c;--ink:#fff0f7;--ink-soft:#e9b8d0;--gold:#ff9a8a;}}
+:root[data-skin="gold"]{--water-deep:#5c3f05;--water:#8f6508;--water-light:#b88a12;--water-pale:#fbf0d0;--sand:#fbf6e8;--sand-dark:#f0e2b8;--line:#ecdcae;--ink:#3a2a05;--ink-soft:#6b5420;--gold:#f4c542;}
+:root[data-skin="gold"][data-theme="dark"]{--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}
+@media (prefers-color-scheme: dark){:root[data-skin="gold"]:not([data-theme="light"]){--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}}
+:root[data-skin="halloween"]{--water-deep:#1a0f2e;--water:#6a2fb0;--water-light:#ff7a1a;--water-pale:#2a1740;--sand:#120a1c;--sand-dark:#1c1030;--paper:#21143a;--line:#3a2460;--ink:#f6ecff;--ink-soft:#cdb8f0;--gold:#ff9d2e;--deco:"🎃";}
+:root[data-skin="zombie"]{--water-deep:#0e1a10;--water:#3f7a32;--water-light:#7cb342;--water-pale:#162414;--sand:#0e140f;--sand-dark:#162018;--paper:#18241a;--line:#2c4230;--ink:#e8f3e0;--ink-soft:#a9c1a0;--gold:#c6e04a;--deco:"🧟";}
+:root[data-skin="neon"]{--water-deep:#0a0620;--water:#7a2bd0;--water-light:#ff2fa8;--water-pale:#1a0f33;--sand:#090611;--sand-dark:#130c22;--paper:#150d2b;--line:#3a1f6b;--ink:#f5eaff;--ink-soft:#c4a8f0;--gold:#00e5ff;--deco:"⚡";}
+/* Lesbarkeit in dunklen Farbthemen */
+:root[data-skin][data-theme="dark"] .btn-outline{color:var(--water-light);border-color:var(--water-light);}
+:root[data-skin][data-theme="dark"] .q-cat-tag,
+:root[data-skin][data-theme="dark"] .stat-box .num,
+:root[data-skin][data-theme="dark"] .explain-box .lbl,
+:root[data-skin][data-theme="dark"] .az-btn,
+:root[data-skin][data-theme="dark"] .bnav button.on{color:var(--water-light);}
+@media (prefers-color-scheme: dark){
+:root[data-skin]:not([data-theme="light"]) .btn-outline{color:var(--water-light);border-color:var(--water-light);}
+:root[data-skin]:not([data-theme="light"]) .q-cat-tag,
+:root[data-skin]:not([data-theme="light"]) .stat-box .num,
+:root[data-skin]:not([data-theme="light"]) .explain-box .lbl,
+:root[data-skin]:not([data-theme="light"]) .az-btn,
+:root[data-skin]:not([data-theme="light"]) .bnav button.on{color:var(--water-light);}
+}
+.hero::before{content:var(--deco,"");position:absolute;right:76px;top:4px;font-size:58px;opacity:.17;pointer-events:none;line-height:1;z-index:0;}
+:root[data-skin] .hero>*{position:relative;z-index:1;}
+@keyframes goldshimmer{0%{background-position:150% 0}100%{background-position:-50% 0}}
+:root[data-skin="gold"] .topbar,:root[data-skin="gold"] .hero,:root[data-skin="gold"] .btn-primary,:root[data-skin="gold"] .menu-tile.accent{
+  background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#e3b84a 47%,#f1d27a 50%,#e3b84a 53%,var(--water) 68%,var(--water-deep) 100%);
+  background-size:260% 100%;animation:goldshimmer 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+@media (prefers-reduced-motion: reduce){:root[data-skin="gold"] .topbar,:root[data-skin="gold"] .hero,:root[data-skin="gold"] .btn-primary,:root[data-skin="gold"] .menu-tile.accent{animation:none;}}
+.menu-tile.daily{background:linear-gradient(135deg,var(--gold),#f4c56a);color:#3a2a05;border:none;margin-bottom:14px;}
+.menu-tile.daily .sub{color:rgba(58,42,5,.82);}
+.skin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.skin-card{background:var(--paper);border:2px solid var(--line);border-radius:14px;overflow:hidden;padding-bottom:10px;text-align:center;}
+.skin-card.active{border-color:var(--gold);box-shadow:0 0 0 2px var(--gold) inset;}
+.skin-prev{height:58px;display:flex;align-items:center;justify-content:center;font-size:28px;margin-bottom:8px;}
+.skin-name{font-weight:800;font-size:14px;}
+.skin-note{font-size:11px;color:var(--ink-soft);min-height:15px;margin-bottom:6px;}
+.skin-card .btn{width:calc(100% - 20px);margin:0 10px;}
+.ach-row{display:flex;gap:12px;align-items:center;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px;margin-bottom:8px;}
+.ach-row.ready{border-color:var(--gold);box-shadow:0 0 0 1px var(--gold) inset;}
+.ach-row.done{opacity:.62;}
+.ach-ico{font-size:26px;width:36px;text-align:center;flex:none;}
+.ach-main{flex:1;min-width:0;}
+.ach-name{font-weight:800;font-size:14px;}
+.ach-desc{font-size:12px;color:var(--ink-soft);margin:2px 0 6px;}
+.ach-prog{font-size:11px;color:var(--ink-soft);margin-top:3px;}
+.ach-side{flex:none;text-align:center;font-size:12px;font-weight:700;min-width:74px;}
+.r-common{--rc:#8aa0a8;}.r-rare{--rc:#3b82f6;}.r-epic{--rc:#a855f7;}.r-legend{--rc:#f5a623;}
+.gx-wallet{display:flex;align-items:center;justify-content:space-between;gap:10px;}
+.gx-coins{font-size:30px;font-weight:800;line-height:1;}
+.gx-actions{display:flex;gap:10px;margin:14px 0 4px;}
+.gx-actions .btn{flex:1;line-height:1.25;white-space:nowrap;padding-left:8px;padding-right:8px;}
+.gx-actions .btn small{font-weight:700;opacity:.85;}
+.gx-chip{display:inline-block;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;border:2px solid var(--rc);margin:0 6px 6px 0;background:var(--paper);}
+.gx-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
+.gcard{position:relative;background:var(--paper);border:3px solid var(--rc);border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.08);text-align:left;}
+.gcard.r-legend{box-shadow:0 0 16px rgba(245,166,35,.6);}
+.gcard.r-epic{box-shadow:0 0 12px rgba(168,85,247,.35);}
+.gcard .gimg{aspect-ratio:2/1;background:#fff;display:flex;align-items:center;justify-content:center;}
+.gcard .gimg img{width:100%;height:100%;object-fit:contain;display:block;}
+.gcard .gname{font-size:13px;font-weight:700;padding:6px 8px 0;line-height:1.25;color:var(--ink);}
+.gcard .gtier{font-size:10.5px;font-weight:800;color:var(--rc);padding:2px 8px 7px;text-transform:uppercase;letter-spacing:.05em;}
+.gcard .gnew,.gcard .gcount{position:absolute;top:6px;font-size:11px;font-weight:800;border-radius:999px;padding:2px 7px;}
+.gcard .gnew{left:6px;background:var(--gold);color:#3a2a05;}
+.gcard .gcount{right:6px;background:rgba(0,0,0,.68);color:#fff;}
+.gcard.locked{border-style:dashed;opacity:.8;box-shadow:none;}
+.gcard.locked .gimg{background:var(--sand-dark);font-size:28px;color:var(--ink-soft);}
+.gx-overlay{position:fixed;inset:0;z-index:9999;background:rgba(6,20,26,.88);display:flex;overflow-y:auto;padding:18px;animation:gxfade .25s ease;}
+@keyframes gxfade{from{opacity:0}to{opacity:1}}
+.gx-box{margin:auto;width:100%;max-width:420px;}
+.gx-title{color:#fff;text-align:center;font-weight:800;font-size:19px;margin-bottom:12px;}
+.gx-sum{color:#dbe9ea;text-align:center;font-size:13.5px;margin:0 0 12px;line-height:1.5;}
+.gx-single{width:min(300px,80vw);margin:0 auto 14px;}
+.gx-single .gcard{animation:gxflip .9s cubic-bezier(.2,.8,.2,1) both;}
+@keyframes gxflip{0%{transform:rotateY(90deg) scale(.7);opacity:0}60%{transform:rotateY(-8deg) scale(1.04);opacity:1}100%{transform:rotateY(0) scale(1);opacity:1}}
+.gx-multi{display:grid;grid-template-columns:repeat(auto-fill,minmax(112px,1fr));gap:8px;margin-bottom:12px;}
+.gx-multi .gcard{animation:gxpop .45s ease both;}
+.gx-multi .gcard .gname{font-size:11.5px;padding:5px 6px 0;}
+.gx-multi .gcard .gtier{font-size:9.5px;padding:1px 6px 5px;}
+@keyframes gxpop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
+.gx-btns{display:flex;flex-direction:column;gap:8px;}
 .photo-reward{text-align:center;margin:0 0 14px;}
 .photo-reward img{display:inline-block;max-width:100%;max-height:50vh;width:auto;height:auto;border-radius:var(--radius);box-shadow:var(--shadow-lg);}
 .photo-reward .photo-cap{font-size:13px;color:var(--ink-soft);margin:8px 0 0;}
@@ -458,6 +559,8 @@ function defaultState(){
     theme: 'auto',
     endlessTop: [],   // Endlos-Modus: Top 5 {score, ts}
     endlessRuns: 0,
+    coins: 0, album: {}, pulls: 0,   // Fischalbum (Gacha)
+    skin: 'default', skins: {}, daily: {last:'', streak:0, claims:0}, ach: {},   // Shop, Tägliche Belohnung, Erfolge
     recentSession: [] // ring buffer of last shown ids (for cooldown), session-scoped but persisted loosely
   };
 }
@@ -479,6 +582,20 @@ function sanitizeState(raw){
     .map(e=>({score:Math.floor(e.score), ts:(typeof e.ts==='number' && isFinite(e.ts)) ? e.ts : 0}))
     .sort((a,b)=>b.score-a.score || a.ts-b.ts).slice(0,5);
   if(typeof s.endlessRuns!=='number' || !isFinite(s.endlessRuns)) s.endlessRuns = 0;
+  // Fischalbum: ältere Spielstände ohne Münzen bekommen einmalig 1 Münze pro 10 XP (XP und Level bleiben unverändert)
+  const hadCoins = !!(raw && typeof raw==='object' && typeof raw.coins==='number' && isFinite(raw.coins));
+  if(!hadCoins) s.coins = Math.floor((s.xp||0)/10);
+  s.coins = Math.max(0, Math.floor(s.coins));
+  s.pulls = (typeof s.pulls==='number' && isFinite(s.pulls)) ? Math.max(0, Math.floor(s.pulls)) : 0;
+  if(!s.album || typeof s.album!=='object' || Array.isArray(s.album)) s.album = {};
+  Object.keys(s.album).forEach(k=>{ const v=s.album[k]; if(typeof v!=='number' || !isFinite(v) || v<1) delete s.album[k]; else s.album[k]=Math.floor(v); });
+  if(typeof s.skin!=='string') s.skin = 'default';
+  if(!s.skins || typeof s.skins!=='object' || Array.isArray(s.skins)) s.skins = {};
+  Object.keys(s.skins).forEach(k=>{ if(s.skins[k]!==true) delete s.skins[k]; });
+  const dl = (s.daily && typeof s.daily==='object') ? s.daily : {};
+  s.daily = {last: typeof dl.last==='string' ? dl.last : '', streak: Math.max(0, Math.floor(+dl.streak||0)), claims: Math.max(0, Math.floor(+dl.claims||0))};
+  if(!s.ach || typeof s.ach!=='object' || Array.isArray(s.ach)) s.ach = {};
+  Object.keys(s.ach).forEach(k=>{ if(s.ach[k]!==1 && s.ach[k]!==2) delete s.ach[k]; });
   // Migration: Fragen, die schon aus "Falsche" entfernt waren (nicht gemeistert, aber nach dem letzten Fehler richtig), bleiben entfernt
   Object.keys(s.qstats).forEach(id=>{ const q=s.qstats[id]; if(q && typeof q==='object' && typeof q.fixed!=='boolean') q.fixed = !!(q.wrong>0 && !q.mastered && q.streak>0); });
   return s;
@@ -530,6 +647,7 @@ function touchDayStreak(){
 
 function addXP(amount){
   STATE.xp = Math.max(0, STATE.xp + amount);
+  if(amount>0) STATE.coins = (STATE.coins||0) + amount;   // Fischalbum: jede verdiente XP gibt 1 Münze
   saveState();
 }
 function levelInfo(){
@@ -721,6 +839,9 @@ function render(){
     case 'stats': html = renderStats(); break;
     case 'similar': html = renderSimilar(); break;
     case 'featTrain': html = renderFeatTrain(); break;
+    case 'gacha': html = renderGacha(); break;
+    case 'shop': html = renderShop(); break;
+    case 'ach': html = renderAch(); break;
     case 'endlessIntro': html = renderEndlessIntro(); break;
     case 'endlessSession': html = renderEndlessSession(); break;
     case 'endlessResult': html = renderEndlessResult(); break;
@@ -772,7 +893,10 @@ function handleBack(){
 
 function applyTheme(){
   const root = document.documentElement;
-  if(STATE.theme==='dark') root.setAttribute('data-theme','dark');
+  const sk = skinById(STATE.skin);
+  if(sk.id!=='default') root.setAttribute('data-skin', sk.id); else root.removeAttribute('data-skin');
+  if(sk.dark) root.setAttribute('data-theme','dark');
+  else if(STATE.theme==='dark') root.setAttribute('data-theme','dark');
   else if(STATE.theme==='light') root.setAttribute('data-theme','light');
   else root.removeAttribute('data-theme');
 }
@@ -838,6 +962,7 @@ function renderHome(){
 
     ${planHtml()}${STATE.dayStreak>0?`<div class="streak-row">🔥 ${STATE.dayStreak} Tag${STATE.dayStreak==1?'':'e'} in Folge aktiv</div>`:''}
 
+    ${dailyHtml()}
     <button class="menu-tile accent wide" style="margin-bottom:14px;" onclick="startTodaySession(15)">
       <div class="ico">📅</div>
       <div><div class="lbl">Was soll ich heute lernen?</div><div class="sub">15 Fragen · ca. 10 Min · automatisch zusammengestellt aus Fehlern, Lückenfragen &amp; Wiederholung${weakestCat()?' · Schwerpunkt: '+esc(CAT_SHORT[weakestCat()]):''}</div></div>
@@ -873,6 +998,16 @@ function renderHome(){
       <button class="menu-tile accent wide" onclick="go('endlessIntro')">
         <div class="ico">♾️</div>
         <div><div class="lbl">Endlos-Modus</div><div class="sub">Bis zum ersten Fehler · Themen im Wechsel${endlessBest()?' · 🏆 Rekord: '+endlessBest():' · Top 5'}</div></div>
+      </button>
+      <button class="menu-tile accent wide" onclick="go('gacha')">
+        <div class="ico">🎴</div>
+        <div><div class="lbl">Fischalbum</div><div class="sub">🪙 ${STATE.coins||0} Münzen · ${gxOwned()}/${gxCards().length} Karten · Karten ziehen</div></div>
+      </button>
+      <button class="menu-tile" onclick="go('shop')">
+        <div class="ico">🛒</div><div class="lbl">Shop</div><div class="sub">Farbthemen · 🪙 ${STATE.coins||0}</div>
+      </button>
+      <button class="menu-tile" onclick="go('ach')">
+        <div class="ico">🏆</div><div class="lbl">Erfolge</div><div class="sub">${achSummary()}</div>
       </button>
       <button class="menu-tile" onclick="go('mistakes')">
         <div class="ico">❌</div><div class="lbl">Meine Fehler</div><div class="sub">${wrongCount} zu üben</div>
@@ -2108,7 +2243,7 @@ function importProgress(ev){
 }
 /* ======================= NAV / TAGESZIEL / PLAN / TRAINER ======================= */
 const NAVS=[['home','🏠','Start'],['fishHome','🐟','Fische'],['knowledge','🧠','Wissen'],['search','🔍','Suche'],['stats','📊','Statistik']];
-const NAVMAP={spickzettel:'knowledge',spzSchon:'knowledge',spz:'knowledge',weekplan:'home',endlessIntro:'home',home:'home',mistakes:'home',settings:'home',fishHome:'fishHome',fishDetail:'fishHome',knowledge:'knowledge',schonzeit:'knowledge',confuse:'knowledge',search:'search',stats:'stats',progress:'stats',similar:'fishHome',featTrain:'fishHome'};
+const NAVMAP={spickzettel:'knowledge',spzSchon:'knowledge',spz:'knowledge',weekplan:'home',endlessIntro:'home',gacha:'home',shop:'home',ach:'home',home:'home',mistakes:'home',settings:'home',fishHome:'fishHome',fishDetail:'fishHome',knowledge:'knowledge',schonzeit:'knowledge',confuse:'knowledge',search:'search',stats:'stats',progress:'stats',similar:'fishHome',featTrain:'fishHome'};
 function navHtml(){const a=NAVMAP[ROUTE.screen];if(!a)return '';return '<nav class="bnav">'+NAVS.map(n=>'<button class="'+(n[0]===a?'on':'')+'" onclick="go(\''+n[0]+'\')"><span>'+n[1]+'</span>'+n[2]+'</button>').join('')+'</nav>';}
 function setExamDate(v){STATE.examDate=v;saveState();render();}
 function dayPlan(){
@@ -2760,6 +2895,322 @@ function renderEndlessResult(){
     <div class="card">${rows}</div>
     <button class="btn btn-gold" style="margin-bottom:10px;" onclick="endlessStart()">🔁 Nochmal versuchen</button>
     <button class="btn btn-outline" onclick="go('home')">Zum Hauptmenü</button>
+  </div>`;
+}
+
+
+/* ======================= FISCHALBUM (Gacha) ======================= */
+// Münzen: jede verdiente XP gibt 1 Münze (addXP); ältere Spielstände bekamen einmalig 1 Münze pro 10 XP (sanitizeState).
+// Gezogen werden Fischkarten aus der Fischliste (Bilder sind schon in der App). XP und Level bleiben unberührt.
+const GX_COST1 = 50, GX_COST10 = 450;
+const GX_TIERS = [
+  {k:'common', name:'Gewöhnlich', w:50, dup:5},
+  {k:'rare',   name:'Selten',     w:32, dup:10},
+  {k:'epic',   name:'Episch',     w:14, dup:20},
+  {k:'legend', name:'Legendär',   w:4,  dup:40}
+];
+const GX_TIER_OF = {};
+(function(){
+  const set = (k, names)=>names.forEach(n=>{ GX_TIER_OF[n] = k; });
+  set('legend', ['Stör', 'Huchen', 'Lachs', 'Maifisch', 'Meerneunauge', 'Flussperlmuschel']);
+  set('epic', ['Wels', 'Äsche', 'Nase', 'Zährte', 'Strömer', 'Schneider', 'Bitterling', 'Edelkrebs', 'Meerforelle', 'Seeforelle', 'Seesaibling', 'Bachneunauge', 'Flussneunauge', 'Schlammpeitzger']);
+  set('rare', ['Aal', 'Barbe', 'Zander', 'Quappe (Trüsche, Rutte)', 'Rapfen (Schied)', 'Schleie', 'Karausche', 'Steinbeißer', 'Groppe', 'Felchen', 'Coregonen', 'Kleine Maräne', 'Zwergwels', 'Wolgazander', 'Stint', 'Dorsch', 'Flunder', 'Hering', 'Hornhecht', 'Köhler', 'Makrele', 'Scholle', 'Sprotte', 'Wittling']);
+})();
+function gxTier(f){ const k = GX_TIER_OF[f.name] || 'common'; return GX_TIERS.find(t=>t.k===k); }
+function gxCards(){ return FISH.filter(f=>f.img && IMAGES[f.img]); }
+function gxOwned(){ const a = STATE.album || {}; return gxCards().filter(f=>a[f.name]>0).length; }
+
+function gxPickTier(minRare){
+  const pool = minRare ? GX_TIERS.filter(t=>t.k!=='common') : GX_TIERS;
+  let r = Math.random() * pool.reduce((a,t)=>a+t.w, 0);
+  for(const t of pool){ r -= t.w; if(r<0) return t; }
+  return pool[pool.length-1];
+}
+function gxPullOne(minRare){
+  const cards = gxCards();
+  const tier = gxPickTier(minRare);
+  let list = cards.filter(f=>gxTier(f).k===tier.k);
+  if(!list.length) list = cards;   // Sicherheitsnetz
+  const f = list[Math.floor(Math.random()*list.length)];
+  const t = gxTier(f);
+  if(!STATE.album) STATE.album = {};
+  const have = STATE.album[f.name] || 0;
+  STATE.album[f.name] = have + 1;
+  const refund = have>0 ? t.dup : 0;       // doppelte Karte -> Münzen zurück
+  if(refund) STATE.coins = (STATE.coins||0) + refund;
+  return {f, tier:t, isNew: have===0, refund};
+}
+function gxDraw(n){
+  const cost = n===10 ? GX_COST10 : GX_COST1;
+  if((STATE.coins||0) < cost){ toast('Nicht genug Münzen – jede XP beim Lernen gibt 1 Münze.'); return; }
+  STATE.coins -= cost;
+  STATE.pulls = (STATE.pulls||0) + n;
+  const res = [];
+  for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common')));  // 10er: mind. 1x Selten+
+  saveState();
+  if(ROUTE.screen==='gacha') render();
+  gxReveal(res, n);
+}
+
+function gxCardHtml(f, o){
+  o = o || {};
+  const t = gxTier(f), cnt = (STATE.album||{})[f.name] || 0;
+  return '<div class="gcard r-'+t.k+'"'+(o.delay?' style="animation-delay:'+o.delay+'s"':'')+(o.click?' onclick="'+o.click+'"':'')+'>'
+    + '<div class="gimg"><img alt="" src="data:image/jpeg;base64,'+IMAGES[f.img]+'"></div>'
+    + '<div class="gname">'+esc(f.name)+'</div><div class="gtier">'+t.name+'</div>'
+    + (o.isNew ? '<span class="gnew">NEU</span>' : '')
+    + (o.count && cnt>1 ? '<span class="gcount">×'+cnt+'</span>' : '')
+    + '</div>';
+}
+function gxClose(){ const o = document.getElementById('gxOv'); if(o) o.remove(); }
+function gxAgain(n){ gxClose(); gxDraw(n); }
+function gxOpen(i){ gxClose(); go('fishDetail', {fish: FISH[i].name}); }
+function gxReveal(res, n){
+  gxClose();
+  const coins = STATE.coins || 0;
+  const nw = res.filter(r=>r.isNew).length, back = res.reduce((a,r)=>a+r.refund, 0);
+  const best = res.reduce((b,r)=>GX_TIERS.indexOf(r.tier)>GX_TIERS.indexOf(b) ? r.tier : b, GX_TIERS[0]);
+  const titles = {common:'Neuer Fang', rare:'💙 Selten!', epic:'💜 Episch!', legend:'✨ Legendär! ✨'};
+  let body;
+  if(n===1){
+    const r = res[0];
+    body = '<div class="gx-title">'+titles[r.tier.k]+'</div><div class="gx-single">'+gxCardHtml(r.f,{isNew:r.isNew})+'</div>'
+      + '<div class="gx-sum">'+(r.isNew ? 'Neu im Album!' : 'Doppelt – +'+r.refund+' 🪙 zurück')+'</div>';
+  } else {
+    body = '<div class="gx-title">10 Fänge'+(best.k!=='common' ? ' – bester: '+best.name : '')+'</div>'
+      + '<div class="gx-multi">'+res.map((r,i)=>gxCardHtml(r.f,{isNew:r.isNew, delay:(i*0.12).toFixed(2)})).join('')+'</div>'
+      + '<div class="gx-sum">'+nw+' neu'+(back ? ' · doppelte Karten: +'+back+' 🪙 zurück' : '')+'</div>';
+  }
+  body += '<div class="gx-sum">🪙 '+coins+' Münzen übrig</div><div class="gx-btns">'
+    + '<button class="btn btn-gold" '+(coins<GX_COST1?'disabled':'')+' onclick="gxAgain(1)">1× ziehen · '+GX_COST1+' 🪙</button>'
+    + '<button class="btn btn-gold" '+(coins<GX_COST10?'disabled':'')+' onclick="gxAgain(10)">10× ziehen · '+GX_COST10+' 🪙</button>'
+    + '<button class="btn btn-outline" style="background:#fff;color:#12303a;border-color:#fff" onclick="gxClose()">Fertig</button></div>';
+  const o = document.createElement('div');
+  o.id = 'gxOv'; o.className = 'gx-overlay';
+  o.innerHTML = '<div class="gx-box">'+body+'</div>';
+  document.body.appendChild(o);
+}
+
+function renderGacha(){
+  const cards = gxCards(), coins = STATE.coins || 0, owned = gxOwned(), a = STATE.album || {};
+  const rank = f=>GX_TIERS.indexOf(gxTier(f));
+  const sorted = cards.slice().sort((x,y)=>rank(y)-rank(x) || x.name.localeCompare(y.name,'de'));
+  const chips = GX_TIERS.slice().reverse().map(t=>{
+    const all = cards.filter(f=>gxTier(f).k===t.k), have = all.filter(f=>a[f.name]>0).length;
+    return '<span class="gx-chip r-'+t.k+'">'+t.name+' '+have+'/'+all.length+'</span>';
+  }).join('');
+  const grid = sorted.map(f=>{
+    const t = gxTier(f);
+    if(a[f.name]>0) return gxCardHtml(f, {count:true, click:'gxOpen('+FISH.indexOf(f)+')'});
+    return '<div class="gcard locked r-'+t.k+'"><div class="gimg">❓</div><div class="gname">???</div><div class="gtier">'+t.name+'</div></div>';
+  }).join('');
+  return `${topbar('🎴 Fischalbum')}
+  <div class="content">
+    <div class="card">
+      <div class="gx-wallet">
+        <div><div class="gx-coins">🪙 ${coins}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Münzen</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:800;">${owned}/${cards.length}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Karten gesammelt</div></div>
+      </div>
+      <div class="bar-track" style="margin-top:12px;"><div class="bar-fill" style="width:${cards.length?Math.max(2,owned/cards.length*100):0}%;background:var(--success);"></div></div>
+      <div class="gx-actions">
+        <button class="btn btn-gold" ${coins<GX_COST1?'disabled':''} onclick="gxDraw(1)">1× ziehen<br><small>${GX_COST1} 🪙</small></button>
+        <button class="btn btn-gold" ${coins<GX_COST10?'disabled':''} onclick="gxDraw(10)">10× ziehen<br><small>${GX_COST10} 🪙</small></button>
+      </div>
+      <p style="font-size:12px;color:var(--ink-soft);margin:6px 0 0;">Jede verdiente XP gibt dir 1 Münze (XP und Level bleiben unberührt). Für die XP, die du schon hattest, gab es einmalig 1 Münze pro 10 XP. Doppelte Karten geben Münzen zurück. Beim 10×-Ziehen ist mindestens eine Karte „Selten“ oder besser dabei.</p>
+    </div>
+    <div style="margin:4px 0 12px;">${chips}</div>
+    <div class="gx-grid">${grid}</div>
+  </div>`;
+}
+
+
+/* ======================= TÄGLICHE BELOHNUNG, ERFOLGE, SHOP ======================= */
+const SKINS = [{"id": "default", "name": "Standard", "emoji": "🎣", "price": 0, "dark": false, "prev": ["#0b3d4c", "#116477", "#1a8ba3"]}, {"id": "rot", "name": "Rot", "emoji": "❤️", "price": 150, "dark": false, "prev": ["#5b1815", "#832421", "#b1332f"]}, {"id": "blau", "name": "Blau", "emoji": "💙", "price": 150, "dark": false, "prev": ["#15365b", "#214e83", "#2f6cb1"]}, {"id": "gruen", "name": "Grün", "emoji": "💚", "price": 150, "dark": false, "prev": ["#155b2d", "#218341", "#2fb15b"]}, {"id": "lila", "name": "Lila", "emoji": "💜", "price": 150, "dark": false, "prev": ["#36155b", "#4e2183", "#6c2fb1"]}, {"id": "sonne", "name": "Sonnenuntergang", "emoji": "🌅", "price": 200, "dark": false, "prev": ["#5b2a15", "#833e21", "#b1562f"]}, {"id": "eis", "name": "Eis", "emoji": "🧊", "price": 200, "dark": false, "prev": ["#154d5b", "#216f83", "#2f97b1"]}, {"id": "axolotl", "name": "Axolotl", "emoji": "🩷", "price": 300, "dark": false, "prev": ["#b83a7a", "#e8609f", "#ff8fc0"]}, {"id": "gold", "name": "Gold-Schimmer", "emoji": "✨", "price": 500, "dark": false, "prev": ["#5c3f05", "#8f6508", "#b88a12"]}, {"id": "halloween", "name": "Halloween", "emoji": "🎃", "price": 300, "dark": true, "prev": ["#1a0f2e", "#6a2fb0", "#ff7a1a"]}, {"id": "zombie", "name": "Zombie", "emoji": "🧟", "price": 300, "dark": true, "prev": ["#0e1a10", "#3f7a32", "#7cb342"]}, {"id": "neon", "name": "Neon", "emoji": "⚡", "price": 350, "dark": true, "prev": ["#0a0620", "#7a2bd0", "#ff2fa8"]}];
+function skinById(id){ return SKINS.find(s=>s.id===id) || SKINS[0]; }
+function skinOwned(id){ return id==='default' || !!(STATE.skins && STATE.skins[id]); }
+
+// ---- Tägliche Belohnung: einmal pro Kalendertag, Serie steigert die Belohnung (Tag 7 = 150)
+const DAILY_REW = [30,40,50,60,70,80,150];
+function gxYmd(d){ d = d || new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
+function dailyInfo(){
+  const d = STATE.daily || {last:'', streak:0, claims:0};
+  const y = new Date(); y.setDate(y.getDate()-1);
+  const claimed = d.last===gxYmd();
+  const next = claimed ? d.streak : (d.last===gxYmd(y) ? d.streak+1 : 1);
+  return {claimed, streak:d.streak, next, reward: DAILY_REW[(next-1)%7], claims:d.claims||0};
+}
+function dailyClaim(){
+  const i = dailyInfo();
+  if(i.claimed){ toast('Heute schon abgeholt – morgen wieder!'); return; }
+  STATE.coins = (STATE.coins||0) + i.reward;
+  STATE.daily = {last:gxYmd(), streak:i.next, claims:i.claims+1};
+  saveState();
+  toast('🎁 +'+i.reward+' 🪙 · Tag '+i.next+' in Folge');
+  render();
+}
+function dailyHtml(){
+  const i = dailyInfo();
+  if(i.claimed) return '<div class="streak-row">🎁 Tägliche Belohnung abgeholt · Serie '+i.streak+' Tag'+(i.streak==1?'':'e')+' · morgen +'+DAILY_REW[i.streak%7]+' 🪙</div>';
+  return '<button class="menu-tile wide daily" onclick="dailyClaim()"><div class="ico">🎁</div><div><div class="lbl">Tägliche Belohnung</div><div class="sub">Tag '+i.next+' · jetzt abholen: +'+i.reward+' 🪙</div></div></button>';
+}
+
+// ---- Erfolge: einmalige Münzen-Belohnungen (werden beim Erreichen freigeschaltet und per Tipp abgeholt)
+function achMetrics(){
+  let correct=0, fixed=0;
+  Object.keys(STATE.qstats||{}).forEach(id=>{ const s=STATE.qstats[id]; correct += s.correct||0; if(s.fixed) fixed++; });
+  const eh = STATE.examHistory || [];
+  const album = STATE.album || {};
+  const cards = gxCards();
+  return {
+    correct, fixed,
+    mastered: overallStats().mastered,
+    cat: CATEGORIES.map(c=>{ const cs=catStats(c); return cs.total>0 && cs.mastered===cs.total; }),
+    exPassed: eh.filter(e=>e.passed).length,
+    exBest: eh.reduce((m,e)=>Math.max(m, e.score||0), 0),
+    days: STATE.dayStreak||0,
+    endless: endlessBest(),
+    owned: gxOwned(),
+    legend: cards.filter(f=>gxTier(f).k==='legend' && album[f.name]>0).length,
+    pulls: STATE.pulls||0,
+    daily: (STATE.daily&&STATE.daily.claims)||0,
+    skins: Object.keys(STATE.skins||{}).length,
+    fish: fishMastered()
+  };
+}
+const ACH_GROUPS = ['Lernen','Gemeistert','Prüfung','Serien','Endlos','Fischalbum','Fischkarten lernen','Shop & Belohnung'];
+// [id, Gruppe, Icon, Name, Beschreibung, Ziel, Münzen, Messwert]
+const ACH = [
+  ['r10','Lernen','✅','Aufwärmen','10 Fragen richtig beantwortet',10,20,M=>M.correct],
+  ['r100','Lernen','✅','Fleißig','100 Fragen richtig beantwortet',100,50,M=>M.correct],
+  ['r500','Lernen','✅','Dranbleiber','500 Fragen richtig beantwortet',500,100,M=>M.correct],
+  ['r1500','Lernen','✅','Lernmaschine','1.500 Fragen richtig beantwortet',1500,200,M=>M.correct],
+  ['r3000','Lernen','✅','Unermüdlich','3.000 Fragen richtig beantwortet',3000,300,M=>M.correct],
+  ['fx25','Lernen','🩹','Fehler-Killer','25 Fragen im Fehlertraining behoben',25,60,M=>M.fixed],
+  ['fx100','Lernen','🩹','Fehler-Vernichter','100 Fragen im Fehlertraining behoben',100,150,M=>M.fixed],
+  ['m25','Gemeistert','🏅','Erste Meister','25 Fragen gemeistert',25,40,M=>M.mastered],
+  ['m100','Gemeistert','🏅','Auf dem Weg','100 Fragen gemeistert',100,80,M=>M.mastered],
+  ['m300','Gemeistert','🏅','Fortgeschritten','300 Fragen gemeistert',300,150,M=>M.mastered],
+  ['m600','Gemeistert','🏅','Fast am Ziel','600 Fragen gemeistert',600,250,M=>M.mastered],
+  ['mall','Gemeistert','👑','Alles gemeistert','Alle '+QUESTIONS.length+' Fragen gemeistert',QUESTIONS.length,500,M=>M.mastered],
+].concat(CATEGORIES.map((c,i)=>['cat'+i,'Gemeistert',CAT_ICON[c],'Meister: '+CAT_SHORT[c],'Alle Fragen im Thema „'+CAT_SHORT[c]+'“ gemeistert',1,100,M=>M.cat[i]?1:0])).concat([
+  ['ex1','Prüfung','🎓','Bestanden!','Prüfungssimulation 1× bestanden',1,100,M=>M.exPassed],
+  ['ex5','Prüfung','🎓','Prüfungsprofi','Prüfungssimulation 5× bestanden',5,200,M=>M.exPassed],
+  ['ex54','Prüfung','🥇','Sehr gut','Prüfung mit mindestens 54 von 60 Punkten',54,150,M=>M.exBest],
+  ['ex60','Prüfung','💯','Perfekt','Prüfung mit 60 von 60 Punkten',60,300,M=>M.exBest],
+  ['d3','Serien','🔥','Dranbleiben','3 Tage in Folge gelernt',3,40,M=>M.days],
+  ['d7','Serien','🔥','Wochenserie','7 Tage in Folge gelernt',7,100,M=>M.days],
+  ['d14','Serien','🔥','Zwei Wochen','14 Tage in Folge gelernt',14,200,M=>M.days],
+  ['d30','Serien','🔥','Monatsserie','30 Tage in Folge gelernt',30,400,M=>M.days],
+  ['e10','Endlos','♾️','Endlos-Einsteiger','Endlos-Modus: 10 richtig in Folge',10,50,M=>M.endless],
+  ['e25','Endlos','♾️','Endlos-Könner','Endlos-Modus: 25 richtig in Folge',25,100,M=>M.endless],
+  ['e50','Endlos','♾️','Endlos-Profi','Endlos-Modus: 50 richtig in Folge',50,200,M=>M.endless],
+  ['e100','Endlos','♾️','Endlos-Legende','Endlos-Modus: 100 richtig in Folge',100,400,M=>M.endless],
+  ['a10','Fischalbum','🎴','Sammler','10 Fischkarten gesammelt',10,50,M=>M.owned],
+  ['a25','Fischalbum','🎴','Eifriger Sammler','25 Fischkarten gesammelt',25,100,M=>M.owned],
+  ['a50','Fischalbum','🎴','Großsammler','50 Fischkarten gesammelt',50,200,M=>M.owned],
+  ['aall','Fischalbum','🏆','Komplettes Album','Alle Fischkarten gesammelt',gxCards().length,500,M=>M.owned],
+  ['lg1','Fischalbum','✨','Glückspilz','Eine legendäre Karte gezogen',1,100,M=>M.legend],
+  ['p10','Fischalbum','🎣','Erste Fänge','10 Karten gezogen',10,30,M=>M.pulls],
+  ['p50','Fischalbum','🎣','Angelfreund','50 Karten gezogen',50,80,M=>M.pulls],
+  ['fm10','Fischkarten lernen','🐟','Artenkenner','10 Arten in der Fischbestimmung gemeistert',10,60,M=>M.fish],
+  ['fm34','Fischkarten lernen','🐟','Fischkundiger','Alle '+FISH.filter(f=>!f.extra).length+' Prüfungsarten in der Fischbestimmung gemeistert',FISH.filter(f=>!f.extra).length,200,M=>M.fish],
+  ['dr7','Shop & Belohnung','🎁','Stammgast','Tägliche Belohnung 7× abgeholt',7,70,M=>M.daily],
+  ['dr30','Shop & Belohnung','🎁','Treuer Angler','Tägliche Belohnung 30× abgeholt',30,300,M=>M.daily],
+  ['sk1','Shop & Belohnung','🎨','Neuer Look','Erstes Farbthema gekauft',1,40,M=>M.skins],
+  ['sk4','Shop & Belohnung','🎨','Stilsicher','4 Farbthemen gekauft',4,100,M=>M.skins],
+  ['skall','Shop & Belohnung','🎨','Modeikone','Alle Farbthemen gekauft',SKINS.length-1,300,M=>M.skins]
+]);
+// Status je Erfolg: 0 = offen, 1 = erreicht (abholbar), 2 = abgeholt. Einmal erreicht bleibt erreicht.
+function achSync(){
+  const M = achMetrics(); let changed = false;
+  if(!STATE.ach) STATE.ach = {};
+  ACH.forEach(a=>{ if(!STATE.ach[a[0]] && a[7](M)>=a[5]){ STATE.ach[a[0]] = 1; changed = true; } });
+  if(changed) saveState();
+  return M;
+}
+function achReady(){ achSync(); return ACH.filter(a=>STATE.ach[a[0]]===1); }
+function achSummary(){
+  const n = achReady().length;
+  return n ? '🎁 '+n+' abholbar' : ACH.filter(a=>STATE.ach[a[0]]===2).length+'/'+ACH.length+' abgeholt';
+}
+function achClaim(id){
+  achSync();
+  const a = ACH.find(x=>x[0]===id);
+  if(!a || STATE.ach[id]!==1) return;
+  STATE.ach[id] = 2; STATE.coins = (STATE.coins||0) + a[6];
+  saveState(); toast('🏆 '+a[3]+': +'+a[6]+' 🪙'); render();
+}
+function achClaimAll(){
+  const list = achReady();
+  if(!list.length) return;
+  const sum = list.reduce((s,a)=>s+a[6], 0);
+  list.forEach(a=>{ STATE.ach[a[0]] = 2; });
+  STATE.coins = (STATE.coins||0) + sum;
+  saveState(); toast('🏆 '+list.length+' Erfolge abgeholt: +'+sum+' 🪙'); render();
+}
+function renderAch(){
+  const M = achSync();
+  const ready = ACH.filter(a=>STATE.ach[a[0]]===1), sum = ready.reduce((s,a)=>s+a[6], 0);
+  const done = ACH.filter(a=>STATE.ach[a[0]]===2).length;
+  const fmt = n=>n.toLocaleString('de-DE');
+  const groups = ACH_GROUPS.map(g=>{
+    const rows = ACH.filter(a=>a[1]===g).map(a=>{
+      const st = STATE.ach[a[0]] || 0, cur = Math.min(a[7](M), a[5]), full = st>0 ? a[5] : cur;
+      const side = st===2 ? '✓ abgeholt' : st===1 ? '<button class="btn btn-gold btn-sm" onclick="achClaim(\''+a[0]+'\')">+'+a[6]+' 🪙</button>' : '+'+a[6]+' 🪙';
+      return '<div class="ach-row'+(st===1?' ready':st===2?' done':'')+'"><div class="ach-ico">'+a[2]+'</div><div class="ach-main"><div class="ach-name">'+esc(a[3])+'</div><div class="ach-desc">'+esc(a[4])+'</div>'
+        + '<div class="bar-track"><div class="bar-fill" style="width:'+Math.round(full/a[5]*100)+'%;background:var(--gold);"></div></div>'
+        + '<div class="ach-prog">'+fmt(full)+' / '+fmt(a[5])+'</div></div><div class="ach-side">'+side+'</div></div>';
+    }).join('');
+    return '<div class="section-label">'+g+'</div>'+rows;
+  }).join('');
+  return `${topbar('🏆 Erfolge')}
+  <div class="content">
+    <div class="card">
+      <div class="gx-wallet"><div><div class="gx-coins">🪙 ${STATE.coins||0}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Münzen</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:800;">${done}/${ACH.length}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Erfolge abgeholt</div></div></div>
+      ${ready.length ? `<button class="btn btn-gold" style="margin-top:12px;" onclick="achClaimAll()">🎁 Alle abholen · ${ready.length} Erfolge · +${sum} 🪙</button>` : ''}
+    </div>
+    ${groups}
+  </div>`;
+}
+
+// ---- Shop: Farbthemen für Münzen
+function skinBuy(id){
+  const sk = skinById(id);
+  if(sk.id==='default' || skinOwned(id)) return;
+  if((STATE.coins||0) < sk.price){ toast('Nicht genug Münzen – es fehlen '+(sk.price-(STATE.coins||0))+' 🪙'); return; }
+  appConfirm(sk.emoji+' „'+sk.name+'“ für '+sk.price+' 🪙 kaufen?', ()=>{
+    STATE.coins -= sk.price; STATE.skins[id] = true; STATE.skin = id;
+    saveState(); applyTheme(); toast(sk.emoji+' '+sk.name+' ist jetzt aktiv'); render();
+  }, 'Kaufen');
+}
+function skinEquip(id){
+  if(!skinOwned(id)) return;
+  STATE.skin = id; saveState(); applyTheme(); render();
+}
+function renderShop(){
+  const coins = STATE.coins || 0, di = dailyInfo();
+  const daily = di.claimed
+    ? '<div style="font-size:13px;color:var(--ink-soft);margin-top:12px;">🎁 Tägliche Belohnung heute abgeholt · Serie '+di.streak+' Tag'+(di.streak==1?'':'e')+' · morgen +'+DAILY_REW[di.streak%7]+' 🪙</div>'
+    : '<button class="btn btn-gold" style="margin-top:12px;" onclick="dailyClaim()">🎁 Tägliche Belohnung · +'+di.reward+' 🪙</button>';
+  const cards = SKINS.map(sk=>{
+    const owned = skinOwned(sk.id), active = skinById(STATE.skin).id===sk.id;
+    const btn = active ? '<button class="btn btn-outline btn-sm" disabled>✓ Aktiv</button>'
+      : owned ? '<button class="btn btn-primary btn-sm" onclick="skinEquip(\''+sk.id+'\')">Aktivieren</button>'
+      : '<button class="btn btn-gold btn-sm" '+(coins<sk.price?'disabled':'')+' onclick="skinBuy(\''+sk.id+'\')">'+sk.price+' 🪙</button>';
+    return '<div class="skin-card'+(active?' active':'')+'"><div class="skin-prev" style="background:linear-gradient(135deg,'+sk.prev[0]+','+sk.prev[1]+' 55%,'+sk.prev[2]+');">'+sk.emoji+'</div>'
+      + '<div class="skin-name">'+esc(sk.name)+'</div><div class="skin-note">'+(sk.dark?'🌙 immer dunkel':sk.id==='gold'?'mit Schimmer':'')+'</div>'+btn+'</div>';
+  }).join('');
+  return `${topbar('🛒 Shop')}
+  <div class="content">
+    <div class="card">
+      <div class="gx-wallet"><div><div class="gx-coins">🪙 ${coins}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Münzen</div></div>
+        <div style="text-align:right;"><button class="btn btn-outline btn-sm" onclick="go('gacha')">🎴 Fischalbum</button></div></div>
+      ${daily}
+      <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;">Münzen gibt es für jede verdiente XP, für die tägliche Belohnung und für Erfolge.</p>
+    </div>
+    <div class="section-label">🎨 Farbthemen</div>
+    <div class="skin-grid">${cards}</div>
   </div>`;
 }
 
