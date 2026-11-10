@@ -202,33 +202,144 @@ input[type=number]{
 }
 .q-text{font-size:17px;font-weight:700;margin-bottom:14px;line-height:1.4;}
 .q2{display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;min-width:21px;height:21px;padding:0 6px;margin-right:8px;border-radius:999px;background:var(--gold);color:#3a2a05;font-size:12.5px;font-weight:800;line-height:1;vertical-align:1px;}
+@keyframes skinsweep{0%{background-position:150% 0}100%{background-position:-50% 0}}
+@keyframes skinflow{0%{background-position:0% 0}100%{background-position:200% 0}}
 :root[data-skin="rot"]{--water-deep:#5b1815;--water:#832421;--water-light:#b1332f;--water-pale:#f7e4e3;--sand:#f5ebea;--sand-dark:#e3cfce;--line:#e8d5d4;--ink:#321615;--ink-soft:#644140;}
 :root[data-skin="rot"][data-theme="dark"]{--water-deep:#2f0f0e;--water:#541e1c;--water-light:#b63935;--water-pale:#321615;--sand:#1e1515;--sand-dark:#291e1e;--paper:#2c1c1b;--line:#472a2a;--ink:#f5efef;--ink-soft:#cbb9b9;}
 @media (prefers-color-scheme: dark){:root[data-skin="rot"]:not([data-theme="light"]){--water-deep:#2f0f0e;--water:#541e1c;--water-light:#b63935;--water-pale:#321615;--sand:#1e1515;--sand-dark:#291e1e;--paper:#2c1c1b;--line:#472a2a;--ink:#f5efef;--ink-soft:#cbb9b9;}}
-:root[data-skin="blau"]{--water-deep:#15365b;--water:#214e83;--water-light:#2f6cb1;--water-pale:#e3ecf7;--sand:#eaeff5;--sand-dark:#ced8e3;--line:#d4dde8;--ink:#152332;--ink-soft:#405064;}
-:root[data-skin="blau"][data-theme="dark"]{--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}
-@media (prefers-color-scheme: dark){:root[data-skin="blau"]:not([data-theme="light"]){--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}}
+:root[data-skin="orange"]{--water-deep:#5b3115;--water:#834821;--water-light:#b1632f;--water-pale:#f7ebe3;--sand:#f5efea;--sand-dark:#e3d7ce;--line:#e8dcd4;--ink:#322115;--ink-soft:#644e40;}
+:root[data-skin="orange"][data-theme="dark"]{--water-deep:#2f1b0e;--water:#54321c;--water-light:#b66835;--water-pale:#322115;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c221b;--line:#47352a;--ink:#f5f2ef;--ink-soft:#cbc0b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="orange"]:not([data-theme="light"]){--water-deep:#2f1b0e;--water:#54321c;--water-light:#b66835;--water-pale:#322115;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c221b;--line:#47352a;--ink:#f5f2ef;--ink-soft:#cbc0b9;}}
+:root[data-skin="senf"]{--water-deep:#4e3e12;--water:#725b1d;--water-light:#9d7e2a;--water-pale:#f7f2e3;--sand:#f5f2ea;--sand-dark:#e3dece;--line:#e8e2d4;--ink:#322a15;--ink-soft:#645a40;}
+:root[data-skin="senf"][data-theme="dark"]{--water-deep:#2f260e;--water:#54451c;--water-light:#b69335;--water-pale:#322a15;--sand:#1e1c15;--sand-dark:#29261e;--paper:#2c281b;--line:#473f2a;--ink:#f5f4ef;--ink-soft:#cbc6b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="senf"]:not([data-theme="light"]){--water-deep:#2f260e;--water:#54451c;--water-light:#b69335;--water-pale:#322a15;--sand:#1e1c15;--sand-dark:#29261e;--paper:#2c281b;--line:#473f2a;--ink:#f5f4ef;--ink-soft:#cbc6b9;}}
+:root[data-skin="limette"]{--water-deep:#314c12;--water:#486f1c;--water-light:#659929;--water-pale:#eef7e3;--sand:#f0f5ea;--sand-dark:#d9e3ce;--line:#dfe8d4;--ink:#253215;--ink-soft:#536440;}
+:root[data-skin="limette"][data-theme="dark"]{--water-deep:#202f0e;--water:#3a541c;--water-light:#7ab635;--water-pale:#253215;--sand:#1a1e15;--sand-dark:#24291e;--paper:#242c1b;--line:#39472a;--ink:#f2f5ef;--ink-soft:#c2cbb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="limette"]:not([data-theme="light"]){--water-deep:#202f0e;--water:#3a541c;--water-light:#7ab635;--water-pale:#253215;--sand:#1a1e15;--sand-dark:#24291e;--paper:#242c1b;--line:#39472a;--ink:#f2f5ef;--ink-soft:#c2cbb9;}}
 :root[data-skin="gruen"]{--water-deep:#155b2d;--water:#218341;--water-light:#2fb15b;--water-pale:#e3f7ea;--sand:#eaf5ee;--sand-dark:#cee3d5;--line:#d4e8db;--ink:#15321f;--ink-soft:#40644c;}
 :root[data-skin="gruen"][data-theme="dark"]{--water-deep:#0e2f19;--water:#1c542f;--water-light:#35b660;--water-pale:#15321f;--sand:#151e18;--sand-dark:#1e2922;--paper:#1b2c21;--line:#2a4733;--ink:#eff5f1;--ink-soft:#b9cbbf;}
 @media (prefers-color-scheme: dark){:root[data-skin="gruen"]:not([data-theme="light"]){--water-deep:#0e2f19;--water:#1c542f;--water-light:#35b660;--water-pale:#15321f;--sand:#151e18;--sand-dark:#1e2922;--paper:#1b2c21;--line:#2a4733;--ink:#eff5f1;--ink-soft:#b9cbbf;}}
+:root[data-skin="minze"]{--water-deep:#155b46;--water:#218365;--water-light:#2fb18a;--water-pale:#e3f7f1;--sand:#eaf5f2;--sand-dark:#cee3dd;--line:#d4e8e2;--ink:#153229;--ink-soft:#406459;}
+:root[data-skin="minze"][data-theme="dark"]{--water-deep:#0e2f25;--water:#1c5443;--water-light:#35b68f;--water-pale:#153229;--sand:#151e1b;--sand-dark:#1e2926;--paper:#1b2c27;--line:#2a473e;--ink:#eff5f4;--ink-soft:#b9cbc5;}
+@media (prefers-color-scheme: dark){:root[data-skin="minze"]:not([data-theme="light"]){--water-deep:#0e2f25;--water:#1c5443;--water-light:#35b68f;--water-pale:#153229;--sand:#151e1b;--sand-dark:#1e2926;--paper:#1b2c27;--line:#2a473e;--ink:#eff5f4;--ink-soft:#b9cbc5;}}
+:root[data-skin="tuerkis"]{--water-deep:#15595b;--water:#217f83;--water-light:#2fadb1;--water-pale:#e3f6f7;--sand:#eaf5f5;--sand-dark:#cee3e3;--line:#d4e7e8;--ink:#153132;--ink-soft:#406264;}
+:root[data-skin="tuerkis"][data-theme="dark"]{--water-deep:#0e2e2f;--water:#1c5254;--water-light:#35b2b6;--water-pale:#153132;--sand:#151e1e;--sand-dark:#1e2929;--paper:#1b2c2c;--line:#2a4647;--ink:#eff5f5;--ink-soft:#b9cacb;}
+@media (prefers-color-scheme: dark){:root[data-skin="tuerkis"]:not([data-theme="light"]){--water-deep:#0e2e2f;--water:#1c5254;--water-light:#35b2b6;--water-pale:#153132;--sand:#151e1e;--sand-dark:#1e2929;--paper:#1b2c2c;--line:#2a4647;--ink:#eff5f5;--ink-soft:#b9cacb;}}
+:root[data-skin="himmel"]{--water-deep:#15405b;--water:#215d83;--water-light:#2f7fb1;--water-pale:#e3eff7;--sand:#eaf1f5;--sand-dark:#cedbe3;--line:#d4e0e8;--ink:#152732;--ink-soft:#405664;}
+:root[data-skin="himmel"][data-theme="dark"]{--water-deep:#0e232f;--water:#1c3f54;--water-light:#3584b6;--water-pale:#152732;--sand:#151b1e;--sand-dark:#1e2529;--paper:#1b262c;--line:#2a3c47;--ink:#eff3f5;--ink-soft:#b9c4cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="himmel"]:not([data-theme="light"]){--water-deep:#0e232f;--water:#1c3f54;--water-light:#3584b6;--water-pale:#152732;--sand:#151b1e;--sand-dark:#1e2529;--paper:#1b262c;--line:#2a3c47;--ink:#eff3f5;--ink-soft:#b9c4cb;}}
+:root[data-skin="blau"]{--water-deep:#15365b;--water:#214e83;--water-light:#2f6cb1;--water-pale:#e3ecf7;--sand:#eaeff5;--sand-dark:#ced8e3;--line:#d4dde8;--ink:#152332;--ink-soft:#405064;}
+:root[data-skin="blau"][data-theme="dark"]{--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="blau"]:not([data-theme="light"]){--water-deep:#0e1d2f;--water:#1c3654;--water-light:#3571b6;--water-pale:#152332;--sand:#15191e;--sand-dark:#1e2329;--paper:#1b232c;--line:#2a3747;--ink:#eff2f5;--ink-soft:#b9c1cb;}}
+:root[data-skin="indigo"]{--water-deep:#151a5b;--water:#212783;--water-light:#2f38b1;--water-pale:#e3e5f7;--sand:#eaebf5;--sand-dark:#cecfe3;--line:#d4d5e8;--ink:#151732;--ink-soft:#404264;}
+:root[data-skin="indigo"][data-theme="dark"]{--water-deep:#0e102f;--water:#1c2054;--water-light:#353db6;--water-pale:#151732;--sand:#15161e;--sand-dark:#1e1f29;--paper:#1b1c2c;--line:#2a2b47;--ink:#efeff5;--ink-soft:#b9bacb;}
+@media (prefers-color-scheme: dark){:root[data-skin="indigo"]:not([data-theme="light"]){--water-deep:#0e102f;--water:#1c2054;--water-light:#353db6;--water-pale:#151732;--sand:#15161e;--sand-dark:#1e1f29;--paper:#1b1c2c;--line:#2a2b47;--ink:#efeff5;--ink-soft:#b9bacb;}}
 :root[data-skin="lila"]{--water-deep:#36155b;--water:#4e2183;--water-light:#6c2fb1;--water-pale:#ece3f7;--sand:#efeaf5;--sand-dark:#d8cee3;--line:#ddd4e8;--ink:#231532;--ink-soft:#504064;}
 :root[data-skin="lila"][data-theme="dark"]{--water-deep:#1d0e2f;--water:#361c54;--water-light:#7135b6;--water-pale:#231532;--sand:#19151e;--sand-dark:#231e29;--paper:#231b2c;--line:#372a47;--ink:#f2eff5;--ink-soft:#c1b9cb;}
 @media (prefers-color-scheme: dark){:root[data-skin="lila"]:not([data-theme="light"]){--water-deep:#1d0e2f;--water:#361c54;--water-light:#7135b6;--water-pale:#231532;--sand:#19151e;--sand-dark:#231e29;--paper:#231b2c;--line:#372a47;--ink:#f2eff5;--ink-soft:#c1b9cb;}}
+:root[data-skin="magenta"]{--water-deep:#5b155b;--water:#832183;--water-light:#b12fb1;--water-pale:#f7e3f7;--sand:#f5eaf5;--sand-dark:#e3cee3;--line:#e8d4e8;--ink:#321532;--ink-soft:#644064;}
+:root[data-skin="magenta"][data-theme="dark"]{--water-deep:#2f0e2f;--water:#541c54;--water-light:#b635b6;--water-pale:#321532;--sand:#1e151e;--sand-dark:#291e29;--paper:#2c1b2c;--line:#472a47;--ink:#f5eff5;--ink-soft:#cbb9cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="magenta"]:not([data-theme="light"]){--water-deep:#2f0e2f;--water:#541c54;--water-light:#b635b6;--water-pale:#321532;--sand:#1e151e;--sand-dark:#291e29;--paper:#2c1b2c;--line:#472a47;--ink:#f5eff5;--ink-soft:#cbb9cb;}}
+:root[data-skin="pink"]{--water-deep:#5b1536;--water:#83214e;--water-light:#b12f6c;--water-pale:#f7e3ec;--sand:#f5eaef;--sand-dark:#e3ced8;--line:#e8d4dd;--ink:#321523;--ink-soft:#644050;}
+:root[data-skin="pink"][data-theme="dark"]{--water-deep:#2f0e1d;--water:#541c36;--water-light:#b63571;--water-pale:#321523;--sand:#1e1519;--sand-dark:#291e23;--paper:#2c1b23;--line:#472a37;--ink:#f5eff2;--ink-soft:#cbb9c1;}
+@media (prefers-color-scheme: dark){:root[data-skin="pink"]:not([data-theme="light"]){--water-deep:#2f0e1d;--water:#541c36;--water-light:#b63571;--water-pale:#321523;--sand:#1e1519;--sand-dark:#291e23;--paper:#2c1b23;--line:#472a37;--ink:#f5eff2;--ink-soft:#cbb9c1;}}
+:root[data-skin="rose"]{--water-deep:#5b1523;--water:#832134;--water-light:#b12f49;--water-pale:#f7e3e7;--sand:#f5eaec;--sand-dark:#e3ced2;--line:#e8d4d8;--ink:#32151b;--ink-soft:#644047;}
+:root[data-skin="rose"][data-theme="dark"]{--water-deep:#2f0e15;--water:#541c27;--water-light:#b6354f;--water-pale:#32151b;--sand:#1e1517;--sand-dark:#291e20;--paper:#2c1b1f;--line:#472a2f;--ink:#f5eff0;--ink-soft:#cbb9bc;}
+@media (prefers-color-scheme: dark){:root[data-skin="rose"]:not([data-theme="light"]){--water-deep:#2f0e15;--water:#541c27;--water-light:#b6354f;--water-pale:#32151b;--sand:#1e1517;--sand-dark:#291e20;--paper:#2c1b1f;--line:#472a2f;--ink:#f5eff0;--ink-soft:#cbb9bc;}}
+:root[data-skin="schoko"]{--water-deep:#472e20;--water:#68442f;--water-light:#8e5f43;--water-pale:#f3ece7;--sand:#f3efec;--sand-dark:#dfd7d2;--line:#e4dcd8;--ink:#2d211b;--ink-soft:#5d4f46;}
+:root[data-skin="schoko"][data-theme="dark"]{--water-deep:#291c14;--water:#493327;--water-light:#9d6b4d;--water-pale:#2d211b;--sand:#1c1917;--sand-dark:#272320;--paper:#29221e;--line:#41362f;--ink:#f4f2f0;--ink-soft:#c7c0bc;}
+@media (prefers-color-scheme: dark){:root[data-skin="schoko"]:not([data-theme="light"]){--water-deep:#291c14;--water:#493327;--water-light:#9d6b4d;--water-pale:#2d211b;--sand:#1c1917;--sand-dark:#272320;--paper:#29221e;--line:#41362f;--ink:#f4f2f0;--ink-soft:#c7c0bc;}}
+:root[data-skin="schiefer"]{--water-deep:#303840;--water:#47525c;--water-light:#62707f;--water-pale:#ebedef;--sand:#eff0f1;--sand-dark:#d6d9db;--line:#dcdee0;--ink:#212427;--ink-soft:#4e5256;}
+:root[data-skin="schiefer"][data-theme="dark"]{--water-deep:#1b1f22;--water:#32383e;--water-light:#677583;--water-pale:#212427;--sand:#181a1b;--sand-dark:#222425;--paper:#222426;--line:#35383b;--ink:#f2f2f3;--ink-soft:#c0c2c4;}
+@media (prefers-color-scheme: dark){:root[data-skin="schiefer"]:not([data-theme="light"]){--water-deep:#1b1f22;--water:#32383e;--water-light:#677583;--water-pale:#212427;--sand:#181a1b;--sand-dark:#222425;--paper:#222426;--line:#35383b;--ink:#f2f2f3;--ink-soft:#c0c2c4;}}
 :root[data-skin="sonne"]{--water-deep:#5b2a15;--water:#833e21;--water-light:#b1562f;--water-pale:#f7e9e3;--sand:#f5eeea;--sand-dark:#e3d4ce;--line:#e8dad4;--ink:#321e15;--ink-soft:#644a40;--deco:"🌅";}
 :root[data-skin="sonne"][data-theme="dark"]{--water-deep:#2f180e;--water:#542d1c;--water-light:#b65b35;--water-pale:#321e15;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}
 @media (prefers-color-scheme: dark){:root[data-skin="sonne"]:not([data-theme="light"]){--water-deep:#2f180e;--water:#542d1c;--water-light:#b65b35;--water-pale:#321e15;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}}
 :root[data-skin="eis"]{--water-deep:#154d5b;--water:#216f83;--water-light:#2f97b1;--water-pale:#e3f3f7;--sand:#eaf3f5;--sand-dark:#cedfe3;--line:#d4e4e8;--ink:#152c32;--ink-soft:#405c64;--deco:"🧊";}
 :root[data-skin="eis"][data-theme="dark"]{--water-deep:#0e292f;--water:#1c4954;--water-light:#359cb6;--water-pale:#152c32;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}
 @media (prefers-color-scheme: dark){:root[data-skin="eis"]:not([data-theme="light"]){--water-deep:#0e292f;--water:#1c4954;--water-light:#359cb6;--water-pale:#152c32;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}}
+:root[data-skin="lavendel"]{--water-deep:#341b50;--water:#602b73;--water-light:#9e3d9e;--water-pale:#f6e4f6;--sand:#f2eaf5;--sand-dark:#decee3;--line:#e2d4e8;--ink:#231532;--ink-soft:#504064;--deco:"🌷";}
+:root[data-skin="lavendel"][data-theme="dark"]{--water-deep:#1b1028;--water:#42234d;--water-light:#b540b5;--water-pale:#2a1631;--sand:#1c151e;--sand-dark:#261e29;--paper:#281b2c;--line:#3f2a47;--ink:#f4eff5;--ink-soft:#c6b9cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="lavendel"]:not([data-theme="light"]){--water-deep:#1b1028;--water:#42234d;--water-light:#b540b5;--water-pale:#2a1631;--sand:#1c151e;--sand-dark:#261e29;--paper:#281b2c;--line:#3f2a47;--ink:#f4eff5;--ink-soft:#c6b9cb;}}
+:root[data-skin="kirsch"]{--water-deep:#57142d;--water:#7d2138;--water-light:#ab3041;--water-pale:#f6e4e7;--sand:#f5eaed;--sand-dark:#e3ced3;--line:#e8d4d9;--ink:#321520;--ink-soft:#64404d;--deco:"🌸";}
+:root[data-skin="kirsch"][data-theme="dark"]{--water-deep:#2b0d18;--water:#541c2a;--water-light:#c43145;--water-pale:#31161d;--sand:#1e1517;--sand-dark:#291e21;--paper:#2c1b1f;--line:#472a31;--ink:#f5eff1;--ink-soft:#cbb9bd;}
+@media (prefers-color-scheme: dark){:root[data-skin="kirsch"]:not([data-theme="light"]){--water-deep:#2b0d18;--water:#541c2a;--water-light:#c43145;--water-pale:#31161d;--sand:#1e1517;--sand-dark:#291e21;--paper:#2c1b1f;--line:#472a31;--ink:#f5eff1;--ink-soft:#cbb9bd;}}
+:root[data-skin="ozean"]{--water-deep:#133858;--water:#206c7e;--water-light:#2eada5;--water-pale:#e4f6f5;--sand:#eaf3f5;--sand-dark:#cedfe3;--line:#d4e4e8;--ink:#152532;--ink-soft:#405364;--deco:"🌊";}
+:root[data-skin="ozean"][data-theme="dark"]{--water-deep:#0c1d2c;--water:#1b4a55;--water-light:#2fc6bc;--water-pale:#162c31;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="ozean"]:not([data-theme="light"]){--water-deep:#0c1d2c;--water:#1b4a55;--water-light:#2fc6bc;--water-pale:#162c31;--sand:#151c1e;--sand-dark:#1e2729;--paper:#1b292c;--line:#2a4147;--ink:#eff4f5;--ink-soft:#b9c7cb;}}
+:root[data-skin="wald"]{--water-deep:#1a4b34;--water:#2a6c2c;--water-light:#66943d;--water-pale:#edf6e4;--sand:#eaf5eb;--sand-dark:#cee3cf;--line:#d4e8d5;--ink:#153225;--ink-soft:#406453;--deco:"🌲";}
+:root[data-skin="wald"][data-theme="dark"]{--water-deep:#11281d;--water:#244c25;--water-light:#77b342;--water-pale:#163117;--sand:#151e15;--sand-dark:#1e291e;--paper:#1b2c1c;--line:#2a472a;--ink:#eff5f0;--ink-soft:#b9cbb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="wald"]:not([data-theme="light"]){--water-deep:#11281d;--water:#244c25;--water-light:#77b342;--water-pale:#163117;--sand:#151e15;--sand-dark:#1e291e;--paper:#1b2c1c;--line:#2a472a;--ink:#eff5f0;--ink-soft:#b9cbb9;}}
+:root[data-skin="wueste"]{--water-deep:#522e19;--water:#775228;--water-light:#a28339;--water-pale:#f6f1e4;--sand:#f5f0ea;--sand-dark:#e3d9ce;--line:#e8dfd4;--ink:#322015;--ink-soft:#644d40;--deco:"🏜️";}
+:root[data-skin="wueste"][data-theme="dark"]{--water-deep:#29190f;--water:#503a21;--water-light:#ba943b;--water-pale:#312516;--sand:#1e1a15;--sand-dark:#29241e;--paper:#2c241b;--line:#47392a;--ink:#f5f2ef;--ink-soft:#cbc2b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="wueste"]:not([data-theme="light"]){--water-deep:#29190f;--water:#503a21;--water-light:#ba943b;--water-pale:#312516;--sand:#1e1a15;--sand-dark:#29241e;--paper:#2c241b;--line:#47392a;--ink:#f5f2ef;--ink-soft:#cbc2b9;}}
+:root[data-skin="koralle"]{--water-deep:#591912;--water:#803a1e;--water-light:#af692c;--water-pale:#f6ede4;--sand:#f5edea;--sand-dark:#e3d4ce;--line:#e8dad4;--ink:#321815;--ink-soft:#644340;--deco:"🐠";}
+:root[data-skin="koralle"][data-theme="dark"]{--water-deep:#2d0f0c;--water:#562b1a;--water-light:#c9752c;--water-pale:#311e16;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="koralle"]:not([data-theme="light"]){--water-deep:#2d0f0c;--water:#562b1a;--water-light:#c9752c;--water-pale:#311e16;--sand:#1e1815;--sand-dark:#29211e;--paper:#2c201b;--line:#47322a;--ink:#f5f1ef;--ink-soft:#cbbeb9;}}
+:root[data-skin="pfirsich"]{--water-deep:#582313;--water:#7e4920;--water-light:#ad7f2e;--water-pale:#f6f0e4;--sand:#f5efea;--sand-dark:#e3d7ce;--line:#e8ddd4;--ink:#321c15;--ink-soft:#644840;--deco:"🍑";}
+:root[data-skin="pfirsich"][data-theme="dark"]{--water-deep:#2c140c;--water:#55341b;--water-light:#c68f2f;--water-pale:#312216;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c231b;--line:#47362a;--ink:#f5f2ef;--ink-soft:#cbc1b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="pfirsich"]:not([data-theme="light"]){--water-deep:#2c140c;--water:#55341b;--water-light:#c68f2f;--water-pale:#312216;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c231b;--line:#47362a;--ink:#f5f2ef;--ink-soft:#cbc1b9;}}
+:root[data-skin="beere"]{--water-deep:#2e1952;--water:#712877;--water-light:#a2396e;--water-pale:#f6e4ed;--sand:#f4eaf5;--sand-dark:#e2cee3;--line:#e6d4e8;--ink:#201532;--ink-soft:#4d4064;--deco:"🍇";}
+:root[data-skin="beere"][data-theme="dark"]{--water-deep:#190f29;--water:#4d2150;--water-light:#ba3b7a;--water-pale:#2f1631;--sand:#1d151e;--sand-dark:#291e29;--paper:#2b1b2c;--line:#452a47;--ink:#f5eff5;--ink-soft:#cab9cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="beere"]:not([data-theme="light"]){--water-deep:#190f29;--water:#4d2150;--water-light:#ba3b7a;--water-pale:#2f1631;--sand:#1d151e;--sand-dark:#291e29;--paper:#2b1b2c;--line:#452a47;--ink:#f5eff5;--ink-soft:#cab9cb;}}
+:root[data-skin="herbst"]{--water-deep:#581f13;--water:#7e4720;--water-light:#ad832e;--water-pale:#f6f0e4;--sand:#f5efea;--sand-dark:#e3d7ce;--line:#e8dcd4;--ink:#321a15;--ink-soft:#644640;--deco:"🍂";}
+:root[data-skin="herbst"][data-theme="dark"]{--water-deep:#2c110c;--water:#55331b;--water-light:#c6942f;--water-pale:#312116;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c221b;--line:#47362a;--ink:#f5f2ef;--ink-soft:#cbc0b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="herbst"]:not([data-theme="light"]){--water-deep:#2c110c;--water:#55331b;--water-light:#c6942f;--water-pale:#312116;--sand:#1e1915;--sand-dark:#29231e;--paper:#2c221b;--line:#47362a;--ink:#f5f2ef;--ink-soft:#cbc0b9;}}
+:root[data-skin="winter"]{--water-deep:#1a3751;--water:#294675;--water-light:#3b53a0;--water-pale:#e4e8f6;--sand:#eaeef5;--sand-dark:#ced6e3;--line:#d4dce8;--ink:#152532;--ink-soft:#405364;--deco:"❄️";}
+:root[data-skin="winter"][data-theme="dark"]{--water-deep:#0f1d29;--water:#22334f;--water-light:#3d5ab8;--water-pale:#162131;--sand:#15181e;--sand-dark:#1e2229;--paper:#1b222c;--line:#2a3547;--ink:#eff2f5;--ink-soft:#b9c0cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="winter"]:not([data-theme="light"]){--water-deep:#0f1d29;--water:#22334f;--water-light:#3d5ab8;--water-pale:#162131;--sand:#15181e;--sand-dark:#1e2229;--paper:#1b222c;--line:#2a3547;--ink:#eff2f5;--ink-soft:#b9c0cb;}}
+:root[data-skin="sommer"]{--water-deep:#5c3d0f;--water:#854119;--water-light:#b63925;--water-pale:#f6e7e4;--sand:#f5eeea;--sand-dark:#e3d6ce;--line:#e8dbd4;--ink:#322715;--ink-soft:#645540;--deco:"☀️";}
+:root[data-skin="sommer"][data-theme="dark"]{--water-deep:#2e200a;--water:#5a2f16;--water-light:#d03c25;--water-pale:#312016;--sand:#1e1815;--sand-dark:#29221e;--paper:#2c211b;--line:#47342a;--ink:#f5f2ef;--ink-soft:#cbbfb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="sommer"]:not([data-theme="light"]){--water-deep:#2e200a;--water:#5a2f16;--water-light:#d03c25;--water-pale:#312016;--sand:#1e1815;--sand-dark:#29221e;--paper:#2c211b;--line:#47342a;--ink:#f5f2ef;--ink-soft:#cbbfb9;}}
+:root[data-skin="zitrone"]{--water-deep:#4a420f;--water:#606c19;--water-light:#669726;--water-pale:#eef6e4;--sand:#f3f5ea;--sand-dark:#e0e3ce;--line:#e5e8d4;--ink:#322e15;--ink-soft:#645f40;--deco:"🍋";}
+:root[data-skin="zitrone"][data-theme="dark"]{--water-deep:#2d280c;--water:#4d561a;--water-light:#85c92c;--water-pale:#2d3116;--sand:#1d1e15;--sand-dark:#28291e;--paper:#2a2c1b;--line:#42472a;--ink:#f4f5ef;--ink-soft:#c8cbb9;}
+@media (prefers-color-scheme: dark){:root[data-skin="zitrone"]:not([data-theme="light"]){--water-deep:#2d280c;--water:#4d561a;--water-light:#85c92c;--water-pale:#2d3116;--sand:#1d1e15;--sand-dark:#28291e;--paper:#2a2c1b;--line:#42472a;--ink:#f4f5ef;--ink-soft:#c8cbb9;}}
 :root[data-skin="axolotl"]{--water-deep:#b83a7a;--water:#e8609f;--water-light:#ff8fc0;--water-pale:#ffe6f1;--sand:#fff3f8;--sand-dark:#fbd9e8;--line:#f4cfe0;--ink:#4a1d38;--ink-soft:#7a4a65;--gold:#ff9a8a;--deco:"🩷";}
 :root[data-skin="axolotl"][data-theme="dark"]{--water-deep:#361223;--water:#71284a;--water-light:#e25a9a;--water-pale:#381928;--sand:#1e1519;--sand-dark:#291e23;--paper:#2f1d26;--line:#4d2d3c;--ink:#fff0f7;--ink-soft:#e9b8d0;--gold:#ff9a8a;}
 @media (prefers-color-scheme: dark){:root[data-skin="axolotl"]:not([data-theme="light"]){--water-deep:#361223;--water:#71284a;--water-light:#e25a9a;--water-pale:#381928;--sand:#1e1519;--sand-dark:#291e23;--paper:#2f1d26;--line:#4d2d3c;--ink:#fff0f7;--ink-soft:#e9b8d0;--gold:#ff9a8a;}}
-:root[data-skin="gold"]{--water-deep:#5c3f05;--water:#8f6508;--water-light:#b88a12;--water-pale:#fbf0d0;--sand:#fbf6e8;--sand-dark:#f0e2b8;--line:#ecdcae;--ink:#3a2a05;--ink-soft:#6b5420;--gold:#f4c542;}
-:root[data-skin="gold"][data-theme="dark"]{--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}
-@media (prefers-color-scheme: dark){:root[data-skin="gold"]:not([data-theme="light"]){--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}}
+:root[data-skin="weihnacht"]{--water-deep:#7a1020;--water:#b3202f;--water-light:#2f8f4e;--water-pale:#fdecec;--sand:#fbf3ee;--sand-dark:#f3dcd2;--line:#efd2c8;--ink:#3a1018;--ink-soft:#7a4a4a;--gold:#d9a82f;--deco:"🎄";}
+:root[data-skin="weihnacht"][data-theme="dark"]{--water-deep:#2a0a10;--water:#8f1d2b;--water-light:#3aa65f;--water-pale:#2a1316;--sand:#160c0d;--sand-dark:#201213;--paper:#241518;--line:#442428;--ink:#fdf1ee;--ink-soft:#e2b8b3;--gold:#e0b24a;}
+@media (prefers-color-scheme: dark){:root[data-skin="weihnacht"]:not([data-theme="light"]){--water-deep:#2a0a10;--water:#8f1d2b;--water-light:#3aa65f;--water-pale:#2a1316;--sand:#160c0d;--sand-dark:#201213;--paper:#241518;--line:#442428;--ink:#fdf1ee;--ink-soft:#e2b8b3;--gold:#e0b24a;}}
+:root[data-skin="dino"]{--water-deep:#2e5a1f;--water:#4f8f2e;--water-light:#e07a1f;--water-pale:#eaf6df;--sand:#f4f7ea;--sand-dark:#dfe8c8;--line:#d6e2bc;--ink:#1f3314;--ink-soft:#52663f;--gold:#f08a24;--deco:"🦖";}
+:root[data-skin="dino"][data-theme="dark"]{--water-deep:#0f1f09;--water:#3a6e22;--water-light:#f08a24;--water-pale:#16260e;--sand:#0c1408;--sand-dark:#141e0d;--paper:#17240f;--line:#2c4419;--ink:#eef7e4;--ink-soft:#b4c9a0;--gold:#f08a24;}
+@media (prefers-color-scheme: dark){:root[data-skin="dino"]:not([data-theme="light"]){--water-deep:#0f1f09;--water:#3a6e22;--water-light:#f08a24;--water-pale:#16260e;--sand:#0c1408;--sand-dark:#141e0d;--paper:#17240f;--line:#2c4419;--ink:#eef7e4;--ink-soft:#b4c9a0;--gold:#f08a24;}}
+:root[data-skin="einhorn"]{--water-deep:#7b4fb8;--water:#b05ac8;--water-light:#ff7fb0;--water-pale:#f6e9ff;--sand:#fff4fb;--sand-dark:#f1dcf7;--line:#ecd3f5;--ink:#3d2455;--ink-soft:#7a5c93;--gold:#6fd0ff;--deco:"🦄";}
+:root[data-skin="einhorn"][data-theme="dark"]{--water-deep:#1d1233;--water:#6a3fa8;--water-light:#ff7fb0;--water-pale:#241640;--sand:#110a1e;--sand-dark:#190f2c;--paper:#1e1236;--line:#3c2670;--ink:#fbefff;--ink-soft:#d3b8ee;--gold:#6fd0ff;}
+@media (prefers-color-scheme: dark){:root[data-skin="einhorn"]:not([data-theme="light"]){--water-deep:#1d1233;--water:#6a3fa8;--water-light:#ff7fb0;--water-pale:#241640;--sand:#110a1e;--sand-dark:#190f2c;--paper:#1e1236;--line:#3c2670;--ink:#fbefff;--ink-soft:#d3b8ee;--gold:#6fd0ff;}}
 :root[data-skin="halloween"]{--water-deep:#1a0f2e;--water:#6a2fb0;--water-light:#ff7a1a;--water-pale:#2a1740;--sand:#120a1c;--sand-dark:#1c1030;--paper:#21143a;--line:#3a2460;--ink:#f6ecff;--ink-soft:#cdb8f0;--gold:#ff9d2e;--deco:"🎃";}
 :root[data-skin="zombie"]{--water-deep:#0e1a10;--water:#3f7a32;--water-light:#7cb342;--water-pale:#162414;--sand:#0e140f;--sand-dark:#162018;--paper:#18241a;--line:#2c4230;--ink:#e8f3e0;--ink-soft:#a9c1a0;--gold:#c6e04a;--deco:"🧟";}
 :root[data-skin="neon"]{--water-deep:#0a0620;--water:#7a2bd0;--water-light:#ff2fa8;--water-pale:#1a0f33;--sand:#090611;--sand-dark:#130c22;--paper:#150d2b;--line:#3a1f6b;--ink:#f5eaff;--ink-soft:#c4a8f0;--gold:#00e5ff;--deco:"⚡";}
+:root[data-skin="weltraum"]{--water-deep:#050a1e;--water:#2b44b0;--water-light:#7a5cff;--water-pale:#0b1233;--sand:#04071a;--sand-dark:#0a1030;--paper:#0e1638;--line:#233063;--ink:#eaf0ff;--ink-soft:#a9b8e8;--gold:#ffd54a;--deco:"🚀";}
+:root[data-skin="vampir"]{--water-deep:#14060a;--water:#8f1638;--water-light:#e0314f;--water-pale:#2a0f16;--sand:#0d0508;--sand-dark:#170a0e;--paper:#1d0d12;--line:#401a24;--ink:#f7e8ea;--ink-soft:#d1a3ab;--gold:#c9a15a;--deco:"🧛";}
+:root[data-skin="pirat"]{--water-deep:#1a1208;--water:#7a5420;--water-light:#d9a43a;--water-pale:#2a2010;--sand:#120d06;--sand-dark:#1c150a;--paper:#231b0e;--line:#4a3a1c;--ink:#f4e9d0;--ink-soft:#cdb98a;--gold:#e0b24a;--deco:"☠️";}
+:root[data-skin="matrix"]{--water-deep:#02120a;--water:#0e6a32;--water-light:#19d65c;--water-pale:#06220f;--sand:#020a05;--sand-dark:#06140a;--paper:#08180d;--line:#10381a;--ink:#d8ffe6;--ink-soft:#7fd69a;--gold:#19d65c;--deco:"💻";}
+:root[data-skin="synthwave"]{--water-deep:#14052e;--water:#7a24c8;--water-light:#ff3fa4;--water-pale:#1f0a42;--sand:#0d0320;--sand-dark:#150833;--paper:#1a0a3a;--line:#3d1a78;--ink:#ffe9fb;--ink-soft:#d3a8ff;--gold:#2ee6ff;--deco:"🌆";}
+:root[data-skin="gold"]{--water-deep:#5c3f05;--water:#8f6508;--water-light:#b88a12;--water-pale:#fbf0d0;--sand:#fbf6e8;--sand-dark:#f0e2b8;--line:#ecdcae;--ink:#3a2a05;--ink-soft:#6b5420;--gold:#f4c542;--deco:"✨";}
+:root[data-skin="gold"][data-theme="dark"]{--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}
+@media (prefers-color-scheme: dark){:root[data-skin="gold"]:not([data-theme="light"]){--water-deep:#241a04;--water:#6b4c08;--water-light:#c99a1c;--water-pale:#2b2208;--sand:#17140b;--sand-dark:#211c0e;--paper:#241f10;--line:#4a3f1e;--ink:#f7edd0;--ink-soft:#cdbb85;--gold:#f4c542;}}
+:root[data-skin="gold"] .topbar,:root[data-skin="gold"] .hero,:root[data-skin="gold"] .btn-primary,:root[data-skin="gold"] .menu-tile.accent{background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#e3b84a 47%,#f1d27a 50%,#e3b84a 53%,var(--water) 68%,var(--water-deep) 100%);background-size:260% 100%;animation:skinsweep 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+:root[data-skin="silber"]{--water-deep:#2f3640;--water:#5a6472;--water-light:#8893a3;--water-pale:#eef1f5;--sand:#f4f6f9;--sand-dark:#e1e5eb;--line:#dde1e8;--ink:#1f242b;--ink-soft:#566070;--gold:#b9c1cd;--deco:"🥈";}
+:root[data-skin="silber"][data-theme="dark"]{--water-deep:#14171c;--water:#454e5b;--water-light:#9aa6b6;--water-pale:#1b2027;--sand:#101317;--sand-dark:#171b21;--paper:#1c2128;--line:#323a46;--ink:#f1f4f8;--ink-soft:#b9c2cf;--gold:#c0c7d1;}
+@media (prefers-color-scheme: dark){:root[data-skin="silber"]:not([data-theme="light"]){--water-deep:#14171c;--water:#454e5b;--water-light:#9aa6b6;--water-pale:#1b2027;--sand:#101317;--sand-dark:#171b21;--paper:#1c2128;--line:#323a46;--ink:#f1f4f8;--ink-soft:#b9c2cf;--gold:#c0c7d1;}}
+:root[data-skin="silber"] .topbar,:root[data-skin="silber"] .hero,:root[data-skin="silber"] .btn-primary,:root[data-skin="silber"] .menu-tile.accent{background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#d9e0ea 47%,#ffffff 50%,#d9e0ea 53%,var(--water) 68%,var(--water-deep) 100%);background-size:260% 100%;animation:skinsweep 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+:root[data-skin="diamant"]{--water-deep:#0b4f6c;--water:#1a8bb3;--water-light:#5cc8e8;--water-pale:#e6f8ff;--sand:#f2fbff;--sand-dark:#d8eef7;--line:#cfe8f2;--ink:#0e2f3d;--ink-soft:#3f6a7c;--gold:#7fdcff;--deco:"💎";}
+:root[data-skin="diamant"][data-theme="dark"]{--water-deep:#06222e;--water:#14688a;--water-light:#5cc8e8;--water-pale:#0b2a36;--sand:#081a21;--sand-dark:#0e242d;--paper:#0f2a34;--line:#1d4658;--ink:#eafaff;--ink-soft:#a8d4e3;--gold:#7fdcff;}
+@media (prefers-color-scheme: dark){:root[data-skin="diamant"]:not([data-theme="light"]){--water-deep:#06222e;--water:#14688a;--water-light:#5cc8e8;--water-pale:#0b2a36;--sand:#081a21;--sand-dark:#0e242d;--paper:#0f2a34;--line:#1d4658;--ink:#eafaff;--ink-soft:#a8d4e3;--gold:#7fdcff;}}
+:root[data-skin="diamant"] .topbar,:root[data-skin="diamant"] .hero,:root[data-skin="diamant"] .btn-primary,:root[data-skin="diamant"] .menu-tile.accent{background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#bdeeff 47%,#ffffff 50%,#bdeeff 53%,var(--water) 68%,var(--water-deep) 100%);background-size:260% 100%;animation:skinsweep 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+:root[data-skin="regenbogen"]{--water-deep:#2b1f55;--water:#5b3fb0;--water-light:#e0457b;--water-pale:#f3ecff;--sand:#fbf8ff;--sand-dark:#ece3f8;--line:#e6dcf3;--ink:#2a1d4a;--ink-soft:#6a5a8a;--gold:#ffb020;--deco:"🌈";}
+:root[data-skin="regenbogen"][data-theme="dark"]{--water-deep:#150f2e;--water:#4a3190;--water-light:#e0457b;--water-pale:#1d1440;--sand:#0f0a1f;--sand-dark:#171030;--paper:#1b1238;--line:#352466;--ink:#f5eeff;--ink-soft:#c9b8ee;--gold:#ffb020;}
+@media (prefers-color-scheme: dark){:root[data-skin="regenbogen"]:not([data-theme="light"]){--water-deep:#150f2e;--water:#4a3190;--water-light:#e0457b;--water-pale:#1d1440;--sand:#0f0a1f;--sand-dark:#171030;--paper:#1b1238;--line:#352466;--ink:#f5eeff;--ink-soft:#c9b8ee;--gold:#ffb020;}}
+:root[data-skin="regenbogen"] .topbar,:root[data-skin="regenbogen"] .hero,:root[data-skin="regenbogen"] .btn-primary,:root[data-skin="regenbogen"] .menu-tile.accent{background-image:linear-gradient(90deg,#d62f2f,#e8822a,#b8921a,#2e9e4f,#1f9bb8,#3d5fd1,#8a43c4,#d62f8a,#d62f2f);background-size:200% 100%;animation:skinflow 14s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="aurora"]{--water-deep:#04141a;--water:#0f6b5a;--water-light:#7a5cff;--water-pale:#0a2226;--sand:#040e12;--sand-dark:#09181d;--paper:#0d1f25;--line:#173a42;--ink:#e6fff6;--ink-soft:#9fd6c4;--gold:#5df2b8;--deco:"🌌";}
+:root[data-skin="aurora"] .topbar,:root[data-skin="aurora"] .hero,:root[data-skin="aurora"] .btn-primary,:root[data-skin="aurora"] .menu-tile.accent{background-image:linear-gradient(90deg,#0b6b5a,#14a37f,#2fd4a0,#4a6ee0,#8a5cff,#2fd4a0,#0b6b5a);background-size:200% 100%;animation:skinflow 12s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="lava"]{--water-deep:#140604;--water:#8a1e0c;--water-light:#ff7a1a;--water-pale:#2a0f08;--sand:#0e0504;--sand-dark:#170907;--paper:#1f0d09;--line:#43190f;--ink:#fff0e8;--ink-soft:#e2b09c;--gold:#ffb02e;--deco:"🔥";}
+:root[data-skin="lava"] .topbar,:root[data-skin="lava"] .hero,:root[data-skin="lava"] .btn-primary,:root[data-skin="lava"] .menu-tile.accent{background-image:linear-gradient(90deg,#7a1208,#c2310f,#f0701a,#c2310f,#7a1208);background-size:200% 100%;animation:skinflow 9s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="galaxie"]{--water-deep:#05031a;--water:#3a1a8a;--water-light:#b04fe0;--water-pale:#120a33;--sand:#04020f;--sand-dark:#0a0620;--paper:#100a2c;--line:#2a1a5e;--ink:#f0e9ff;--ink-soft:#b8a8ee;--gold:#ffd54a;--deco:"🪐";}
+:root[data-skin="galaxie"] .topbar,:root[data-skin="galaxie"] .hero,:root[data-skin="galaxie"] .btn-primary,:root[data-skin="galaxie"] .menu-tile.accent{background-image:linear-gradient(90deg,#1a1050,#4a1fa0,#8a2fd0,#c040a0,#4a1fa0,#1a1050);background-size:200% 100%;animation:skinflow 16s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="tiefsee"]{--water-deep:#020f16;--water:#0a5a70;--water-light:#22d3ee;--water-pale:#06222c;--sand:#020b10;--sand-dark:#06161d;--paper:#08202a;--line:#10404f;--ink:#e6fbff;--ink-soft:#98cfdc;--gold:#5ee8ff;--deco:"🐙";}
+:root[data-skin="tiefsee"] .topbar,:root[data-skin="tiefsee"] .hero,:root[data-skin="tiefsee"] .btn-primary,:root[data-skin="tiefsee"] .menu-tile.accent{background-image:linear-gradient(90deg,#03202e,#06506a,#0f8fa8,#06506a,#03202e);background-size:200% 100%;animation:skinflow 13s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+@media (prefers-reduced-motion: reduce){:root[data-skin] .topbar,:root[data-skin] .hero,:root[data-skin] .btn-primary,:root[data-skin] .menu-tile.accent{animation:none!important;}}
+:root[data-skin="galaxie"] body{background-image:radial-gradient(1.4px 1.4px at 8% 12%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 22% 34%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 35% 8%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 48% 22%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 61% 40%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 74% 15%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 88% 30%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 15% 58%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 30% 72%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 52% 64%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 68% 82%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 84% 70%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 93% 52%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 5% 86%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 42% 92%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1200px 600px at 100% -10%,var(--water-pale) 0%,transparent 60%);}
 /* Lesbarkeit in dunklen Farbthemen */
 :root[data-skin][data-theme="dark"] .btn-outline{color:var(--water-light);border-color:var(--water-light);}
 :root[data-skin][data-theme="dark"] .q-cat-tag,
@@ -246,11 +357,6 @@ input[type=number]{
 }
 .hero::before{content:var(--deco,"");position:absolute;right:76px;top:4px;font-size:58px;opacity:.17;pointer-events:none;line-height:1;z-index:0;}
 :root[data-skin] .hero>*{position:relative;z-index:1;}
-@keyframes goldshimmer{0%{background-position:150% 0}100%{background-position:-50% 0}}
-:root[data-skin="gold"] .topbar,:root[data-skin="gold"] .hero,:root[data-skin="gold"] .btn-primary,:root[data-skin="gold"] .menu-tile.accent{
-  background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#e3b84a 47%,#f1d27a 50%,#e3b84a 53%,var(--water) 68%,var(--water-deep) 100%);
-  background-size:260% 100%;animation:goldshimmer 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
-@media (prefers-reduced-motion: reduce){:root[data-skin="gold"] .topbar,:root[data-skin="gold"] .hero,:root[data-skin="gold"] .btn-primary,:root[data-skin="gold"] .menu-tile.accent{animation:none;}}
 .menu-tile.daily{background:linear-gradient(135deg,var(--gold),#f4c56a);color:#3a2a05;border:none;margin-bottom:14px;}
 .menu-tile.daily .sub{color:rgba(58,42,5,.82);}
 .skin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;}
@@ -289,6 +395,11 @@ input[type=number]{
 .gcard .gcount{right:6px;background:rgba(0,0,0,.68);color:#fff;}
 .gcard.locked{border-style:dashed;opacity:.8;box-shadow:none;}
 .gcard.locked .gimg{background:var(--sand-dark);font-size:28px;color:var(--ink-soft);}
+.gcard.dcard{cursor:pointer;}
+.gcard.dcard.active{box-shadow:0 0 0 3px var(--gold);}
+.dprev{font-size:30px;}
+.dprev.anim{background-size:200% 100%!important;animation:skinflow 8s linear infinite;}
+@media (prefers-reduced-motion: reduce){.dprev.anim{animation:none;}}
 .gx-overlay{position:fixed;inset:0;z-index:9999;background:rgba(6,20,26,.88);display:flex;overflow-y:auto;padding:18px;animation:gxfade .25s ease;}
 @keyframes gxfade{from{opacity:0}to{opacity:1}}
 .gx-box{margin:auto;width:100%;max-width:420px;}
@@ -560,7 +671,7 @@ function defaultState(){
     endlessTop: [],   // Endlos-Modus: Top 5 {score, ts}
     endlessRuns: 0,
     coins: 0, album: {}, pulls: 0,   // Fischalbum (Gacha)
-    skin: 'default', skins: {}, daily: {last:'', streak:0, claims:0}, ach: {},   // Shop, Tägliche Belohnung, Erfolge
+    skin: 'default', skins: {}, pity: 0, daily: {last:'', streak:0, claims:0}, ach: {},   // Design-Gacha, Tägliche Belohnung, Erfolge
     recentSession: [] // ring buffer of last shown ids (for cooldown), session-scoped but persisted loosely
   };
 }
@@ -596,6 +707,7 @@ function sanitizeState(raw){
   s.daily = {last: typeof dl.last==='string' ? dl.last : '', streak: Math.max(0, Math.floor(+dl.streak||0)), claims: Math.max(0, Math.floor(+dl.claims||0))};
   if(!s.ach || typeof s.ach!=='object' || Array.isArray(s.ach)) s.ach = {};
   Object.keys(s.ach).forEach(k=>{ if(s.ach[k]!==1 && s.ach[k]!==2) delete s.ach[k]; });
+  s.pity = (typeof s.pity==='number' && isFinite(s.pity)) ? Math.max(0, Math.floor(s.pity)) : 0;
   // Migration: Fragen, die schon aus "Falsche" entfernt waren (nicht gemeistert, aber nach dem letzten Fehler richtig), bleiben entfernt
   Object.keys(s.qstats).forEach(id=>{ const q=s.qstats[id]; if(q && typeof q==='object' && typeof q.fixed!=='boolean') q.fixed = !!(q.wrong>0 && !q.mastered && q.streak>0); });
   return s;
@@ -1000,14 +1112,12 @@ function renderHome(){
         <div><div class="lbl">Endlos-Modus</div><div class="sub">Bis zum ersten Fehler · Themen im Wechsel${endlessBest()?' · 🏆 Rekord: '+endlessBest():' · Top 5'}</div></div>
       </button>
       <button class="menu-tile accent wide" onclick="go('gacha')">
-        <div class="ico">🎴</div>
-        <div><div class="lbl">Fischalbum</div><div class="sub">🪙 ${STATE.coins||0} Münzen · ${gxOwned()}/${gxCards().length} Karten · Karten ziehen</div></div>
+        <div class="ico">🎰</div>
+        <div><div class="lbl">Design-Gacha</div><div class="sub">🪙 ${STATE.coins||0} Münzen · ${gxOwned()}/${gxPool().length} Designs · Farbdesigns ziehen</div></div>
       </button>
-      <button class="menu-tile" onclick="go('shop')">
-        <div class="ico">🛒</div><div class="lbl">Shop</div><div class="sub">Farbthemen · 🪙 ${STATE.coins||0}</div>
-      </button>
-      <button class="menu-tile" onclick="go('ach')">
-        <div class="ico">🏆</div><div class="lbl">Erfolge</div><div class="sub">${achSummary()}</div>
+      <button class="menu-tile accent wide" onclick="go('ach')">
+        <div class="ico">🏆</div>
+        <div><div class="lbl">Erfolge</div><div class="sub">${achSummary()}</div></div>
       </button>
       <button class="menu-tile" onclick="go('mistakes')">
         <div class="ico">❌</div><div class="lbl">Meine Fehler</div><div class="sub">${wrongCount} zu üben</div>
@@ -2899,46 +3009,43 @@ function renderEndlessResult(){
 }
 
 
-/* ======================= FISCHALBUM (Gacha) ======================= */
-// Münzen: jede verdiente XP gibt 1 Münze (addXP); ältere Spielstände bekamen einmalig 1 Münze pro 10 XP (sanitizeState).
-// Gezogen werden Fischkarten aus der Fischliste (Bilder sind schon in der App). XP und Level bleiben unberührt.
-const GX_COST1 = 50, GX_COST10 = 450;
+/* ======================= DESIGN-GACHA ======================= */
+// Farbdesigns gibt es nur über das Gacha (nicht einzeln kaufbar). Münzen: jede verdiente XP gibt 1 Münze (addXP);
+// ältere Spielstände bekamen einmalig 1 Münze pro 10 XP (sanitizeState). XP und Level bleiben unberührt.
+const SKINS = [{"id": "default", "name": "Standard", "emoji": "🎣", "rarity": "common", "dark": false, "anim": false, "prev": ["#0b3d4c", "#116477", "#1a8ba3"]}, {"id": "rot", "name": "Rot", "emoji": "❤️", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1815", "#832421", "#b1332f"]}, {"id": "orange", "name": "Orange", "emoji": "🧡", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b3115", "#834821", "#b1632f"]}, {"id": "senf", "name": "Senf", "emoji": "💛", "rarity": "common", "dark": false, "anim": false, "prev": ["#4e3e12", "#725b1d", "#9d7e2a"]}, {"id": "limette", "name": "Limette", "emoji": "🍏", "rarity": "common", "dark": false, "anim": false, "prev": ["#314c12", "#486f1c", "#659929"]}, {"id": "gruen", "name": "Grün", "emoji": "💚", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b2d", "#218341", "#2fb15b"]}, {"id": "minze", "name": "Minze", "emoji": "🌿", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b46", "#218365", "#2fb18a"]}, {"id": "tuerkis", "name": "Türkis", "emoji": "🐚", "rarity": "common", "dark": false, "anim": false, "prev": ["#15595b", "#217f83", "#2fadb1"]}, {"id": "himmel", "name": "Himmelblau", "emoji": "☁️", "rarity": "common", "dark": false, "anim": false, "prev": ["#15405b", "#215d83", "#2f7fb1"]}, {"id": "blau", "name": "Blau", "emoji": "💙", "rarity": "common", "dark": false, "anim": false, "prev": ["#15365b", "#214e83", "#2f6cb1"]}, {"id": "indigo", "name": "Indigo", "emoji": "🔷", "rarity": "common", "dark": false, "anim": false, "prev": ["#151a5b", "#212783", "#2f38b1"]}, {"id": "lila", "name": "Lila", "emoji": "💜", "rarity": "common", "dark": false, "anim": false, "prev": ["#36155b", "#4e2183", "#6c2fb1"]}, {"id": "magenta", "name": "Magenta", "emoji": "🔮", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b155b", "#832183", "#b12fb1"]}, {"id": "pink", "name": "Pink", "emoji": "💗", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1536", "#83214e", "#b12f6c"]}, {"id": "rose", "name": "Rosé", "emoji": "🌹", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1523", "#832134", "#b12f49"]}, {"id": "schoko", "name": "Schokolade", "emoji": "🍫", "rarity": "common", "dark": false, "anim": false, "prev": ["#472e20", "#68442f", "#8e5f43"]}, {"id": "schiefer", "name": "Schiefer", "emoji": "⛰️", "rarity": "common", "dark": false, "anim": false, "prev": ["#303840", "#47525c", "#62707f"]}, {"id": "sonne", "name": "Sonnenuntergang", "emoji": "🌅", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5b2a15", "#833e21", "#b1562f"]}, {"id": "eis", "name": "Eis", "emoji": "🧊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#154d5b", "#216f83", "#2f97b1"]}, {"id": "lavendel", "name": "Lavendel", "emoji": "🌷", "rarity": "rare", "dark": false, "anim": false, "prev": ["#341b50", "#602b73", "#9e3d9e"]}, {"id": "kirsch", "name": "Kirschblüte", "emoji": "🌸", "rarity": "rare", "dark": false, "anim": false, "prev": ["#57142d", "#7d2138", "#ab3041"]}, {"id": "ozean", "name": "Ozean", "emoji": "🌊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#133858", "#206c7e", "#2eada5"]}, {"id": "wald", "name": "Wald", "emoji": "🌲", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a4b34", "#2a6c2c", "#66943d"]}, {"id": "wueste", "name": "Wüste", "emoji": "🏜️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#522e19", "#775228", "#a28339"]}, {"id": "koralle", "name": "Koralle", "emoji": "🐠", "rarity": "rare", "dark": false, "anim": false, "prev": ["#591912", "#803a1e", "#af692c"]}, {"id": "pfirsich", "name": "Pfirsich", "emoji": "🍑", "rarity": "rare", "dark": false, "anim": false, "prev": ["#582313", "#7e4920", "#ad7f2e"]}, {"id": "beere", "name": "Beere", "emoji": "🍇", "rarity": "rare", "dark": false, "anim": false, "prev": ["#2e1952", "#712877", "#a2396e"]}, {"id": "herbst", "name": "Herbstlaub", "emoji": "🍂", "rarity": "rare", "dark": false, "anim": false, "prev": ["#581f13", "#7e4720", "#ad832e"]}, {"id": "winter", "name": "Winter", "emoji": "❄️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a3751", "#294675", "#3b53a0"]}, {"id": "sommer", "name": "Sommer", "emoji": "☀️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5c3d0f", "#854119", "#b63925"]}, {"id": "zitrone", "name": "Zitrone", "emoji": "🍋", "rarity": "rare", "dark": false, "anim": false, "prev": ["#4a420f", "#606c19", "#669726"]}, {"id": "axolotl", "name": "Axolotl", "emoji": "🩷", "rarity": "epic", "dark": false, "anim": false, "prev": ["#b83a7a", "#e8609f", "#ff8fc0"]}, {"id": "weihnacht", "name": "Weihnachten", "emoji": "🎄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7a1020", "#b3202f", "#2f8f4e"]}, {"id": "dino", "name": "Dino", "emoji": "🦖", "rarity": "epic", "dark": false, "anim": false, "prev": ["#2e5a1f", "#4f8f2e", "#e07a1f"]}, {"id": "einhorn", "name": "Einhorn", "emoji": "🦄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7b4fb8", "#b05ac8", "#ff7fb0"]}, {"id": "halloween", "name": "Halloween", "emoji": "🎃", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a0f2e", "#6a2fb0", "#ff7a1a"]}, {"id": "zombie", "name": "Zombie", "emoji": "🧟", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0e1a10", "#3f7a32", "#7cb342"]}, {"id": "neon", "name": "Neon", "emoji": "⚡", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0a0620", "#7a2bd0", "#ff2fa8"]}, {"id": "weltraum", "name": "Weltraum", "emoji": "🚀", "rarity": "epic", "dark": true, "anim": false, "prev": ["#050a1e", "#2b44b0", "#7a5cff"]}, {"id": "vampir", "name": "Vampir", "emoji": "🧛", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14060a", "#8f1638", "#e0314f"]}, {"id": "pirat", "name": "Pirat", "emoji": "☠️", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a1208", "#7a5420", "#d9a43a"]}, {"id": "matrix", "name": "Matrix", "emoji": "💻", "rarity": "epic", "dark": true, "anim": false, "prev": ["#02120a", "#0e6a32", "#19d65c"]}, {"id": "synthwave", "name": "Synthwave", "emoji": "🌆", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14052e", "#7a24c8", "#ff3fa4"]}, {"id": "gold", "name": "Gold-Schimmer", "emoji": "✨", "rarity": "legend", "dark": false, "anim": true, "prev": ["#5c3f05", "#8f6508", "#e3b84a", "#8f6508", "#5c3f05"]}, {"id": "silber", "name": "Silber-Schimmer", "emoji": "🥈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#2f3640", "#5a6472", "#d9e0ea", "#5a6472", "#2f3640"]}, {"id": "diamant", "name": "Diamant", "emoji": "💎", "rarity": "legend", "dark": false, "anim": true, "prev": ["#0b4f6c", "#1a8bb3", "#bdeeff", "#1a8bb3", "#0b4f6c"]}, {"id": "regenbogen", "name": "Regenbogen", "emoji": "🌈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#d62f2f", "#e8822a", "#b8921a", "#2e9e4f", "#1f9bb8", "#3d5fd1", "#8a43c4", "#d62f8a", "#d62f2f"]}, {"id": "aurora", "name": "Polarlicht", "emoji": "🌌", "rarity": "legend", "dark": true, "anim": true, "prev": ["#0b6b5a", "#14a37f", "#2fd4a0", "#4a6ee0", "#8a5cff", "#2fd4a0", "#0b6b5a"]}, {"id": "lava", "name": "Lava", "emoji": "🔥", "rarity": "legend", "dark": true, "anim": true, "prev": ["#7a1208", "#c2310f", "#f0701a", "#c2310f", "#7a1208"]}, {"id": "galaxie", "name": "Galaxie", "emoji": "🪐", "rarity": "legend", "dark": true, "anim": true, "prev": ["#1a1050", "#4a1fa0", "#8a2fd0", "#c040a0", "#4a1fa0", "#1a1050"]}, {"id": "tiefsee", "name": "Tiefsee", "emoji": "🐙", "rarity": "legend", "dark": true, "anim": true, "prev": ["#03202e", "#06506a", "#0f8fa8", "#06506a", "#03202e"]}];
+const GX_COST1 = 50, GX_COST10 = 450, GX_PITY = 60;
 const GX_TIERS = [
   {k:'common', name:'Gewöhnlich', w:50, dup:5},
-  {k:'rare',   name:'Selten',     w:32, dup:10},
-  {k:'epic',   name:'Episch',     w:14, dup:20},
-  {k:'legend', name:'Legendär',   w:4,  dup:40}
+  {k:'rare',   name:'Selten',     w:30, dup:10},
+  {k:'epic',   name:'Episch',     w:15, dup:20},
+  {k:'legend', name:'Legendär',   w:5,  dup:40}
 ];
-const GX_TIER_OF = {};
-(function(){
-  const set = (k, names)=>names.forEach(n=>{ GX_TIER_OF[n] = k; });
-  set('legend', ['Stör', 'Huchen', 'Lachs', 'Maifisch', 'Meerneunauge', 'Flussperlmuschel']);
-  set('epic', ['Wels', 'Äsche', 'Nase', 'Zährte', 'Strömer', 'Schneider', 'Bitterling', 'Edelkrebs', 'Meerforelle', 'Seeforelle', 'Seesaibling', 'Bachneunauge', 'Flussneunauge', 'Schlammpeitzger']);
-  set('rare', ['Aal', 'Barbe', 'Zander', 'Quappe (Trüsche, Rutte)', 'Rapfen (Schied)', 'Schleie', 'Karausche', 'Steinbeißer', 'Groppe', 'Felchen', 'Coregonen', 'Kleine Maräne', 'Zwergwels', 'Wolgazander', 'Stint', 'Dorsch', 'Flunder', 'Hering', 'Hornhecht', 'Köhler', 'Makrele', 'Scholle', 'Sprotte', 'Wittling']);
-})();
-function gxTier(f){ const k = GX_TIER_OF[f.name] || 'common'; return GX_TIERS.find(t=>t.k===k); }
-function gxCards(){ return FISH.filter(f=>f.img && IMAGES[f.img]); }
-function gxOwned(){ const a = STATE.album || {}; return gxCards().filter(f=>a[f.name]>0).length; }
+function skinById(id){ return SKINS.find(s=>s.id===id) || SKINS[0]; }
+function skinOwned(id){ return id==='default' || !!(STATE.skins && STATE.skins[id]); }
+function gxTierOf(sk){ return GX_TIERS.find(t=>t.k===sk.rarity) || GX_TIERS[0]; }
+function gxPool(){ return SKINS.filter(s=>s.id!=='default'); }
+function gxOwned(){ return gxPool().filter(s=>skinOwned(s.id)).length; }
 
-function gxPickTier(minRare){
+function gxPickTier(minRare, force){
+  if(force==='legend') return GX_TIERS[3];
   const pool = minRare ? GX_TIERS.filter(t=>t.k!=='common') : GX_TIERS;
   let r = Math.random() * pool.reduce((a,t)=>a+t.w, 0);
   for(const t of pool){ r -= t.w; if(r<0) return t; }
   return pool[pool.length-1];
 }
 function gxPullOne(minRare){
-  const cards = gxCards();
-  const tier = gxPickTier(minRare);
-  let list = cards.filter(f=>gxTier(f).k===tier.k);
-  if(!list.length) list = cards;   // Sicherheitsnetz
-  const f = list[Math.floor(Math.random()*list.length)];
-  const t = gxTier(f);
-  if(!STATE.album) STATE.album = {};
-  const have = STATE.album[f.name] || 0;
-  STATE.album[f.name] = have + 1;
-  const refund = have>0 ? t.dup : 0;       // doppelte Karte -> Münzen zurück
+  const force = (STATE.pity||0) >= GX_PITY-1 ? 'legend' : null;   // spätestens die 60. Ziehung ohne Legendär ist legendär
+  const tier = gxPickTier(minRare, force);
+  let list = gxPool().filter(s=>s.rarity===tier.k);
+  if(!list.length) list = gxPool();
+  const sk = list[Math.floor(Math.random()*list.length)];
+  const t = gxTierOf(sk), had = skinOwned(sk.id);
+  if(!STATE.skins) STATE.skins = {};
+  if(!had) STATE.skins[sk.id] = true;
+  const refund = had ? t.dup : 0;            // doppeltes Design -> Münzen zurück
   if(refund) STATE.coins = (STATE.coins||0) + refund;
-  return {f, tier:t, isNew: have===0, refund};
+  STATE.pity = t.k==='legend' ? 0 : (STATE.pity||0) + 1;
+  return {sk, tier:t, isNew:!had, refund};
 }
 function gxDraw(n){
   const cost = n===10 ? GX_COST10 : GX_COST1;
@@ -2946,40 +3053,48 @@ function gxDraw(n){
   STATE.coins -= cost;
   STATE.pulls = (STATE.pulls||0) + n;
   const res = [];
-  for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common')));  // 10er: mind. 1x Selten+
+  for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common')));  // 10er: mind. 1x Selten oder besser
   saveState();
   if(ROUTE.screen==='gacha') render();
   gxReveal(res, n);
 }
 
-function gxCardHtml(f, o){
+function gxPrev(sk){
+  const c = sk.prev;
+  return sk.anim ? 'linear-gradient(90deg,'+c.join(',')+')' : 'linear-gradient(135deg,'+c[0]+','+c[1]+' 55%,'+c[2]+')';
+}
+function dcardHtml(sk, o){
   o = o || {};
-  const t = gxTier(f), cnt = (STATE.album||{})[f.name] || 0;
-  return '<div class="gcard r-'+t.k+'"'+(o.delay?' style="animation-delay:'+o.delay+'s"':'')+(o.click?' onclick="'+o.click+'"':'')+'>'
-    + '<div class="gimg"><img alt="" src="data:image/jpeg;base64,'+IMAGES[f.img]+'"></div>'
-    + '<div class="gname">'+esc(f.name)+'</div><div class="gtier">'+t.name+'</div>'
+  const t = gxTierOf(sk), active = skinById(STATE.skin).id===sk.id;
+  return '<div class="gcard dcard r-'+t.k+(active&&o.showActive?' active':'')+'"'+(o.delay?' style="animation-delay:'+o.delay+'s"':'')+(o.click?' onclick="'+o.click+'"':'')+'>'
+    + '<div class="gimg dprev'+(sk.anim?' anim':'')+'" style="background:'+gxPrev(sk)+';">'+sk.emoji+'</div>'
+    + '<div class="gname">'+esc(sk.name)+'</div><div class="gtier">'+(sk.id==='default'?'Standard':t.name)+(sk.dark?' · 🌙':'')+'</div>'
     + (o.isNew ? '<span class="gnew">NEU</span>' : '')
-    + (o.count && cnt>1 ? '<span class="gcount">×'+cnt+'</span>' : '')
+    + (o.showActive && active ? '<span class="gcount">✓ Aktiv</span>' : '')
     + '</div>';
 }
 function gxClose(){ const o = document.getElementById('gxOv'); if(o) o.remove(); }
 function gxAgain(n){ gxClose(); gxDraw(n); }
-function gxOpen(i){ gxClose(); go('fishDetail', {fish: FISH[i].name}); }
+function skinEquip(id){
+  if(!skinOwned(id)) return;
+  STATE.skin = id; saveState(); applyTheme(); render();
+}
 function gxReveal(res, n){
   gxClose();
   const coins = STATE.coins || 0;
   const nw = res.filter(r=>r.isNew).length, back = res.reduce((a,r)=>a+r.refund, 0);
   const best = res.reduce((b,r)=>GX_TIERS.indexOf(r.tier)>GX_TIERS.indexOf(b) ? r.tier : b, GX_TIERS[0]);
-  const titles = {common:'Neuer Fang', rare:'💙 Selten!', epic:'💜 Episch!', legend:'✨ Legendär! ✨'};
+  const titles = {common:'Neues Design', rare:'💙 Selten!', epic:'💜 Episch!', legend:'✨ Legendär! ✨'};
   let body;
   if(n===1){
     const r = res[0];
-    body = '<div class="gx-title">'+titles[r.tier.k]+'</div><div class="gx-single">'+gxCardHtml(r.f,{isNew:r.isNew})+'</div>'
-      + '<div class="gx-sum">'+(r.isNew ? 'Neu im Album!' : 'Doppelt – +'+r.refund+' 🪙 zurück')+'</div>';
+    body = '<div class="gx-title">'+titles[r.tier.k]+'</div><div class="gx-single">'+dcardHtml(r.sk,{isNew:r.isNew})+'</div>'
+      + '<div class="gx-sum">'+(r.isNew ? 'Neu freigeschaltet!' : 'Doppelt – +'+r.refund+' 🪙 zurück')+'</div>'
+      + (r.isNew ? '<div class="gx-btns" style="margin-bottom:10px;"><button class="btn btn-primary" onclick="skinEquip(\''+r.sk.id+'\');gxClose()">🎨 Jetzt aktivieren</button></div>' : '');
   } else {
-    body = '<div class="gx-title">10 Fänge'+(best.k!=='common' ? ' – bester: '+best.name : '')+'</div>'
-      + '<div class="gx-multi">'+res.map((r,i)=>gxCardHtml(r.f,{isNew:r.isNew, delay:(i*0.12).toFixed(2)})).join('')+'</div>'
-      + '<div class="gx-sum">'+nw+' neu'+(back ? ' · doppelte Karten: +'+back+' 🪙 zurück' : '')+'</div>';
+    body = '<div class="gx-title">10 Ziehungen'+(best.k!=='common' ? ' – bestes: '+best.name : '')+'</div>'
+      + '<div class="gx-multi">'+res.map((r,i)=>dcardHtml(r.sk,{isNew:r.isNew, delay:(i*0.12).toFixed(2)})).join('')+'</div>'
+      + '<div class="gx-sum">'+nw+' neu'+(back ? ' · doppelte Designs: +'+back+' 🪙 zurück' : '')+'</div>';
   }
   body += '<div class="gx-sum">🪙 '+coins+' Münzen übrig</div><div class="gx-btns">'
     + '<button class="btn btn-gold" '+(coins<GX_COST1?'disabled':'')+' onclick="gxAgain(1)">1× ziehen · '+GX_COST1+' 🪙</button>'
@@ -2992,43 +3107,43 @@ function gxReveal(res, n){
 }
 
 function renderGacha(){
-  const cards = gxCards(), coins = STATE.coins || 0, owned = gxOwned(), a = STATE.album || {};
-  const rank = f=>GX_TIERS.indexOf(gxTier(f));
-  const sorted = cards.slice().sort((x,y)=>rank(y)-rank(x) || x.name.localeCompare(y.name,'de'));
+  const pool = gxPool(), coins = STATE.coins || 0, owned = gxOwned(), di = dailyInfo();
+  const rank = s=>GX_TIERS.indexOf(gxTierOf(s));
+  const byRank = (x,y)=>rank(y)-rank(x) || x.name.localeCompare(y.name,'de');
+  const sorted = pool.filter(s=>skinOwned(s.id)).sort(byRank).concat(pool.filter(s=>!skinOwned(s.id)).sort(byRank));   // freigeschaltete zuerst
   const chips = GX_TIERS.slice().reverse().map(t=>{
-    const all = cards.filter(f=>gxTier(f).k===t.k), have = all.filter(f=>a[f.name]>0).length;
+    const all = pool.filter(s=>s.rarity===t.k), have = all.filter(s=>skinOwned(s.id)).length;
     return '<span class="gx-chip r-'+t.k+'">'+t.name+' '+have+'/'+all.length+'</span>';
   }).join('');
-  const grid = sorted.map(f=>{
-    const t = gxTier(f);
-    if(a[f.name]>0) return gxCardHtml(f, {count:true, click:'gxOpen('+FISH.indexOf(f)+')'});
-    return '<div class="gcard locked r-'+t.k+'"><div class="gimg">❓</div><div class="gname">???</div><div class="gtier">'+t.name+'</div></div>';
-  }).join('');
-  return `${topbar('🎴 Fischalbum')}
+  const cell = s=>skinOwned(s.id)
+    ? dcardHtml(s, {click:"skinEquip('"+s.id+"')", showActive:true})
+    : '<div class="gcard locked r-'+s.rarity+'"><div class="gimg">❓</div><div class="gname">???</div><div class="gtier">'+gxTierOf(s).name+'</div></div>';
+  const grid = dcardHtml(SKINS[0], {click:"skinEquip('default')", showActive:true}) + sorted.map(cell).join('');
+  const daily = di.claimed
+    ? '<div style="font-size:13px;color:var(--ink-soft);margin-top:12px;">🎁 Tägliche Belohnung heute abgeholt · Serie '+di.streak+' Tag'+(di.streak==1?'':'e')+' · morgen +'+DAILY_REW[di.streak%7]+' 🪙</div>'
+    : '<button class="btn btn-gold" style="margin-top:12px;" onclick="dailyClaim()">🎁 Tägliche Belohnung · +'+di.reward+' 🪙</button>';
+  return `${topbar('🎰 Design-Gacha')}
   <div class="content">
     <div class="card">
       <div class="gx-wallet">
         <div><div class="gx-coins">🪙 ${coins}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Münzen</div></div>
-        <div style="text-align:right;"><div style="font-size:22px;font-weight:800;">${owned}/${cards.length}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Karten gesammelt</div></div>
+        <div style="text-align:right;"><div style="font-size:22px;font-weight:800;">${owned}/${pool.length}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Designs gesammelt</div></div>
       </div>
-      <div class="bar-track" style="margin-top:12px;"><div class="bar-fill" style="width:${cards.length?Math.max(2,owned/cards.length*100):0}%;background:var(--success);"></div></div>
+      <div class="bar-track" style="margin-top:12px;"><div class="bar-fill" style="width:${pool.length?Math.max(2,owned/pool.length*100):0}%;background:var(--success);"></div></div>
       <div class="gx-actions">
         <button class="btn btn-gold" ${coins<GX_COST1?'disabled':''} onclick="gxDraw(1)">1× ziehen<br><small>${GX_COST1} 🪙</small></button>
         <button class="btn btn-gold" ${coins<GX_COST10?'disabled':''} onclick="gxDraw(10)">10× ziehen<br><small>${GX_COST10} 🪙</small></button>
       </div>
-      <p style="font-size:12px;color:var(--ink-soft);margin:6px 0 0;">Jede verdiente XP gibt dir 1 Münze (XP und Level bleiben unberührt). Für die XP, die du schon hattest, gab es einmalig 1 Münze pro 10 XP. Doppelte Karten geben Münzen zurück. Beim 10×-Ziehen ist mindestens eine Karte „Selten“ oder besser dabei.</p>
+      ${daily}
+      <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;line-height:1.5;">Hier ziehst du Farbdesigns für die ganze App – sie sind nur über das Gacha zu bekommen. Tippe ein freigeschaltetes Design an, um es zu aktivieren. Jede verdiente XP gibt dir 1 Münze (XP und Level bleiben unberührt). Doppelte Designs geben Münzen zurück. Beim 10×-Ziehen ist mindestens ein „Selten“ oder besser dabei. Spätestens die ${GX_PITY}. Ziehung ohne Legendär ist legendär (aktuell ${STATE.pity||0}/${GX_PITY}).</p>
     </div>
     <div style="margin:4px 0 12px;">${chips}</div>
     <div class="gx-grid">${grid}</div>
   </div>`;
 }
+function renderShop(){ return renderGacha(); }   // alter Shop-Link: Designs gibt es nur noch im Gacha
 
-
-/* ======================= TÄGLICHE BELOHNUNG, ERFOLGE, SHOP ======================= */
-const SKINS = [{"id": "default", "name": "Standard", "emoji": "🎣", "price": 0, "dark": false, "prev": ["#0b3d4c", "#116477", "#1a8ba3"]}, {"id": "rot", "name": "Rot", "emoji": "❤️", "price": 150, "dark": false, "prev": ["#5b1815", "#832421", "#b1332f"]}, {"id": "blau", "name": "Blau", "emoji": "💙", "price": 150, "dark": false, "prev": ["#15365b", "#214e83", "#2f6cb1"]}, {"id": "gruen", "name": "Grün", "emoji": "💚", "price": 150, "dark": false, "prev": ["#155b2d", "#218341", "#2fb15b"]}, {"id": "lila", "name": "Lila", "emoji": "💜", "price": 150, "dark": false, "prev": ["#36155b", "#4e2183", "#6c2fb1"]}, {"id": "sonne", "name": "Sonnenuntergang", "emoji": "🌅", "price": 200, "dark": false, "prev": ["#5b2a15", "#833e21", "#b1562f"]}, {"id": "eis", "name": "Eis", "emoji": "🧊", "price": 200, "dark": false, "prev": ["#154d5b", "#216f83", "#2f97b1"]}, {"id": "axolotl", "name": "Axolotl", "emoji": "🩷", "price": 300, "dark": false, "prev": ["#b83a7a", "#e8609f", "#ff8fc0"]}, {"id": "gold", "name": "Gold-Schimmer", "emoji": "✨", "price": 500, "dark": false, "prev": ["#5c3f05", "#8f6508", "#b88a12"]}, {"id": "halloween", "name": "Halloween", "emoji": "🎃", "price": 300, "dark": true, "prev": ["#1a0f2e", "#6a2fb0", "#ff7a1a"]}, {"id": "zombie", "name": "Zombie", "emoji": "🧟", "price": 300, "dark": true, "prev": ["#0e1a10", "#3f7a32", "#7cb342"]}, {"id": "neon", "name": "Neon", "emoji": "⚡", "price": 350, "dark": true, "prev": ["#0a0620", "#7a2bd0", "#ff2fa8"]}];
-function skinById(id){ return SKINS.find(s=>s.id===id) || SKINS[0]; }
-function skinOwned(id){ return id==='default' || !!(STATE.skins && STATE.skins[id]); }
-
+/* ======================= TÄGLICHE BELOHNUNG, ERFOLGE ======================= */
 // ---- Tägliche Belohnung: einmal pro Kalendertag, Serie steigert die Belohnung (Tag 7 = 150)
 const DAILY_REW = [30,40,50,60,70,80,150];
 function gxYmd(d){ d = d || new Date(); return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0'); }
@@ -3059,8 +3174,7 @@ function achMetrics(){
   let correct=0, fixed=0;
   Object.keys(STATE.qstats||{}).forEach(id=>{ const s=STATE.qstats[id]; correct += s.correct||0; if(s.fixed) fixed++; });
   const eh = STATE.examHistory || [];
-  const album = STATE.album || {};
-  const cards = gxCards();
+  const own = r=>SKINS.filter(s=>s.rarity===r && s.id!=='default' && skinOwned(s.id)).length;
   return {
     correct, fixed,
     mastered: overallStats().mastered,
@@ -3069,15 +3183,13 @@ function achMetrics(){
     exBest: eh.reduce((m,e)=>Math.max(m, e.score||0), 0),
     days: STATE.dayStreak||0,
     endless: endlessBest(),
-    owned: gxOwned(),
-    legend: cards.filter(f=>gxTier(f).k==='legend' && album[f.name]>0).length,
+    designs: gxOwned(), epic: own('epic'), legend: own('legend'),
     pulls: STATE.pulls||0,
     daily: (STATE.daily&&STATE.daily.claims)||0,
-    skins: Object.keys(STATE.skins||{}).length,
     fish: fishMastered()
   };
 }
-const ACH_GROUPS = ['Lernen','Gemeistert','Prüfung','Serien','Endlos','Fischalbum','Fischkarten lernen','Shop & Belohnung'];
+const ACH_GROUPS = ['Lernen','Gemeistert','Prüfung','Serien','Endlos','Designs','Fischkarten lernen','Belohnungen'];
 // [id, Gruppe, Icon, Name, Beschreibung, Ziel, Münzen, Messwert]
 const ACH = [
   ['r10','Lernen','✅','Aufwärmen','10 Fragen richtig beantwortet',10,20,M=>M.correct],
@@ -3105,20 +3217,20 @@ const ACH = [
   ['e25','Endlos','♾️','Endlos-Könner','Endlos-Modus: 25 richtig in Folge',25,100,M=>M.endless],
   ['e50','Endlos','♾️','Endlos-Profi','Endlos-Modus: 50 richtig in Folge',50,200,M=>M.endless],
   ['e100','Endlos','♾️','Endlos-Legende','Endlos-Modus: 100 richtig in Folge',100,400,M=>M.endless],
-  ['a10','Fischalbum','🎴','Sammler','10 Fischkarten gesammelt',10,50,M=>M.owned],
-  ['a25','Fischalbum','🎴','Eifriger Sammler','25 Fischkarten gesammelt',25,100,M=>M.owned],
-  ['a50','Fischalbum','🎴','Großsammler','50 Fischkarten gesammelt',50,200,M=>M.owned],
-  ['aall','Fischalbum','🏆','Komplettes Album','Alle Fischkarten gesammelt',gxCards().length,500,M=>M.owned],
-  ['lg1','Fischalbum','✨','Glückspilz','Eine legendäre Karte gezogen',1,100,M=>M.legend],
-  ['p10','Fischalbum','🎣','Erste Fänge','10 Karten gezogen',10,30,M=>M.pulls],
-  ['p50','Fischalbum','🎣','Angelfreund','50 Karten gezogen',50,80,M=>M.pulls],
+  ['dz5','Designs','🎨','Neuer Look','5 Designs freigeschaltet',5,60,M=>M.designs],
+  ['dz15','Designs','🎨','Stilsicher','15 Designs freigeschaltet',15,150,M=>M.designs],
+  ['dz30','Designs','🎨','Designsammler','30 Designs freigeschaltet',30,300,M=>M.designs],
+  ['dzall','Designs','🏆','Alle Designs','Alle '+gxPool().length+' Designs freigeschaltet',gxPool().length,800,M=>M.designs],
+  ['dzep','Designs','💜','Episches Design','Ein episches Design gezogen',1,60,M=>M.epic],
+  ['dzlg','Designs','✨','Glückspilz','Ein legendäres Design gezogen',1,100,M=>M.legend],
+  ['dzlg4','Designs','🌈','Legendensammler','4 legendäre Designs freigeschaltet',4,300,M=>M.legend],
+  ['p10','Designs','🎰','Erste Ziehungen','10 Ziehungen',10,30,M=>M.pulls],
+  ['p50','Designs','🎰','Gacha-Fan','50 Ziehungen',50,80,M=>M.pulls],
+  ['p100','Designs','🎰','Gacha-Profi','100 Ziehungen',100,150,M=>M.pulls],
   ['fm10','Fischkarten lernen','🐟','Artenkenner','10 Arten in der Fischbestimmung gemeistert',10,60,M=>M.fish],
   ['fm34','Fischkarten lernen','🐟','Fischkundiger','Alle '+FISH.filter(f=>!f.extra).length+' Prüfungsarten in der Fischbestimmung gemeistert',FISH.filter(f=>!f.extra).length,200,M=>M.fish],
-  ['dr7','Shop & Belohnung','🎁','Stammgast','Tägliche Belohnung 7× abgeholt',7,70,M=>M.daily],
-  ['dr30','Shop & Belohnung','🎁','Treuer Angler','Tägliche Belohnung 30× abgeholt',30,300,M=>M.daily],
-  ['sk1','Shop & Belohnung','🎨','Neuer Look','Erstes Farbthema gekauft',1,40,M=>M.skins],
-  ['sk4','Shop & Belohnung','🎨','Stilsicher','4 Farbthemen gekauft',4,100,M=>M.skins],
-  ['skall','Shop & Belohnung','🎨','Modeikone','Alle Farbthemen gekauft',SKINS.length-1,300,M=>M.skins]
+  ['dr7','Belohnungen','🎁','Stammgast','Tägliche Belohnung 7× abgeholt',7,70,M=>M.daily],
+  ['dr30','Belohnungen','🎁','Treuer Angler','Tägliche Belohnung 30× abgeholt',30,300,M=>M.daily]
 ]);
 // Status je Erfolg: 0 = offen, 1 = erreicht (abholbar), 2 = abgeholt. Einmal erreicht bleibt erreicht.
 function achSync(){
@@ -3171,46 +3283,6 @@ function renderAch(){
       ${ready.length ? `<button class="btn btn-gold" style="margin-top:12px;" onclick="achClaimAll()">🎁 Alle abholen · ${ready.length} Erfolge · +${sum} 🪙</button>` : ''}
     </div>
     ${groups}
-  </div>`;
-}
-
-// ---- Shop: Farbthemen für Münzen
-function skinBuy(id){
-  const sk = skinById(id);
-  if(sk.id==='default' || skinOwned(id)) return;
-  if((STATE.coins||0) < sk.price){ toast('Nicht genug Münzen – es fehlen '+(sk.price-(STATE.coins||0))+' 🪙'); return; }
-  appConfirm(sk.emoji+' „'+sk.name+'“ für '+sk.price+' 🪙 kaufen?', ()=>{
-    STATE.coins -= sk.price; STATE.skins[id] = true; STATE.skin = id;
-    saveState(); applyTheme(); toast(sk.emoji+' '+sk.name+' ist jetzt aktiv'); render();
-  }, 'Kaufen');
-}
-function skinEquip(id){
-  if(!skinOwned(id)) return;
-  STATE.skin = id; saveState(); applyTheme(); render();
-}
-function renderShop(){
-  const coins = STATE.coins || 0, di = dailyInfo();
-  const daily = di.claimed
-    ? '<div style="font-size:13px;color:var(--ink-soft);margin-top:12px;">🎁 Tägliche Belohnung heute abgeholt · Serie '+di.streak+' Tag'+(di.streak==1?'':'e')+' · morgen +'+DAILY_REW[di.streak%7]+' 🪙</div>'
-    : '<button class="btn btn-gold" style="margin-top:12px;" onclick="dailyClaim()">🎁 Tägliche Belohnung · +'+di.reward+' 🪙</button>';
-  const cards = SKINS.map(sk=>{
-    const owned = skinOwned(sk.id), active = skinById(STATE.skin).id===sk.id;
-    const btn = active ? '<button class="btn btn-outline btn-sm" disabled>✓ Aktiv</button>'
-      : owned ? '<button class="btn btn-primary btn-sm" onclick="skinEquip(\''+sk.id+'\')">Aktivieren</button>'
-      : '<button class="btn btn-gold btn-sm" '+(coins<sk.price?'disabled':'')+' onclick="skinBuy(\''+sk.id+'\')">'+sk.price+' 🪙</button>';
-    return '<div class="skin-card'+(active?' active':'')+'"><div class="skin-prev" style="background:linear-gradient(135deg,'+sk.prev[0]+','+sk.prev[1]+' 55%,'+sk.prev[2]+');">'+sk.emoji+'</div>'
-      + '<div class="skin-name">'+esc(sk.name)+'</div><div class="skin-note">'+(sk.dark?'🌙 immer dunkel':sk.id==='gold'?'mit Schimmer':'')+'</div>'+btn+'</div>';
-  }).join('');
-  return `${topbar('🛒 Shop')}
-  <div class="content">
-    <div class="card">
-      <div class="gx-wallet"><div><div class="gx-coins">🪙 ${coins}</div><div style="font-size:12.5px;color:var(--ink-soft);margin-top:4px;">Münzen</div></div>
-        <div style="text-align:right;"><button class="btn btn-outline btn-sm" onclick="go('gacha')">🎴 Fischalbum</button></div></div>
-      ${daily}
-      <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;">Münzen gibt es für jede verdiente XP, für die tägliche Belohnung und für Erfolge.</p>
-    </div>
-    <div class="section-label">🎨 Farbthemen</div>
-    <div class="skin-grid">${cards}</div>
   </div>`;
 }
 
