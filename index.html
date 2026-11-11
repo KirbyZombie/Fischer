@@ -375,6 +375,85 @@ input[type=number]{
 .ach-desc{font-size:12px;color:var(--ink-soft);margin:2px 0 6px;}
 .ach-prog{font-size:11px;color:var(--ink-soft);margin-top:3px;}
 .ach-side{flex:none;text-align:center;font-size:12px;font-weight:700;min-width:74px;}
+/* ===== Gacha-Animation: Angel-Kapsel-Automat ===== */
+.gx-overlay.gx-machine{background:radial-gradient(circle at 50% 38%,rgba(255,255,255,.10),transparent 58%),rgba(6,20,26,.94);}
+.gx-overlay.gx-preview{background:rgba(6,20,26,.55);backdrop-filter:blur(1.5px);-webkit-backdrop-filter:blur(1.5px);}
+.gx-ctls{position:fixed;top:10px;left:10px;right:10px;display:flex;gap:8px;z-index:6;pointer-events:none;}
+.gx-ctls .gx-ctl{pointer-events:auto;border:none;border-radius:999px;background:rgba(255,255,255,.16);color:#fff;font-weight:700;font-size:15px;padding:8px 12px;cursor:pointer;}
+.gx-ctls .gx-sp{flex:1;}
+.gx-stage{display:flex;justify-content:center;padding-top:36px;}
+.gx-cap{color:#fff;text-align:center;font-weight:800;font-size:16px;min-height:26px;margin-top:12px;letter-spacing:.02em;}
+.gx-cap.hint{animation:gxpulse 1s ease-in-out infinite;}
+@keyframes gxpulse{50%{transform:scale(1.08);opacity:.7}}
+.gxm{--u:min(10px,2.8vw);position:relative;width:calc(var(--u)*30);height:calc(var(--u)*44);}
+.gxm-globe{position:absolute;left:calc(var(--u)*3);top:0;width:calc(var(--u)*24);height:calc(var(--u)*24);border-radius:50%;overflow:hidden;z-index:2;
+  background:radial-gradient(circle at 34% 26%,rgba(255,255,255,.28),rgba(255,255,255,.06) 45%,rgba(140,200,220,.16) 100%);
+  border:calc(var(--u)*.5) solid rgba(255,255,255,.5);box-shadow:inset 0 0 calc(var(--u)*3) rgba(255,255,255,.2),0 0 calc(var(--u)*4) rgba(0,0,0,.45);}
+.gxm-shine{position:absolute;left:14%;top:9%;width:30%;height:16%;border-radius:50%;background:linear-gradient(160deg,rgba(255,255,255,.55),transparent);transform:rotate(-30deg);pointer-events:none;}
+.gxm-cap{position:absolute;width:calc(var(--u)*5);height:calc(var(--u)*5);border-radius:50%;background:linear-gradient(180deg,var(--c) 0 50%,#f1f5f7 50% 100%);
+  box-shadow:inset calc(var(--u)*-.5) calc(var(--u)*-.5) calc(var(--u)*.8) rgba(0,0,0,.22),inset calc(var(--u)*.4) calc(var(--u)*.4) calc(var(--u)*.6) rgba(255,255,255,.5);}
+.gxm.cranking .gxm-cap{animation:gxtumble var(--d,.7s) ease-in-out infinite;}
+@keyframes gxtumble{0%{transform:translate(0,0) rotate(0)}25%{transform:translate(var(--tx),var(--ty)) rotate(90deg)}50%{transform:translate(calc(var(--tx)*-1),calc(var(--ty)*-1.3)) rotate(180deg)}75%{transform:translate(calc(var(--tx)*.6),calc(var(--ty)*.8)) rotate(270deg)}100%{transform:translate(0,0) rotate(360deg)}}
+.gxm-cap.win.go{animation:gxwin .5s ease-in forwards!important;}
+@keyframes gxwin{0%{transform:translate(0,0)}100%{transform:translate(calc(var(--u)*-3.5),calc(var(--u)*9))}}
+.gxm-body{position:absolute;left:calc(var(--u)*1);top:calc(var(--u)*22);width:calc(var(--u)*28);height:calc(var(--u)*20);border-radius:calc(var(--u)*3.5) calc(var(--u)*3.5) calc(var(--u)*2) calc(var(--u)*2);
+  background:linear-gradient(180deg,#e5483f,#b32a37);box-shadow:inset 0 calc(var(--u)*.5) 0 rgba(255,255,255,.28),0 calc(var(--u)*1.2) calc(var(--u)*2.5) rgba(0,0,0,.5);z-index:1;transition:box-shadow .3s;}
+.gxm.glow .gxm-body{box-shadow:inset 0 calc(var(--u)*.5) 0 rgba(255,255,255,.28),0 0 calc(var(--u)*5) var(--rc),0 calc(var(--u)*1.2) calc(var(--u)*2.5) rgba(0,0,0,.5);}
+.gxm-plate{position:absolute;left:50%;top:calc(var(--u)*1.6);transform:translateX(-50%);padding:calc(var(--u)*.5) calc(var(--u)*1.6);background:#fff3d6;border-radius:calc(var(--u)*1);font-weight:800;font-size:calc(var(--u)*1.7);color:#7a1d1d;white-space:nowrap;box-shadow:0 calc(var(--u)*.3) 0 rgba(0,0,0,.25);}
+.gxm-crank{position:absolute;left:calc(var(--u)*3);top:calc(var(--u)*6.5);width:calc(var(--u)*10);height:calc(var(--u)*10);border-radius:50%;
+  background:radial-gradient(circle at 35% 30%,#ffeeb0,#e0b24a 55%,#9a7016);box-shadow:0 calc(var(--u)*.5) calc(var(--u)*1) rgba(0,0,0,.4),inset 0 0 0 calc(var(--u)*.5) rgba(120,80,10,.45);}
+.gxm-crank i{position:absolute;left:50%;top:12%;width:calc(var(--u)*.7);height:76%;margin-left:calc(var(--u)*-.35);background:rgba(120,80,10,.55);border-radius:calc(var(--u)*.4);}
+.gxm-crank i:nth-child(2){transform:rotate(60deg);}.gxm-crank i:nth-child(3){transform:rotate(120deg);}
+.gxm-handle{position:absolute;left:50%;top:-6%;width:calc(var(--u)*2.8);height:calc(var(--u)*2.8);margin-left:calc(var(--u)*-1.4);border-radius:50%;background:radial-gradient(circle at 35% 30%,#ff8a7a,#a8231f);box-shadow:0 calc(var(--u)*.4) calc(var(--u)*.6) rgba(0,0,0,.45);}
+.gxm-crank.spin{animation:gxcrank 1.9s cubic-bezier(.45,.05,.4,1) forwards;}
+.gxm-crank.spin.long{animation-duration:2.7s;}
+@keyframes gxcrank{to{transform:rotate(780deg)}}
+.gxm-chute{position:absolute;left:calc(var(--u)*14.8);top:calc(var(--u)*10.5);width:calc(var(--u)*10);height:calc(var(--u)*7.5);border-radius:calc(var(--u)*1.3);background:#240d10;box-shadow:inset 0 calc(var(--u)*.8) calc(var(--u)*1.4) rgba(0,0,0,.8),0 0 0 calc(var(--u)*.5) rgba(255,255,255,.18);}
+.gxm-base{position:absolute;left:0;top:calc(var(--u)*41);width:100%;height:calc(var(--u)*3);border-radius:calc(var(--u)*1);background:linear-gradient(180deg,#7a1d28,#4b0f18);box-shadow:0 calc(var(--u)*.8) calc(var(--u)*1.6) rgba(0,0,0,.5);z-index:1;}
+.gxm-prize{position:absolute;left:calc(var(--u)*18.3);top:calc(var(--u)*34);width:calc(var(--u)*5);height:calc(var(--u)*5);z-index:6;opacity:0;--wob:6deg;transition:transform .75s cubic-bezier(.2,.9,.3,1.15),opacity .2s;}
+.gxm-prize.show{opacity:1;}
+.gxm-prize.ready{cursor:pointer;}
+.gxm-prize.roll{transform:translate(calc(var(--u)*-5.8),calc(var(--u)*-17.5)) scale(3.2);}
+.gxp{position:absolute;inset:0;filter:drop-shadow(0 0 calc(var(--u)*.9) var(--rc));}
+.gxp-top,.gxp-bot{position:absolute;left:0;width:100%;height:50%;}
+.gxp-top{top:0;border-radius:calc(var(--u)*2.5) calc(var(--u)*2.5) 0 0;background:radial-gradient(circle at 35% 55%,rgba(255,255,255,.55),transparent 42%),var(--rc);box-shadow:inset 0 calc(var(--u)*-.35) calc(var(--u)*.5) rgba(0,0,0,.25);}
+.gxp-bot{bottom:0;border-radius:0 0 calc(var(--u)*2.5) calc(var(--u)*2.5);background:radial-gradient(circle at 35% 30%,#fff,#dbe4ea);box-shadow:inset 0 calc(var(--u)*.35) calc(var(--u)*.5) rgba(0,0,0,.12);}
+.gxp-core{position:absolute;left:50%;top:50%;width:calc(var(--u)*5);height:calc(var(--u)*5);margin:calc(var(--u)*-2.5) 0 0 calc(var(--u)*-2.5);border-radius:50%;background:radial-gradient(circle,#fff,var(--rc) 55%,transparent 70%);opacity:0;transform:scale(.3);}
+.gxp.drop{animation:gxdrop .6s cubic-bezier(.3,.2,.6,1) forwards;}
+@keyframes gxdrop{0%{transform:translateY(calc(var(--u)*-3)) scale(.5);opacity:0}30%{opacity:1}60%{transform:translateY(calc(var(--u)*1.2)) scale(1.06)}80%{transform:translateY(calc(var(--u)*-.5))}100%{transform:translateY(0)}}
+.gxp.wobble{animation:gxwobble .55s ease-in-out infinite alternate;}
+@keyframes gxwobble{from{transform:rotate(calc(var(--wob)*-1)) translateY(calc(var(--u)*-.2))}to{transform:rotate(var(--wob)) translateY(calc(var(--u)*.2))}}
+.gxp.twist{animation:gxtwist .5s linear forwards;}
+@keyframes gxtwist{0%{transform:rotate(0)}15%{transform:rotate(-14deg)}30%{transform:rotate(12deg)}45%{transform:rotate(-16deg)}60%{transform:rotate(14deg)}75%{transform:rotate(-10deg)}100%{transform:rotate(0)}}
+.gxm-prize.open .gxp-top{animation:gxsplitT .7s cubic-bezier(.2,.8,.3,1) forwards;}
+.gxm-prize.open .gxp-bot{animation:gxsplitB .7s cubic-bezier(.2,.8,.3,1) forwards;}
+@keyframes gxsplitT{to{transform:translate(calc(var(--u)*-2.2),calc(var(--u)*-3.2)) rotate(-48deg);opacity:0}}
+@keyframes gxsplitB{to{transform:translate(calc(var(--u)*2.2),calc(var(--u)*3.2)) rotate(40deg);opacity:0}}
+.gxm-prize.open .gxp-core{animation:gxcore .7s ease-out forwards;}
+@keyframes gxcore{0%{opacity:1;transform:scale(.3)}100%{opacity:0;transform:scale(2.8)}}
+.gxm-prize.leg::before{content:"";position:absolute;left:50%;top:50%;width:calc(var(--u)*17);height:calc(var(--u)*17);margin:calc(var(--u)*-8.5) 0 0 calc(var(--u)*-8.5);border-radius:50%;
+  background:repeating-conic-gradient(rgba(255,213,74,0) 0 7deg,rgba(255,213,74,.42) 7deg 11deg);-webkit-mask:radial-gradient(circle,#000 25%,transparent 68%);mask:radial-gradient(circle,#000 25%,transparent 68%);animation:gxspin 7s linear infinite;z-index:-1;}
+@keyframes gxspin{to{transform:rotate(360deg)}}
+.gxm-ball{position:absolute;width:calc(var(--u)*4.6);height:calc(var(--u)*4.6);left:calc(var(--u)*18.5);top:calc(var(--u)*34.2);border-radius:50%;z-index:6;opacity:0;
+  background:linear-gradient(180deg,var(--rc) 0 50%,#eef3f6 50% 100%);box-shadow:0 0 calc(var(--u)*1.2) var(--rc),inset calc(var(--u)*-.4) calc(var(--u)*-.4) calc(var(--u)*.6) rgba(0,0,0,.2);
+  transition:left .55s cubic-bezier(.2,.9,.3,1.1),top .55s cubic-bezier(.2,.9,.3,1.1),opacity .2s;}
+.gxm-ball.out{opacity:1;}
+.gxm-ball.wob{animation:gxwobble .5s ease-in-out infinite alternate;--wob:9deg;}
+.gxm-ball.pop{animation:gxballpop .4s ease-in forwards;}
+@keyframes gxballpop{0%{transform:scale(1)}40%{transform:scale(1.5)}100%{transform:scale(0);opacity:0}}
+.gx-fx{position:fixed;inset:0;pointer-events:none;z-index:5;overflow:hidden;}
+.gx-fx i{position:fixed;border-radius:2px;background:var(--c);animation:gxparticle 1.3s cubic-bezier(.1,.7,.3,1) forwards;}
+@keyframes gxparticle{from{transform:translate(0,0) rotate(0) scale(1);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(.6);opacity:0}}
+.gx-wave{position:fixed;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;pointer-events:none;opacity:0;transform:scale(0);z-index:3;}
+.gx-wave.go{animation:gxwave 1.2s ease-out forwards;}
+@keyframes gxwave{0%{transform:scale(0);opacity:.95}70%{transform:scale(var(--s));opacity:.9}100%{transform:scale(var(--s));opacity:0}}
+.gx-flash{position:fixed;inset:0;background:var(--rc,#fff);opacity:0;pointer-events:none;z-index:4;}
+.gx-flash.go{animation:gxflashA .55s ease-out;}
+@keyframes gxflashA{0%{opacity:0}12%{opacity:.85}100%{opacity:0}}
+.gx-box.gx-shake{animation:gxshake .55s linear;}
+.gx-box.gx-shake.big{animation:gxshake .95s linear;}
+@keyframes gxshake{0%,100%{transform:translate(0,0)}10%{transform:translate(-7px,3px)}20%{transform:translate(6px,-4px)}30%{transform:translate(-6px,-3px)}40%{transform:translate(7px,4px)}50%{transform:translate(-5px,2px)}60%{transform:translate(5px,-3px)}70%{transform:translate(-3px,3px)}80%{transform:translate(3px,-2px)}90%{transform:translate(-2px,1px)}}
+@media (prefers-reduced-motion: reduce){.gxm *,.gx-box.gx-shake,.gx-flash.go,.gx-wave.go{animation:none!important;}}
 .r-common{--rc:#8aa0a8;}.r-rare{--rc:#3b82f6;}.r-epic{--rc:#a855f7;}.r-legend{--rc:#f5a623;}
 .gx-wallet{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .gx-coins{font-size:30px;font-weight:800;line-height:1;}
@@ -671,7 +750,7 @@ function defaultState(){
     endlessTop: [],   // Endlos-Modus: Top 5 {score, ts}
     endlessRuns: 0,
     coins: 0, album: {}, pulls: 0,   // Fischalbum (Gacha)
-    skin: 'default', skins: {}, pity: 0, daily: {last:'', streak:0, claims:0}, ach: {},   // Design-Gacha, Tägliche Belohnung, Erfolge
+    skin: 'default', skins: {}, pity: 0, fx: {sound:true, vibe:true}, daily: {last:'', streak:0, claims:0}, ach: {},   // Design-Gacha, Tägliche Belohnung, Erfolge
     recentSession: [] // ring buffer of last shown ids (for cooldown), session-scoped but persisted loosely
   };
 }
@@ -708,6 +787,7 @@ function sanitizeState(raw){
   if(!s.ach || typeof s.ach!=='object' || Array.isArray(s.ach)) s.ach = {};
   Object.keys(s.ach).forEach(k=>{ if(s.ach[k]!==1 && s.ach[k]!==2) delete s.ach[k]; });
   s.pity = (typeof s.pity==='number' && isFinite(s.pity)) ? Math.max(0, Math.floor(s.pity)) : 0;
+  const fxo = (s.fx && typeof s.fx==='object') ? s.fx : {}; s.fx = {sound: fxo.sound!==false, vibe: fxo.vibe!==false};
   // Migration: Fragen, die schon aus "Falsche" entfernt waren (nicht gemeistert, aber nach dem letzten Fehler richtig), bleiben entfernt
   Object.keys(s.qstats).forEach(id=>{ const q=s.qstats[id]; if(q && typeof q==='object' && typeof q.fixed!=='boolean') q.fixed = !!(q.wrong>0 && !q.mastered && q.streak>0); });
   return s;
@@ -1003,9 +1083,9 @@ function handleBack(){
   go('home');
 }
 
-function applyTheme(){
+function applyTheme(pv){
   const root = document.documentElement;
-  const sk = skinById(STATE.skin);
+  const sk = skinById(pv || STATE.skin);
   if(sk.id!=='default') root.setAttribute('data-skin', sk.id); else root.removeAttribute('data-skin');
   if(sk.dark) root.setAttribute('data-theme','dark');
   else if(STATE.theme==='dark') root.setAttribute('data-theme','dark');
@@ -3056,7 +3136,7 @@ function gxDraw(n){
   for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common')));  // 10er: mind. 1x Selten oder besser
   saveState();
   if(ROUTE.screen==='gacha') render();
-  gxReveal(res, n);
+  gxSequence(res, n);
 }
 
 function gxPrev(sk){
@@ -3073,14 +3153,192 @@ function dcardHtml(sk, o){
     + (o.showActive && active ? '<span class="gcount">✓ Aktiv</span>' : '')
     + '</div>';
 }
-function gxClose(){ const o = document.getElementById('gxOv'); if(o) o.remove(); }
+function gxClose(){
+  GXS.run++; GXS.t.forEach(clearTimeout); GXS.t = [];
+  const o = document.getElementById('gxOv'); if(o) o.remove();
+  if(GXS.preview){ GXS.preview = null; applyTheme(); }   // Vorschau beenden: aktives Design wiederherstellen
+}
 function gxAgain(n){ gxClose(); gxDraw(n); }
 function skinEquip(id){
   if(!skinOwned(id)) return;
   STATE.skin = id; saveState(); applyTheme(); render();
 }
-function gxReveal(res, n){
+/* ======================= GACHA-ANIMATION: ANGEL-KAPSEL-AUTOMAT ======================= */
+// Ablauf (Einzelziehung): Kurbel dreht -> Kapsel fällt (Farbe = Seltenheit) -> antippen -> Kapsel öffnet sich -> Farbwelle -> Live-Vorschau.
+// Alles wird im Browser erzeugt (CSS-Animationen, Web-Audio-Töne, Vibration); die Ziehung selbst steht schon vorher fest.
+const GXS = {run:0, t:[], preview:null, res:null, n:1, best:null, rc:'#b9c4cb', opened:false};
+const GX_RC = {common:'#b9c4cb', rare:'#3b82f6', epic:'#a855f7', legend:'#f5a623'};
+const GXR = {
+  common:{wob:4,  parts:16, shake:0, cap:'Da fällt etwas heraus …',    vib:[40]},
+  rare:  {wob:7,  parts:30, shake:0, cap:'Das glitzert blau …',        vib:[50,40,50]},
+  epic:  {wob:11, parts:52, shake:1, cap:'Das leuchtet lila!',         vib:[60,40,60,40,120]},
+  legend:{wob:15, parts:96, shake:2, cap:'✨ Das glänzt golden! ✨',    vib:[80,40,80,40,80,40,260]}
+};
+const GX_CAPCOL = ['#ef4444','#3b82f6','#f59e0b','#22c55e','#ec4899','#a855f7'];
+const GX_CAPPOS = [[3,12],[8,15],[13.5,15.5],[17.5,11],[1.5,8],[6,9.5],[11,11],[14.5,7.5],[9,4.5],[4,17],[12,18.5],[15.5,16.5]];
+function gxAt(ms, fn){ const run = GXS.run; GXS.t.push(setTimeout(()=>{ if(GXS.run===run) fn(); }, ms*(window.GX_SPEED||1))); }
+
+const GXFX = {
+  ctx:null,
+  ac(){ try{ if(!this.ctx){ const C = window.AudioContext||window.webkitAudioContext; if(C) this.ctx = new C(); } if(this.ctx && this.ctx.state==='suspended') this.ctx.resume(); }catch(e){} return this.ctx; },
+  on(){ return !(STATE.fx && STATE.fx.sound===false); },
+  tone(f, t0, dur, type, vol, f2){
+    const c = this.ctx; if(!c || !this.on()) return;
+    try{
+      const o = c.createOscillator(), g = c.createGain(), t = c.currentTime + t0;
+      o.type = type || 'sine'; o.frequency.setValueAtTime(f, t); if(f2) o.frequency.exponentialRampToValueAtTime(f2, t+dur);
+      g.gain.setValueAtTime(0.0001, t); g.gain.exponentialRampToValueAtTime(vol||0.1, t+0.012); g.gain.exponentialRampToValueAtTime(0.0001, t+dur);
+      o.connect(g); g.connect(c.destination); o.start(t); o.stop(t+dur+0.05);
+    }catch(e){}
+  },
+  noise(t0, dur, vol, hp){
+    const c = this.ctx; if(!c || !this.on()) return;
+    try{
+      const len = Math.max(1, Math.floor(c.sampleRate*dur)), b = c.createBuffer(1, len, c.sampleRate), d = b.getChannelData(0);
+      for(let i=0;i<len;i++) d[i] = (Math.random()*2-1)*(1-i/len);
+      const s = c.createBufferSource(), f = c.createBiquadFilter(), g = c.createGain();
+      s.buffer = b; f.type = 'highpass'; f.frequency.value = hp||800; g.gain.value = vol||0.1;
+      s.connect(f); f.connect(g); g.connect(c.destination); s.start(c.currentTime + t0);
+    }catch(e){}
+  },
+  tick(i){ this.tone(520+i*22, 0, 0.05, 'square', 0.035); },
+  thunk(){ this.tone(140, 0, 0.22, 'sine', 0.35, 55); this.noise(0, 0.1, 0.12, 200); },
+  roll(){ for(let i=0;i<5;i++) this.tone(300+i*40, i*0.07, 0.04, 'triangle', 0.05); },
+  twist(){ for(let i=0;i<6;i++) this.tone(700+i*70, i*0.06, 0.035, 'square', 0.04); },
+  pop(){ this.noise(0, 0.12, 0.18, 1200); this.tone(700, 0, 0.12, 'sine', 0.2, 220); },
+  jingle(k){
+    const n = [523.25,659.25,783.99,1046.5,1318.5];
+    if(k==='common'){ this.tone(659.25, 0, 0.22, 'triangle', 0.12); }
+    else if(k==='rare'){ this.tone(659.25, 0, 0.16, 'triangle', 0.13); this.tone(880, 0.12, 0.26, 'triangle', 0.13); this.noise(0.1, 0.25, 0.03, 5000); }
+    else if(k==='epic'){ n.slice(0,4).forEach((f,i)=>this.tone(f, i*0.1, 0.3, 'triangle', 0.14)); this.noise(0.2, 0.5, 0.04, 4500); this.tone(130, 0, 0.5, 'sine', 0.2, 90); }
+    else { this.tone(200, 0, 0.7, 'sawtooth', 0.05, 1400); n.forEach((f,i)=>this.tone(f, 0.55+i*0.09, 0.9, 'triangle', 0.13)); [1568,2093,2637,3136].forEach((f,i)=>this.tone(f, 0.9+i*0.12, 0.25, 'sine', 0.06)); this.noise(0.55, 0.7, 0.05, 3500); this.tone(98, 0.5, 0.9, 'sine', 0.25, 70); }
+  },
+  vib(p){ try{ if(STATE.fx && STATE.fx.vibe===false) return; if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
+};
+
+function gxToggleFx(k){
+  if(!STATE.fx) STATE.fx = {sound:true, vibe:true};
+  STATE.fx[k] = STATE.fx[k]===false;
+  saveState();
+  const b = document.getElementById(k==='sound' ? 'gxSnd' : 'gxVib');
+  if(b) b.textContent = k==='sound' ? (STATE.fx.sound ? '🔊' : '🔇') : (STATE.fx.vibe ? '📳' : '📴');
+  if(k==='sound' && STATE.fx.sound){ GXFX.ac(); GXFX.tone(880, 0, 0.08, 'triangle', 0.1); }
+  if(k==='vibe' && STATE.fx.vibe) GXFX.vib([40]);
+}
+function gxCtlsHtml(){
+  const fx = STATE.fx || {sound:true, vibe:true};
+  return '<div class="gx-ctls"><button class="gx-ctl" id="gxSnd" onclick="gxToggleFx(\'sound\')">'+(fx.sound!==false?'🔊':'🔇')+'</button>'
+    + '<button class="gx-ctl" id="gxVib" onclick="gxToggleFx(\'vibe\')">'+(fx.vibe!==false?'📳':'📴')+'</button><span class="gx-sp"></span>'
+    + '<button class="gx-ctl" id="gxSkip" onclick="gxSkip()">Überspringen ⏭</button></div>';
+}
+function gxMachineHtml(rc){
+  const caps = GX_CAPPOS.map((p,i)=>{
+    const tx = ((((i*37)%7)-3)*0.55).toFixed(2), ty = ((((i*53)%7)-3)*0.55).toFixed(2), d = (0.55+(i%5)*0.07).toFixed(2);
+    return '<div class="gxm-cap'+(i===GX_CAPPOS.length-1?' win':'')+'" style="left:calc(var(--u)*'+p[0]+');top:calc(var(--u)*'+p[1]+');--c:'+GX_CAPCOL[i%GX_CAPCOL.length]+';--tx:calc(var(--u)*'+tx+');--ty:calc(var(--u)*'+ty+');--d:'+d+'s;"></div>';
+  }).join('');
+  return '<div class="gxm" id="gxm" style="--rc:'+rc+';">'
+    + '<div class="gxm-globe">'+caps+'<div class="gxm-shine"></div></div>'
+    + '<div class="gxm-body"><div class="gxm-plate">🎣 ANGEL-GACHA</div><div class="gxm-crank" id="gxCrank"><i></i><i></i><i></i><b class="gxm-handle"></b></div><div class="gxm-chute"></div></div>'
+    + '<div class="gxm-base"></div>'
+    + '<div class="gxm-prize" id="gxPrize" style="--rc:'+rc+';"><div class="gxp" id="gxPrizeIn"><span class="gxp-bot"></span><span class="gxp-top"></span><span class="gxp-core"></span></div></div>'
+    + '<div id="gxBalls"></div></div>';
+}
+function gxSequence(res, n){
   gxClose();
+  GXS.res = res; GXS.n = n; GXS.opened = false; GXS.preview = null;
+  GXS.best = res.reduce((b,r)=>GX_TIERS.indexOf(r.tier)>GX_TIERS.indexOf(b.tier) ? r : b, res[0]);
+  GXS.rc = GX_RC[GXS.best.tier.k];
+  GXFX.ac();   // Audio im Klick-Kontext starten
+  const o = document.createElement('div');
+  o.id = 'gxOv'; o.className = 'gx-overlay gx-machine'; o.style.setProperty('--rc', GXS.rc);
+  o.innerHTML = gxCtlsHtml()
+    + '<div class="gx-box"><div id="gxStage" class="gx-stage">'+gxMachineHtml(GXS.rc)+'</div><div id="gxCap" class="gx-cap">&nbsp;</div><div id="gxResult" hidden></div></div>'
+    + '<div id="gxFx" class="gx-fx"></div><div id="gxWave" class="gx-wave"></div><div id="gxFlash" class="gx-flash"></div>';
+  document.body.appendChild(o);
+  try{
+    const reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(reduce) gxShowResult(); else if(n===10) gxRun10(); else gxRun1();
+  }catch(e){ gxShowResult(); }   // die Ziehung ist schon bezahlt: das Ergebnis muss immer erscheinen
+}
+function gxRun1(){
+  const k = GXS.best.tier.k, R = GXR[k];
+  const m = document.getElementById('gxm'), cap = document.getElementById('gxCap'), prize = document.getElementById('gxPrize'), inn = document.getElementById('gxPrizeIn'), crank = document.getElementById('gxCrank');
+  prize.style.setProperty('--wob', R.wob+'deg'); if(k==='legend') prize.classList.add('leg');
+  gxAt(350, ()=>{ cap.textContent = 'Die Kurbel dreht sich …'; m.classList.add('cranking'); crank.classList.add('spin'); GXFX.vib([25,70,25,70,25]); for(let i=0;i<16;i++) gxAt(i*115, ()=>GXFX.tick(i)); });
+  gxAt(2300, ()=>{ const w = m.querySelector('.gxm-cap.win'); if(w) w.classList.add('go'); GXFX.tone(300, 0, 0.25, 'sine', 0.08, 120); });
+  gxAt(2700, ()=>{ m.classList.remove('cranking'); m.classList.add('glow'); prize.classList.add('show'); inn.classList.add('drop'); cap.textContent = R.cap; GXFX.thunk(); GXFX.vib([45]); });
+  gxAt(3400, ()=>{ prize.classList.add('roll'); GXFX.roll(); });
+  gxAt(4200, ()=>{ inn.classList.remove('drop'); inn.classList.add('wobble'); cap.textContent = 'Tippe die Kapsel an!'; cap.classList.add('hint'); prize.classList.add('ready'); prize.onclick = gxOpen; gxAt(7500, gxOpen); });
+}
+function gxCenter(id){ const e = document.getElementById(id||'gxPrize'); if(!e) return {x:window.innerWidth/2, y:window.innerHeight/2}; const r = e.getBoundingClientRect(); return {x:r.left+r.width/2, y:r.top+r.height/2}; }
+function gxBurst(rc, n, big, id){
+  const box = document.getElementById('gxFx'); if(!box) return;
+  const c = gxCenter(id);
+  for(let i=0;i<n;i++){
+    const p = document.createElement('i'), a = Math.random()*Math.PI*2, d = (big?130:80)+Math.random()*(big?270:160);
+    p.style.cssText = 'left:'+c.x+'px;top:'+c.y+'px;--dx:'+(Math.cos(a)*d).toFixed(0)+'px;--dy:'+(Math.sin(a)*d-40).toFixed(0)+'px;--rot:'+(Math.random()*720-360).toFixed(0)+'deg;--c:'+['#ffffff',rc,'#ffd54a',rc][i%4]+';width:'+(5+Math.random()*7).toFixed(0)+'px;height:'+(5+Math.random()*9).toFixed(0)+'px;animation-delay:'+(Math.random()*0.08).toFixed(2)+'s;';
+    box.appendChild(p);
+  }
+  setTimeout(()=>{ if(box) box.innerHTML = ''; }, 1900);
+}
+function gxWave(sk){
+  const w = document.getElementById('gxWave'); if(!w) return;
+  const c = gxCenter('gxPrize'), diag = Math.hypot(window.innerWidth, window.innerHeight), p = sk.prev;
+  w.style.cssText = 'left:'+c.x+'px;top:'+c.y+'px;--s:'+(diag/4).toFixed(1)+';background:radial-gradient(circle,'+p[0]+' 0%,'+p[1]+' 45%,'+p[2]+' 70%,transparent 72%);';
+  w.classList.remove('go'); void w.offsetWidth; w.classList.add('go');
+}
+function gxPreviewOn(id){ GXS.preview = id; applyTheme(id); }
+function gxOpen(){
+  if(GXS.opened) return; GXS.opened = true;
+  const k = GXS.best.tier.k, R = GXR[k], sk = GXS.best.sk;
+  const prize = document.getElementById('gxPrize'), inn = document.getElementById('gxPrizeIn'), cap = document.getElementById('gxCap'), ov = document.getElementById('gxOv');
+  if(!prize || !ov) return;
+  prize.onclick = null; prize.classList.remove('ready'); cap.classList.remove('hint'); cap.innerHTML = '&nbsp;';
+  inn.classList.remove('wobble'); inn.classList.add('twist'); GXFX.twist(); GXFX.vib([15,35,15,35,15]);
+  gxAt(520, ()=>{
+    prize.classList.add('open'); GXFX.pop(); GXFX.jingle(k); GXFX.vib(R.vib);
+    const fl = document.getElementById('gxFlash'); fl.classList.remove('go'); void fl.offsetWidth; fl.classList.add('go');
+    gxBurst(GXS.rc, R.parts, k==='legend' || k==='epic');
+    if(R.shake){ const box = ov.querySelector('.gx-box'); box.classList.remove('gx-shake','big'); void box.offsetWidth; box.classList.add('gx-shake'); if(R.shake>1) box.classList.add('big'); }
+  });
+  gxAt(850, ()=>gxWave(sk));
+  gxAt(1250, ()=>gxPreviewOn(sk.id));
+  gxAt(1750, gxShowResult);
+}
+function gxRun10(){
+  const res = GXS.res, k = GXS.best.tier.k, R = GXR[k];
+  const m = document.getElementById('gxm'), cap = document.getElementById('gxCap'), crank = document.getElementById('gxCrank'), balls = document.getElementById('gxBalls');
+  gxAt(350, ()=>{ cap.textContent = 'Die Kurbel dreht sich …'; m.classList.add('cranking'); crank.classList.add('spin','long'); GXFX.vib([25,60,25,60,25,60,25]); for(let i=0;i<24;i++) gxAt(i*105, ()=>GXFX.tick(i)); });
+  gxAt(3100, ()=>{
+    m.classList.remove('cranking'); m.classList.add('glow'); cap.textContent = '10 Kapseln purzeln heraus!'; GXFX.thunk();
+    balls.innerHTML = res.map(r=>'<div class="gxm-ball" style="--rc:'+GX_RC[r.tier.k]+';"></div>').join('');
+    Array.from(balls.children).forEach((b,i)=>{
+      gxAt(i*85, ()=>{ b.classList.add('out'); void b.offsetWidth; b.style.left = 'calc(var(--u)*'+(2.4+(i%5)*5.9)+')'; b.style.top = 'calc(var(--u)*'+(i<5?11.5:19.5)+')'; GXFX.tone(420+i*55, 0, 0.09, 'triangle', 0.1); GXFX.vib([18]); });
+    });
+  });
+  gxAt(4600, ()=>{ cap.textContent = 'Gleich geht es auf …'; Array.from(balls.children).forEach(b=>b.classList.add('wob')); });
+  gxAt(5100, ()=>{
+    Array.from(balls.children).forEach(b=>{ b.classList.remove('wob'); b.classList.add('pop'); });
+    GXFX.pop(); GXFX.jingle(k); GXFX.vib(R.vib);
+    const fl = document.getElementById('gxFlash'); fl.classList.remove('go'); void fl.offsetWidth; fl.classList.add('go');
+    gxBurst(GXS.rc, R.parts, k==='legend' || k==='epic', 'gxm');
+    if(R.shake){ const box = document.getElementById('gxOv').querySelector('.gx-box'); box.classList.add('gx-shake'); if(R.shake>1) box.classList.add('big'); }
+  });
+  gxAt(5800, gxShowResult);
+}
+function gxSkip(){ if(!document.getElementById('gxOv')) return; GXS.opened = true; gxShowResult(); }
+function gxShowResult(){
+  const ov = document.getElementById('gxOv'); if(!ov) return;
+  GXS.run++; GXS.t.forEach(clearTimeout); GXS.t = [];   // restliche Schritte der Animation beenden
+  ['gxStage','gxCap'].forEach(id=>{ const e = document.getElementById(id); if(e) e.style.display = 'none'; });
+  const sk = document.getElementById('gxSkip'); if(sk) sk.style.display = 'none';
+  const wv = document.getElementById('gxWave'); if(wv) wv.className = 'gx-wave';
+  const fl = document.getElementById('gxFlash'); if(fl) fl.className = 'gx-flash';
+  const r = document.getElementById('gxResult'); if(!r) return;
+  r.innerHTML = gxResultHtml(GXS.res, GXS.n); r.hidden = false;
+  if(GXS.n===1){ gxPreviewOn(GXS.res[0].sk.id); ov.classList.add('gx-preview'); }   // Live-Vorschau: die App zeigt das Design schon
+}
+function gxResultHtml(res, n){
   const coins = STATE.coins || 0;
   const nw = res.filter(r=>r.isNew).length, back = res.reduce((a,r)=>a+r.refund, 0);
   const best = res.reduce((b,r)=>GX_TIERS.indexOf(r.tier)>GX_TIERS.indexOf(b) ? r.tier : b, GX_TIERS[0]);
@@ -3090,7 +3348,8 @@ function gxReveal(res, n){
     const r = res[0];
     body = '<div class="gx-title">'+titles[r.tier.k]+'</div><div class="gx-single">'+dcardHtml(r.sk,{isNew:r.isNew})+'</div>'
       + '<div class="gx-sum">'+(r.isNew ? 'Neu freigeschaltet!' : 'Doppelt – +'+r.refund+' 🪙 zurück')+'</div>'
-      + (r.isNew ? '<div class="gx-btns" style="margin-bottom:10px;"><button class="btn btn-primary" onclick="skinEquip(\''+r.sk.id+'\');gxClose()">🎨 Jetzt aktivieren</button></div>' : '');
+      + '<div class="gx-sum" style="opacity:.8;">👁️ Live-Vorschau: so sieht die App mit diesem Design aus</div>'
+      + ((r.isNew || skinById(STATE.skin).id!==r.sk.id) ? '<div class="gx-btns" style="margin-bottom:10px;"><button class="btn btn-primary" onclick="skinEquip(\''+r.sk.id+'\');gxClose()">🎨 Jetzt aktivieren</button></div>' : '');
   } else {
     body = '<div class="gx-title">10 Ziehungen'+(best.k!=='common' ? ' – bestes: '+best.name : '')+'</div>'
       + '<div class="gx-multi">'+res.map((r,i)=>dcardHtml(r.sk,{isNew:r.isNew, delay:(i*0.12).toFixed(2)})).join('')+'</div>'
@@ -3100,10 +3359,7 @@ function gxReveal(res, n){
     + '<button class="btn btn-gold" '+(coins<GX_COST1?'disabled':'')+' onclick="gxAgain(1)">1× ziehen · '+GX_COST1+' 🪙</button>'
     + '<button class="btn btn-gold" '+(coins<GX_COST10?'disabled':'')+' onclick="gxAgain(10)">10× ziehen · '+GX_COST10+' 🪙</button>'
     + '<button class="btn btn-outline" style="background:#fff;color:#12303a;border-color:#fff" onclick="gxClose()">Fertig</button></div>';
-  const o = document.createElement('div');
-  o.id = 'gxOv'; o.className = 'gx-overlay';
-  o.innerHTML = '<div class="gx-box">'+body+'</div>';
-  document.body.appendChild(o);
+  return body;
 }
 
 function renderGacha(){
