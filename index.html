@@ -340,6 +340,146 @@ input[type=number]{
 :root[data-skin="tiefsee"] .topbar,:root[data-skin="tiefsee"] .hero,:root[data-skin="tiefsee"] .btn-primary,:root[data-skin="tiefsee"] .menu-tile.accent{background-image:linear-gradient(90deg,#03202e,#06506a,#0f8fa8,#06506a,#03202e);background-size:200% 100%;animation:skinflow 13s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
 @media (prefers-reduced-motion: reduce){:root[data-skin] .topbar,:root[data-skin] .hero,:root[data-skin] .btn-primary,:root[data-skin] .menu-tile.accent{animation:none!important;}}
 :root[data-skin="galaxie"] body{background-image:radial-gradient(1.4px 1.4px at 8% 12%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 22% 34%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 35% 8%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 48% 22%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 61% 40%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 74% 15%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 88% 30%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 15% 58%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 30% 72%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 52% 64%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 68% 82%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 84% 70%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 93% 52%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 5% 86%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1.4px 1.4px at 42% 92%,rgba(255,255,255,.85),transparent 60%),radial-gradient(1200px 600px at 100% -10%,var(--water-pale) 0%,transparent 60%);}
+@keyframes holoflow{0%{background-position:0 0,0% 50%}100%{background-position:0 0,150% 50%}}
+@keyframes holoflow1{0%{background-position:0% 50%}100%{background-position:150% 50%}}
+@keyframes neonpulse{from{box-shadow:0 0 14px rgba(0,229,255,.4),inset 0 0 10px rgba(0,229,255,.15)}to{box-shadow:0 0 26px rgba(0,229,255,.85),inset 0 0 18px rgba(0,229,255,.3)}}
+@keyframes magmapulse{from{box-shadow:0 0 14px rgba(255,106,26,.35)}to{box-shadow:0 0 30px rgba(255,150,40,.75)}}
+:root[data-skin="bordeaux"]{--water-deep:#4a1724;--water:#6c2335;--water-light:#94324b;--water-pale:#f5e5e9;--sand:#f4ebed;--sand-dark:#e2d0d4;--line:#e6d5da;--ink:#30181e;--ink-soft:#61424a;}
+:root[data-skin="bordeaux"][data-theme="dark"]{--water-deep:#2d1017;--water:#50202c;--water-light:#ac3e5a;--water-pale:#30181e;--sand:#1d1618;--sand-dark:#291f21;--paper:#2b1c20;--line:#442c32;--ink:#f5f0f1;--ink-soft:#cababe;}
+@media (prefers-color-scheme: dark){:root[data-skin="bordeaux"]:not([data-theme="light"]){--water-deep:#2d1017;--water:#50202c;--water-light:#ac3e5a;--water-pale:#30181e;--sand:#1d1618;--sand-dark:#291f21;--paper:#2b1c20;--line:#442c32;--ink:#f5f0f1;--ink-soft:#cababe;}}
+:root[data-skin="terrakotta"]{--water-deep:#4c291e;--water:#6e3c2d;--water-light:#975440;--water-pale:#f4e9e6;--sand:#f3eeec;--sand-dark:#e0d5d1;--line:#e5dad7;--ink:#2e1e1a;--ink-soft:#5e4b45;}
+:root[data-skin="terrakotta"][data-theme="dark"]{--water-deep:#2a1813;--water:#4c2e24;--water-light:#a25d48;--water-pale:#2e1e1a;--sand:#1d1816;--sand-dark:#282220;--paper:#2a211e;--line:#42332e;--ink:#f4f1f0;--ink-soft:#c8bebb;}
+@media (prefers-color-scheme: dark){:root[data-skin="terrakotta"]:not([data-theme="light"]){--water-deep:#2a1813;--water:#4c2e24;--water-light:#a25d48;--water-pale:#2e1e1a;--sand:#1d1816;--sand-dark:#282220;--paper:#2a211e;--line:#42332e;--ink:#f4f1f0;--ink-soft:#c8bebb;}}
+:root[data-skin="olive"]{--water-deep:#3b421e;--water:#57612e;--water-light:#788641;--water-pale:#f1f3e7;--sand:#f2f3ec;--sand-dark:#dddfd2;--line:#e1e4d8;--ink:#292c1b;--ink-soft:#585c47;}
+:root[data-skin="olive"][data-theme="dark"]{--water-deep:#252915;--water:#424927;--water-light:#8d9c4f;--water-pale:#292c1b;--sand:#1b1c17;--sand-dark:#262720;--paper:#27291f;--line:#3d412f;--ink:#f3f4f0;--ink-soft:#c5c7bc;}
+@media (prefers-color-scheme: dark){:root[data-skin="olive"]:not([data-theme="light"]){--water-deep:#252915;--water:#424927;--water-light:#8d9c4f;--water-pale:#292c1b;--sand:#1b1c17;--sand-dark:#262720;--paper:#27291f;--line:#3d412f;--ink:#f3f4f0;--ink-soft:#c5c7bc;}}
+:root[data-skin="petrol"]{--water-deep:#17414a;--water:#23606c;--water-light:#328494;--water-pale:#e5f3f5;--sand:#ebf3f4;--sand-dark:#d0dfe2;--line:#d5e3e6;--ink:#182c30;--ink-soft:#425c61;}
+:root[data-skin="petrol"][data-theme="dark"]{--water-deep:#10282d;--water:#204850;--water-light:#3e9aac;--water-pale:#182c30;--sand:#161c1d;--sand-dark:#1f2729;--paper:#1c292b;--line:#2c4044;--ink:#f0f4f5;--ink-soft:#bac7ca;}
+@media (prefers-color-scheme: dark){:root[data-skin="petrol"]:not([data-theme="light"]){--water-deep:#10282d;--water:#204850;--water-light:#3e9aac;--water-pale:#182c30;--sand:#161c1d;--sand-dark:#1f2729;--paper:#1c292b;--line:#2c4044;--ink:#f0f4f5;--ink-soft:#bac7ca;}}
+:root[data-skin="marine"]{--water-deep:#162548;--water:#223769;--water-light:#314e91;--water-pale:#e5eaf5;--sand:#ebeef4;--sand-dark:#d0d5e2;--line:#d5dae6;--ink:#181f30;--ink-soft:#424b61;}
+:root[data-skin="marine"][data-theme="dark"]{--water-deep:#10192d;--water:#202f50;--water-light:#3e5fac;--water-pale:#181f30;--sand:#16181d;--sand-dark:#1f2229;--paper:#1c212b;--line:#2c3344;--ink:#f0f1f5;--ink-soft:#babfca;}
+@media (prefers-color-scheme: dark){:root[data-skin="marine"]:not([data-theme="light"]){--water-deep:#10192d;--water:#202f50;--water-light:#3e5fac;--water-pale:#181f30;--sand:#16181d;--sand-dark:#1f2229;--paper:#1c212b;--line:#2c3344;--ink:#f0f1f5;--ink-soft:#babfca;}}
+:root[data-skin="lachs"]{--water-deep:#5d251d;--water:#84372b;--water-light:#b34d3d;--water-pale:#f5e7e5;--sand:#f4eceb;--sand-dark:#e2d2d0;--line:#e6d8d5;--ink:#301b18;--ink-soft:#614642;}
+:root[data-skin="lachs"][data-theme="dark"]{--water-deep:#2d1410;--water:#502720;--water-light:#ac4d3e;--water-pale:#301b18;--sand:#1d1716;--sand-dark:#29201f;--paper:#2b1e1c;--line:#442f2c;--ink:#f5f0f0;--ink-soft:#cabcba;}
+@media (prefers-color-scheme: dark){:root[data-skin="lachs"]:not([data-theme="light"]){--water-deep:#2d1410;--water:#502720;--water-light:#ac4d3e;--water-pale:#301b18;--sand:#1d1716;--sand-dark:#29201f;--paper:#2b1e1c;--line:#442f2c;--ink:#f5f0f0;--ink-soft:#cabcba;}}
+:root[data-skin="flieder"]{--water-deep:#42254b;--water:#5f376d;--water-light:#824c94;--water-pale:#f0e8f3;--sand:#f1edf3;--sand-dark:#dcd3df;--line:#e1d8e3;--ink:#281c2c;--ink-soft:#57485b;}
+:root[data-skin="flieder"][data-theme="dark"]{--water-deep:#231528;--water:#402948;--water-light:#875299;--water-pale:#281c2c;--sand:#1b171c;--sand-dark:#252127;--paper:#261f28;--line:#3c3040;--ink:#f3f0f4;--ink-soft:#c4bdc7;}
+@media (prefers-color-scheme: dark){:root[data-skin="flieder"]:not([data-theme="light"]){--water-deep:#231528;--water:#402948;--water-light:#875299;--water-pale:#281c2c;--sand:#1b171c;--sand-dark:#252127;--paper:#261f28;--line:#3c3040;--ink:#f3f0f4;--ink-soft:#c4bdc7;}}
+:root[data-skin="sand"]{--water-deep:#443a26;--water:#625439;--water-light:#87744f;--water-pale:#f2efe9;--sand:#f2f1ed;--sand-dark:#dedad4;--line:#e2dfd9;--ink:#2a261d;--ink-soft:#5a544a;}
+:root[data-skin="sand"][data-theme="dark"]{--water-deep:#262117;--water:#453c2b;--water-light:#927f58;--water-pale:#2a261d;--sand:#1c1a17;--sand-dark:#262521;--paper:#282520;--line:#3f3a32;--ink:#f4f3f1;--ink-soft:#c6c3be;}
+@media (prefers-color-scheme: dark){:root[data-skin="sand"]:not([data-theme="light"]){--water-deep:#262117;--water:#453c2b;--water-light:#927f58;--water-pale:#2a261d;--sand:#1c1a17;--sand-dark:#262521;--paper:#282520;--line:#3f3a32;--ink:#f4f3f1;--ink-soft:#c6c3be;}}
+:root[data-skin="regenwald"]{--water-deep:#175436;--water:#257932;--water-light:#4ca636;--water-pale:#e8f6e4;--sand:#eaf5ec;--sand-dark:#cee3d1;--line:#d4e8d7;--ink:#153224;--ink-soft:#406452;--deco:"🌴";}
+:root[data-skin="regenwald"][data-theme="dark"]{--water-deep:#0e2a1c;--water:#1f5126;--water-light:#52be37;--water-pale:#16311a;--sand:#151e16;--sand-dark:#1e2920;--paper:#1b2c1e;--line:#2a472e;--ink:#eff5f0;--ink-soft:#b9cbbb;}
+@media (prefers-color-scheme: dark){:root[data-skin="regenwald"]:not([data-theme="light"]){--water-deep:#0e2a1c;--water:#1f5126;--water-light:#52be37;--water-pale:#16311a;--sand:#151e16;--sand-dark:#1e2920;--paper:#1b2c1e;--line:#2a472e;--ink:#eff5f0;--ink-soft:#b9cbbb;}}
+:root[data-skin="karamell"]{--water-deep:#513014;--water:#755321;--water-light:#a18330;--water-pale:#f6f1e4;--sand:#f5f1ea;--sand-dark:#e3dbce;--line:#e8e0d4;--ink:#322315;--ink-soft:#645040;--deco:"🍮";}
+:root[data-skin="karamell"][data-theme="dark"]{--water-deep:#2b1b0d;--water:#533d1d;--water-light:#c19c33;--water-pale:#312616;--sand:#1e1a15;--sand-dark:#29251e;--paper:#2c251b;--line:#473b2a;--ink:#f5f3ef;--ink-soft:#cbc4b9;}
+@media (prefers-color-scheme: dark){:root[data-skin="karamell"]:not([data-theme="light"]){--water-deep:#2b1b0d;--water:#533d1d;--water-light:#c19c33;--water-pale:#312616;--sand:#1e1a15;--sand-dark:#29251e;--paper:#2c251b;--line:#473b2a;--ink:#f5f3ef;--ink-soft:#cbc4b9;}}
+:root[data-skin="segel"]{--water-deep:#152d56;--water:#23557b;--water-light:#328da9;--water-pale:#e4f2f6;--sand:#eaf0f5;--sand-dark:#cedae3;--line:#d4dfe8;--ink:#152032;--ink-soft:#404d64;--deco:"⛵";}
+:root[data-skin="segel"][data-theme="dark"]{--water-deep:#0d182b;--water:#1d3c53;--water-light:#33a0c1;--water-pale:#162631;--sand:#151a1e;--sand-dark:#1e2429;--paper:#1b252c;--line:#2a3a47;--ink:#eff3f5;--ink-soft:#b9c3cb;}
+@media (prefers-color-scheme: dark){:root[data-skin="segel"]:not([data-theme="light"]){--water-deep:#0d182b;--water:#1d3c53;--water-light:#33a0c1;--water-pale:#162631;--sand:#151a1e;--sand-dark:#1e2429;--paper:#1b252c;--line:#2a3a47;--ink:#eff3f5;--ink-soft:#b9c3cb;}}
+:root[data-skin="bonbon"]{--water-deep:#581333;--water:#7e2073;--water-light:#872ead;--water-pale:#f1e4f6;--sand:#f5eaf4;--sand-dark:#e3cee1;--line:#e8d4e5;--ink:#321523;--ink-soft:#644050;--deco:"🍬";}
+:root[data-skin="bonbon"][data-theme="dark"]{--water-deep:#2c0c1b;--water:#551b4e;--water-light:#992fc6;--water-pale:#31162e;--sand:#1e151d;--sand-dark:#291e28;--paper:#2c1b2a;--line:#472a43;--ink:#f5eff4;--ink-soft:#cbb9c9;}
+@media (prefers-color-scheme: dark){:root[data-skin="bonbon"]:not([data-theme="light"]){--water-deep:#2c0c1b;--water:#551b4e;--water-light:#992fc6;--water-pale:#31162e;--sand:#1e151d;--sand-dark:#291e28;--paper:#2c1b2a;--line:#472a43;--ink:#f5eff4;--ink-soft:#cbb9c9;}}
+:root[data-skin="smaragd"]{--water-deep:#135843;--water:#207e51;--water-light:#2ead58;--water-pale:#e4f6ea;--sand:#eaf5f0;--sand-dark:#cee3d9;--line:#d4e8de;--ink:#153229;--ink-soft:#406459;--deco:"💠";}
+:root[data-skin="smaragd"][data-theme="dark"]{--water-deep:#0c2c22;--water:#1b5539;--water-light:#2fc661;--water-pale:#163124;--sand:#151e1a;--sand-dark:#1e2924;--paper:#1b2c24;--line:#2a4739;--ink:#eff5f2;--ink-soft:#b9cbc2;}
+@media (prefers-color-scheme: dark){:root[data-skin="smaragd"]:not([data-theme="light"]){--water-deep:#0c2c22;--water:#1b5539;--water-light:#2fc661;--water-pale:#163124;--sand:#151e1a;--sand-dark:#1e2924;--paper:#1b2c24;--line:#2a4739;--ink:#eff5f2;--ink-soft:#b9cbc2;}}
+:root[data-skin="flamingo"]{--water-deep:#5b1029;--water:#831b22;--water-light:#b44427;--water-pale:#f6e8e4;--sand:#f5eaeb;--sand-dark:#e3cecf;--line:#e8d4d5;--ink:#32151f;--ink-soft:#64404c;--deco:"🦩";}
+:root[data-skin="flamingo"][data-theme="dark"]{--water-deep:#2e0a16;--water:#59181c;--water-light:#ce4827;--water-pale:#311618;--sand:#1e1516;--sand-dark:#291e1f;--paper:#2c1b1c;--line:#472a2b;--ink:#f5eff0;--ink-soft:#cbb9ba;}
+@media (prefers-color-scheme: dark){:root[data-skin="flamingo"]:not([data-theme="light"]){--water-deep:#2e0a16;--water:#59181c;--water-light:#ce4827;--water-pale:#311618;--sand:#1e1516;--sand-dark:#291e1f;--paper:#2c1b1c;--line:#472a2b;--ink:#f5eff0;--ink-soft:#cbb9ba;}}
+:root[data-skin="ritter"]{--water-deep:#0c1220;--water:#3a5a8f;--water-light:#d6b04a;--water-pale:#141c2e;--sand:#0a0f1a;--sand-dark:#111826;--paper:#151d2e;--line:#2c3b57;--ink:#eef2fa;--ink-soft:#a9b6cf;--gold:#d6b04a;--deco:"⚔️";}
+:root[data-skin="roboter"]{--water-deep:#06141a;--water:#117a8b;--water-light:#ff8a1f;--water-pale:#0c2229;--sand:#050e12;--sand-dark:#0a171c;--paper:#0d1d23;--line:#1d4a56;--ink:#e8fbff;--ink-soft:#9ccbd6;--gold:#ff8a1f;--deco:"🤖";}
+:root[data-skin="geist"]{--water-deep:#120a1f;--water:#5b3b8a;--water-light:#b9a2e6;--water-pale:#1b1030;--sand:#0d0714;--sand-dark:#150d20;--paper:#1b1229;--line:#3a2a5a;--ink:#f3eefc;--ink-soft:#c4b6df;--gold:#d9c8ff;--deco:"👻";}
+:root[data-skin="dschungel"]{--water-deep:#12532a;--water:#1f8f4a;--water-light:#e8a317;--water-pale:#e5f7e8;--sand:#eef8ea;--sand-dark:#d6ecd4;--line:#c9e3c8;--ink:#10311b;--ink-soft:#456a4f;--gold:#e8a317;--deco:"🦜";}
+:root[data-skin="dschungel"][data-theme="dark"]{--water-deep:#06210f;--water:#177a3d;--water-light:#f0b01f;--water-pale:#0e2a17;--sand:#07140b;--sand-dark:#0d1d12;--paper:#0f2216;--line:#1f4a2c;--ink:#eafbea;--ink-soft:#a6cfae;--gold:#f0b01f;}
+@media (prefers-color-scheme: dark){:root[data-skin="dschungel"]:not([data-theme="light"]){--water-deep:#06210f;--water:#177a3d;--water-light:#f0b01f;--water-pale:#0e2a17;--sand:#07140b;--sand-dark:#0d1d12;--paper:#0f2216;--line:#1f4a2c;--ink:#eafbea;--ink-soft:#a6cfae;--gold:#f0b01f;}}
+:root[data-skin="feuerwerk"]{--water-deep:#05061a;--water:#2b2f9a;--water-light:#ff3f7f;--water-pale:#0c0f33;--sand:#04051a;--sand-dark:#090b2a;--paper:#0d1036;--line:#232a6a;--ink:#f2f4ff;--ink-soft:#b3bbf0;--gold:#ffd54a;--deco:"🎆";}
+:root[data-skin="feuerwerk"] .topbar,:root[data-skin="feuerwerk"] .hero,:root[data-skin="feuerwerk"] .btn-primary,:root[data-skin="feuerwerk"] .menu-tile.accent{background-image:linear-gradient(90deg,#2b2f9a,#ff3f7f,#c77a14,#1fa896,#8a5cff,#2b2f9a);background-size:200% 100%;animation:skinflow 10s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="sturm"]{--water-deep:#06101c;--water:#1d4f8f;--water-light:#8fd3ff;--water-pale:#0b1a2c;--sand:#050c15;--sand-dark:#09131f;--paper:#0c1928;--line:#1d3a5c;--ink:#eaf4ff;--ink-soft:#9fbbd6;--gold:#ffe066;--deco:"🌩️";}
+:root[data-skin="sturm"] .topbar,:root[data-skin="sturm"] .hero,:root[data-skin="sturm"] .btn-primary,:root[data-skin="sturm"] .menu-tile.accent{background-image:linear-gradient(110deg,var(--water-deep) 0%,var(--water) 32%,#bfe6ff 47%,#ffffff 50%,#bfe6ff 53%,var(--water) 68%,var(--water-deep) 100%);background-size:260% 100%;animation:skinsweep 5.5s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.35);}
+:root[data-skin="perle"]{--water-deep:#6b4a8f;--water:#8f6fb5;--water-light:#c58fd0;--water-pale:#f6eefa;--sand:#faf5fc;--sand-dark:#eadff0;--line:#e4d6ec;--ink:#33224a;--ink-soft:#6b5a85;--gold:#e9b7d8;--deco:"🦪";}
+:root[data-skin="perle"][data-theme="dark"]{--water-deep:#241638;--water:#5d4380;--water-light:#c58fd0;--water-pale:#2b1c40;--sand:#140c1f;--sand-dark:#1c1229;--paper:#221733;--line:#43305f;--ink:#f8f0ff;--ink-soft:#cdb6e0;--gold:#e9b7d8;}
+@media (prefers-color-scheme: dark){:root[data-skin="perle"]:not([data-theme="light"]){--water-deep:#241638;--water:#5d4380;--water-light:#c58fd0;--water-pale:#2b1c40;--sand:#140c1f;--sand-dark:#1c1229;--paper:#221733;--line:#43305f;--ink:#f8f0ff;--ink-soft:#cdb6e0;--gold:#e9b7d8;}}
+:root[data-skin="perle"] .topbar,:root[data-skin="perle"] .hero,:root[data-skin="perle"] .btn-primary,:root[data-skin="perle"] .menu-tile.accent{background-image:linear-gradient(90deg,#a35fb0,#4f8fd6,#3fae92,#d9903a,#a35fb0);background-size:200% 100%;animation:skinflow 14s linear infinite;text-shadow:0 1px 2px rgba(0,0,0,.4);}
+:root[data-skin="glas"]{--water-deep:#3b2f8f;--water:#5b4fe0;--water-light:#8a7bff;--water-pale:#ece9ff;--sand:#cfe3ff;--sand-dark:#c0d4f5;--paper:#ffffff;--line:#cdd9f5;--ink:#1b1f4a;--ink-soft:#4b5280;--gold:#ffb347;--deco:"🪟";}
+:root[data-skin="glas"] body{background:linear-gradient(135deg,#8ec5ff 0%,#c9a7ff 38%,#ffb6d9 68%,#ffd9a8 100%) fixed}
+:root[data-skin="glas"] .menu-tile:not(.accent):not(.daily),:root[data-skin="glas"] .card,:root[data-skin="glas"] .q-card,:root[data-skin="glas"] .stat-box,:root[data-skin="glas"] .fish-tile,:root[data-skin="glas"] .ach-row{background:rgba(255,255,255,.34);-webkit-backdrop-filter:blur(14px) saturate(1.5);backdrop-filter:blur(14px) saturate(1.5);border:1px solid rgba(255,255,255,.6);box-shadow:0 10px 30px rgba(70,50,150,.22),inset 0 1px 0 rgba(255,255,255,.75)}
+:root[data-skin="glas"] .menu-tile.accent,:root[data-skin="glas"] .btn-primary{background:linear-gradient(135deg,rgba(91,79,224,.8),rgba(138,123,255,.72));-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border:1px solid rgba(255,255,255,.55);box-shadow:0 10px 30px rgba(70,50,150,.3),inset 0 1px 0 rgba(255,255,255,.5);color:#fff}
+:root[data-skin="glas"] .topbar,:root[data-skin="glas"] .hero{background:linear-gradient(135deg,rgba(59,47,143,.84),rgba(91,79,224,.76));-webkit-backdrop-filter:blur(12px);backdrop-filter:blur(12px)}
+:root[data-skin="glas"] .opt:not(.selected):not(.correct):not(.wrong){background:rgba(255,255,255,.42);border-color:rgba(255,255,255,.75)}
+:root[data-skin="glas"] .bnav{background:rgba(255,255,255,.62);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);border-top-color:rgba(255,255,255,.8)}
+:root[data-skin="glas"] .streak-row{background:rgba(255,255,255,.45)}
+:root[data-skin="neonrahmen"]{--water-deep:#07051a;--water:#5b21b6;--water-light:#ff2fa8;--water-pale:#14102e;--sand:#05030f;--sand-dark:#0c0820;--paper:#0d0a24;--line:#2a1f5e;--ink:#eaf6ff;--ink-soft:#9fb4d8;--gold:#00e5ff;--deco:"🕹️";}
+:root[data-skin="neonrahmen"] body{background:linear-gradient(rgba(255,47,168,.09) 1px,transparent 1px) 0 0/100% 36px,linear-gradient(90deg,rgba(0,229,255,.08) 1px,transparent 1px) 0 0/36px 100%,#05030f}
+:root[data-skin="neonrahmen"] .menu-tile:not(.accent):not(.daily),:root[data-skin="neonrahmen"] .card,:root[data-skin="neonrahmen"] .q-card,:root[data-skin="neonrahmen"] .stat-box,:root[data-skin="neonrahmen"] .fish-tile,:root[data-skin="neonrahmen"] .ach-row{background:rgba(10,8,36,.92);border:1.5px solid #ff2fa8;box-shadow:0 0 14px rgba(255,47,168,.55),inset 0 0 14px rgba(255,47,168,.16);text-shadow:0 0 8px rgba(255,47,168,.3)}
+:root[data-skin="neonrahmen"] .menu-tile.accent,:root[data-skin="neonrahmen"] .btn-primary{background:linear-gradient(135deg,#2a0b5e,#5b21b6);border:1.5px solid #00e5ff;box-shadow:0 0 18px rgba(0,229,255,.55),inset 0 0 14px rgba(0,229,255,.2);color:#fff;text-shadow:0 0 8px #00e5ff;animation:neonpulse 2.6s ease-in-out infinite alternate}
+:root[data-skin="neonrahmen"] .topbar,:root[data-skin="neonrahmen"] .hero{background:linear-gradient(135deg,#14073a,#2a0b5e)}
+:root[data-skin="neonrahmen"] .topbar{border-bottom:2px solid #ff2fa8;box-shadow:0 4px 18px rgba(255,47,168,.45)}
+:root[data-skin="neonrahmen"] .hero{border:1.5px solid #ff2fa8;box-shadow:0 0 18px rgba(255,47,168,.5),inset 0 0 18px rgba(255,47,168,.15)}
+:root[data-skin="neonrahmen"] .opt:not(.selected):not(.correct):not(.wrong){border-color:#3b2a8a;background:#0d0a24}
+:root[data-skin="neonrahmen"] .bnav{background:#0a0720;border-top:2px solid #00e5ff;box-shadow:0 -4px 16px rgba(0,229,255,.25)}
+:root[data-skin="neonrahmen"] .streak-row{background:#14102e;box-shadow:0 0 10px rgba(0,229,255,.25)}
+:root[data-skin="neonrahmen"] .menu-tile:not(.accent):not(.daily):nth-child(even){border-color:#00e5ff;box-shadow:0 0 14px rgba(0,229,255,.5),inset 0 0 14px rgba(0,229,255,.14);}
+:root[data-skin="pergament"]{--water-deep:#4a2c12;--water:#7a4a22;--water-light:#b9833f;--water-pale:#f3e3b8;--sand:#e6d2a0;--sand-dark:#d9c08a;--paper:#f7ebc8;--line:#c4a569;--ink:#3b2410;--ink-soft:#7a5a34;--gold:#c98a1b;--font:Georgia,'Times New Roman',serif;--deco:"🗺️";}
+:root[data-skin="pergament"] body{background:radial-gradient(circle at 15% 20%,rgba(120,80,20,.16),transparent 40%),radial-gradient(circle at 85% 75%,rgba(120,80,20,.18),transparent 45%),radial-gradient(circle at 60% 8%,rgba(255,255,255,.28),transparent 35%),#e6d2a0}
+:root[data-skin="pergament"] .menu-tile:not(.accent):not(.daily),:root[data-skin="pergament"] .card,:root[data-skin="pergament"] .q-card,:root[data-skin="pergament"] .stat-box,:root[data-skin="pergament"] .fish-tile,:root[data-skin="pergament"] .ach-row{background:linear-gradient(160deg,#f8edcc,#efdcae);border:2px solid #8a5a2b;border-radius:6px;box-shadow:inset 0 0 22px rgba(139,94,40,.4),0 4px 10px rgba(60,35,10,.35)}
+:root[data-skin="pergament"] .menu-tile.accent,:root[data-skin="pergament"] .btn-primary{background:linear-gradient(160deg,#6b3f1a,#4a2a10);border:2px solid #c98a1b;border-radius:6px;color:#fbe9b7;box-shadow:inset 0 0 14px rgba(0,0,0,.35),0 4px 10px rgba(40,20,5,.45)}
+:root[data-skin="pergament"] .topbar,:root[data-skin="pergament"] .hero{background:linear-gradient(160deg,#5a3416,#3b2410)}
+:root[data-skin="pergament"] .topbar{border-bottom:3px double #c98a1b}
+:root[data-skin="pergament"] .hero{border:2px solid #c98a1b;border-radius:8px;box-shadow:inset 0 0 18px rgba(0,0,0,.35),0 4px 10px rgba(40,20,5,.45)}
+:root[data-skin="pergament"] .opt:not(.selected):not(.correct):not(.wrong){background:#f8edcc;border-color:#b58a4c}
+:root[data-skin="pergament"] .bnav{background:#e9d3a0;border-top:2px solid #8a5a2b}
+:root[data-skin="pergament"] .streak-row{background:#e3cc98}
+:root[data-skin="pixel"]{--water-deep:#1a1c2c;--water:#3b5dc9;--water-light:#41a6f6;--water-pale:#222544;--sand:#12131f;--sand-dark:#1a1c2c;--paper:#29366f;--line:#566c86;--ink:#f4f4f4;--ink-soft:#94b0c2;--gold:#ffcd75;--font:'Courier New',ui-monospace,monospace;--deco:"👾";}
+:root[data-skin="pixel"] body{background:radial-gradient(#1f2140 1px,transparent 1px) 0 0/8px 8px,#12131f}
+:root[data-skin="pixel"] .menu-tile:not(.accent):not(.daily),:root[data-skin="pixel"] .card,:root[data-skin="pixel"] .q-card,:root[data-skin="pixel"] .stat-box,:root[data-skin="pixel"] .fish-tile,:root[data-skin="pixel"] .ach-row{border-radius:0;background:#29366f;border:3px solid #73eff7;box-shadow:5px 5px 0 #0b0c16;text-shadow:2px 2px 0 rgba(0,0,0,.45)}
+:root[data-skin="pixel"] .menu-tile.accent,:root[data-skin="pixel"] .btn-primary{background:#b13e53;border:3px solid #ffcd75;border-radius:0;box-shadow:5px 5px 0 #0b0c16;color:#fff;text-shadow:2px 2px 0 rgba(0,0,0,.45)}
+:root[data-skin="pixel"] .topbar,:root[data-skin="pixel"] .hero{background:#3b5dc9}
+:root[data-skin="pixel"] .topbar{border-bottom:4px solid #ffcd75}
+:root[data-skin="pixel"] .hero{border:3px solid #ffcd75;border-radius:0;box-shadow:5px 5px 0 #0b0c16}
+:root[data-skin="pixel"] .opt:not(.selected):not(.correct):not(.wrong){border-radius:0;border:3px solid #566c86;background:#222544}
+:root[data-skin="pixel"] .bnav{background:#1a1c2c;border-top:4px solid #73eff7}
+:root[data-skin="pixel"] .streak-row{background:#333c57;border-radius:0}
+:root[data-skin="pixel"] .menu-tile:not(.accent):not(.daily):nth-child(even){border-color:#a7f070;}
+:root[data-skin="royal"]{--water-deep:#1a0838;--water:#4b1d8f;--water-light:#d4a73a;--water-pale:#241049;--sand:#12062a;--sand-dark:#1b0c3b;--paper:#2a1355;--line:#6a4cb0;--ink:#fff3d6;--ink-soft:#d9c7a1;--gold:#f0c455;--font:Georgia,'Times New Roman',serif;--deco:"👑";}
+:root[data-skin="royal"] body{background:radial-gradient(ellipse at 50% -10%,#3b1a7a 0%,#12062a 65%)}
+:root[data-skin="royal"] .menu-tile:not(.accent):not(.daily),:root[data-skin="royal"] .card,:root[data-skin="royal"] .q-card,:root[data-skin="royal"] .stat-box,:root[data-skin="royal"] .fish-tile,:root[data-skin="royal"] .ach-row{background:linear-gradient(160deg,#2f1560,#231048);border:2px solid #d4a73a;border-radius:10px;box-shadow:inset 0 0 0 3px rgba(212,167,58,.22),inset 0 0 22px rgba(212,167,58,.12),0 8px 22px rgba(0,0,0,.45)}
+:root[data-skin="royal"] .menu-tile.accent,:root[data-skin="royal"] .btn-primary{background:linear-gradient(135deg,#d4a73a,#f4d57a 50%,#b98a1f);color:#2a1355;border:2px solid #fff3d6;box-shadow:0 6px 18px rgba(212,167,58,.45),inset 0 1px 0 rgba(255,255,255,.7);text-shadow:none}
+:root[data-skin="royal"] .topbar,:root[data-skin="royal"] .hero{background:linear-gradient(180deg,#3b1a7a,#1d0a42)}
+:root[data-skin="royal"] .topbar{border-bottom:2px solid #d4a73a}
+:root[data-skin="royal"] .hero{border:2px solid #d4a73a;box-shadow:inset 0 0 0 3px rgba(212,167,58,.22),0 8px 22px rgba(0,0,0,.45)}
+:root[data-skin="royal"] .opt:not(.selected):not(.correct):not(.wrong){background:#241049;border-color:#6a4cb0}
+:root[data-skin="royal"] .bnav{background:#1d0a42;border-top:2px solid #d4a73a}
+:root[data-skin="royal"] .streak-row{background:#2a1355}
+:root[data-skin="magma"]{--water-deep:#120805;--water:#8a2a0c;--water-light:#ff6a1a;--water-pale:#241109;--sand:#0d0605;--sand-dark:#160a07;--paper:#1d0f0a;--line:#4a2212;--ink:#ffeedd;--ink-soft:#d9b49a;--gold:#ffb02e;--deco:"🌋";}
+:root[data-skin="magma"] body{background:radial-gradient(ellipse at 50% 120%,rgba(255,90,20,.35),transparent 55%),#0d0605}
+:root[data-skin="magma"] .menu-tile:not(.accent):not(.daily),:root[data-skin="magma"] .card,:root[data-skin="magma"] .q-card,:root[data-skin="magma"] .stat-box,:root[data-skin="magma"] .fish-tile,:root[data-skin="magma"] .ach-row{background:linear-gradient(112deg,transparent 46%,rgba(255,110,30,.45) 47%,transparent 49%),linear-gradient(165deg,#241510,#170c08);border:1px solid #5a2a14;border-radius:12px;box-shadow:0 0 0 1px rgba(255,106,26,.12),0 10px 24px rgba(0,0,0,.55),inset 0 -3px 0 rgba(255,90,20,.65)}
+:root[data-skin="magma"] .menu-tile.accent,:root[data-skin="magma"] .btn-primary{background:linear-gradient(135deg,#8a2a0c,#ff6a1a 60%,#ffb02e);color:#fff;border:none;box-shadow:0 0 22px rgba(255,106,26,.55);animation:magmapulse 2.4s ease-in-out infinite alternate}
+:root[data-skin="magma"] .topbar,:root[data-skin="magma"] .hero{background:linear-gradient(135deg,#2a0e06,#8a2a0c)}
+:root[data-skin="magma"] .topbar{border-bottom:2px solid #ff6a1a;box-shadow:0 4px 18px rgba(255,90,20,.4)}
+:root[data-skin="magma"] .hero{box-shadow:0 0 24px rgba(255,106,26,.5)}
+:root[data-skin="magma"] .opt:not(.selected):not(.correct):not(.wrong){background:#1d0f0a;border-color:#5a2a14}
+:root[data-skin="magma"] .bnav{background:#140a07;border-top:2px solid #ff6a1a}
+:root[data-skin="magma"] .streak-row{background:#241109}
+:root[data-skin="holo"]{--water-deep:#3a2f8a;--water:#6d5be8;--water-light:#c05ce0;--water-pale:#f4efff;--sand:#eef0ff;--sand-dark:#e0e4f8;--paper:#ffffff;--line:#dcd9f5;--ink:#1d1a45;--ink-soft:#5a5790;--gold:#ff9ad5;--deco:"🪩";}
+:root[data-skin="holo"] body{background:linear-gradient(135deg,#eaf6ff,#f6ecff 40%,#fff0f6 70%,#effff3)}
+:root[data-skin="holo"] .menu-tile:not(.accent):not(.daily),:root[data-skin="holo"] .card,:root[data-skin="holo"] .q-card,:root[data-skin="holo"] .stat-box,:root[data-skin="holo"] .fish-tile,:root[data-skin="holo"] .ach-row{background:linear-gradient(rgba(255,255,255,.88),rgba(255,255,255,.88)) padding-box,linear-gradient(120deg,#ff6ec7,#7873f5,#4ade80,#fde047,#fb7185,#ff6ec7) border-box;background-size:100% 100%,300% 100%;border:2px solid transparent;box-shadow:0 8px 22px rgba(120,115,245,.25)}
+:root[data-skin="holo"] .menu-tile.accent,:root[data-skin="holo"] .btn-primary{background:linear-gradient(120deg,#d9439f,#5b55d9,#1fa65a,#d9a406,#d9435a,#d9439f);background-size:300% 100%;animation:holoflow1 6s linear infinite;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.45);border:none}
+:root[data-skin="holo"] .topbar,:root[data-skin="holo"] .hero{background:linear-gradient(120deg,#d9439f,#5b55d9,#1fa65a,#d9a406,#d9435a,#d9439f);background-size:300% 100%;animation:holoflow1 9s linear infinite;text-shadow:0 1px 3px rgba(0,0,0,.45)}
+:root[data-skin="holo"] .opt:not(.selected):not(.correct):not(.wrong){background:rgba(255,255,255,.8);border-color:#dcd9f5}
+:root[data-skin="holo"] .bnav{background:rgba(255,255,255,.88)}
+:root[data-skin="holo"] .streak-row{background:rgba(255,255,255,.7)}
+:root[data-skin="holo"] .menu-tile:not(.accent):not(.daily){animation:holoflow 7s linear infinite;}
+:root[data-skin="holz"]{--water-deep:#3b2410;--water:#7a4a22;--water-light:#b9783a;--water-pale:#f1dfc2;--sand:#d9bd91;--sand-dark:#c9a874;--paper:#f4e4c6;--line:#a67b4a;--ink:#2b1a0c;--ink-soft:#6a4a2a;--gold:#e0a02f;--deco:"🪵";}
+:root[data-skin="holz"] body{background:repeating-linear-gradient(90deg,rgba(0,0,0,.05) 0 2px,transparent 2px 120px),repeating-linear-gradient(0deg,rgba(0,0,0,.05) 0 1px,transparent 1px 7px),linear-gradient(#d9bd91,#cfae7e)}
+:root[data-skin="holz"] .menu-tile:not(.accent):not(.daily),:root[data-skin="holz"] .card,:root[data-skin="holz"] .q-card,:root[data-skin="holz"] .stat-box,:root[data-skin="holz"] .fish-tile,:root[data-skin="holz"] .ach-row{background:radial-gradient(circle at 10px 10px,#3a2410 2px,transparent 3px),radial-gradient(circle at calc(100% - 10px) 10px,#3a2410 2px,transparent 3px),radial-gradient(circle at 10px calc(100% - 10px),#3a2410 2px,transparent 3px),radial-gradient(circle at calc(100% - 10px) calc(100% - 10px),#3a2410 2px,transparent 3px),repeating-linear-gradient(180deg,rgba(255,255,255,.07) 0 2px,rgba(0,0,0,.04) 2px 5px),linear-gradient(#ecd3a8,#d9b985);border:3px solid #6b4423;border-radius:8px;box-shadow:inset 0 2px 0 rgba(255,255,255,.4),0 4px 0 #4a2d14,0 8px 14px rgba(40,22,8,.35)}
+:root[data-skin="holz"] .menu-tile.accent,:root[data-skin="holz"] .btn-primary{background:repeating-linear-gradient(180deg,rgba(255,255,255,.06) 0 2px,rgba(0,0,0,.08) 2px 5px),linear-gradient(#7a4a22,#5a3416);color:#fbe9c6;border:3px solid #3b2410;border-radius:8px;box-shadow:inset 0 2px 0 rgba(255,255,255,.2),0 4px 0 #2b1a0c,0 8px 14px rgba(40,22,8,.4)}
+:root[data-skin="holz"] .topbar,:root[data-skin="holz"] .hero{background:repeating-linear-gradient(180deg,rgba(255,255,255,.06) 0 2px,rgba(0,0,0,.08) 2px 5px),linear-gradient(#6a3f1c,#4a2a12)}
+:root[data-skin="holz"] .topbar{border-bottom:4px solid #2b1a0c}
+:root[data-skin="holz"] .hero{border:3px solid #2b1a0c;box-shadow:inset 0 2px 0 rgba(255,255,255,.2),0 4px 0 #2b1a0c}
+:root[data-skin="holz"] .opt:not(.selected):not(.correct):not(.wrong){background:#efdab5;border-color:#a67b4a}
+:root[data-skin="holz"] .bnav{background:#cfae7e;border-top:3px solid #6b4423}
+:root[data-skin="holz"] .streak-row{background:#e3c999}
+@media (prefers-reduced-motion: reduce){:root[data-skin] .menu-tile{animation:none!important;}}
 /* Lesbarkeit in dunklen Farbthemen */
 :root[data-skin][data-theme="dark"] .btn-outline{color:var(--water-light);border-color:var(--water-light);}
 :root[data-skin][data-theme="dark"] .q-cat-tag,
@@ -454,6 +594,15 @@ input[type=number]{
 .gx-box.gx-shake.big{animation:gxshake .95s linear;}
 @keyframes gxshake{0%,100%{transform:translate(0,0)}10%{transform:translate(-7px,3px)}20%{transform:translate(6px,-4px)}30%{transform:translate(-6px,-3px)}40%{transform:translate(7px,4px)}50%{transform:translate(-5px,2px)}60%{transform:translate(5px,-3px)}70%{transform:translate(-3px,3px)}80%{transform:translate(3px,-2px)}90%{transform:translate(-2px,1px)}}
 @media (prefers-reduced-motion: reduce){.gxm *,.gx-box.gx-shake,.gx-flash.go,.gx-wave.go{animation:none!important;}}
+.r-mythic{--rc:#ff4fd8;}
+.gcard.r-mythic{border:3px solid transparent;background:linear-gradient(var(--paper),var(--paper)) padding-box,linear-gradient(120deg,#ff6ec7,#7873f5,#4ade80,#fde047,#fb7185,#ff6ec7) border-box;background-size:100% 100%,300% 100%;animation:holoflow 5s linear infinite;box-shadow:0 0 18px rgba(255,110,199,.6);}
+.gx-single .gcard.r-mythic{animation:gxflip .9s cubic-bezier(.2,.8,.2,1) both,holoflow 5s linear infinite;}
+.gx-multi .gcard.r-mythic{animation:gxpop .45s ease both,holoflow 5s linear infinite;}
+.dtile{display:flex;align-items:center;justify-content:center;width:46%;height:74%;font-size:24px;}
+.gxm-prize.myth .gxp-top{background:linear-gradient(120deg,#ff6ec7,#7873f5,#4ade80,#fde047,#fb7185,#ff6ec7);background-size:300% 100%;animation:holoflow1 2.2s linear infinite;}
+.gxm-prize.myth::before{background:repeating-conic-gradient(rgba(255,110,199,.5) 0 6deg,rgba(120,115,245,.5) 6deg 12deg,rgba(74,222,128,.5) 12deg 18deg,rgba(253,224,71,.5) 18deg 24deg,rgba(255,255,255,0) 24deg 30deg);}
+.gxm-ball.myth{background:linear-gradient(120deg,#ff6ec7,#7873f5,#4ade80,#fde047,#ff6ec7) 0 0/300% 50% no-repeat,#eef3f6;box-shadow:0 0 calc(var(--u)*1.6) #ff6ec7;}
+.gx-mythic .gx-flash.go{background:conic-gradient(from 0deg at 50% 50%,#ff6ec7,#7873f5,#4ade80,#fde047,#fb7185,#ff6ec7);}
 .r-common{--rc:#8aa0a8;}.r-rare{--rc:#3b82f6;}.r-epic{--rc:#a855f7;}.r-legend{--rc:#f5a623;}
 .gx-wallet{display:flex;align-items:center;justify-content:space-between;gap:10px;}
 .gx-coins{font-size:30px;font-weight:800;line-height:1;}
@@ -750,7 +899,7 @@ function defaultState(){
     endlessTop: [],   // Endlos-Modus: Top 5 {score, ts}
     endlessRuns: 0,
     coins: 0, album: {}, pulls: 0,   // Fischalbum (Gacha)
-    skin: 'default', skins: {}, pity: 0, fx: {sound:true, vibe:true}, daily: {last:'', streak:0, claims:0}, ach: {},   // Design-Gacha, Tägliche Belohnung, Erfolge
+    skin: 'default', skins: {}, pity: 0, pityM: 0, fx: {sound:true, vibe:true}, daily: {last:'', streak:0, claims:0}, ach: {},   // Design-Gacha, Tägliche Belohnung, Erfolge
     recentSession: [] // ring buffer of last shown ids (for cooldown), session-scoped but persisted loosely
   };
 }
@@ -788,8 +937,7 @@ function sanitizeState(raw){
   Object.keys(s.ach).forEach(k=>{ if(s.ach[k]!==1 && s.ach[k]!==2) delete s.ach[k]; });
   s.pity = (typeof s.pity==='number' && isFinite(s.pity)) ? Math.max(0, Math.floor(s.pity)) : 0;
   const fxo = (s.fx && typeof s.fx==='object') ? s.fx : {}; s.fx = {sound: fxo.sound!==false, vibe: fxo.vibe!==false};
-  // Migration: Fragen, die schon aus "Falsche" entfernt waren (nicht gemeistert, aber nach dem letzten Fehler richtig), bleiben entfernt
-  Object.keys(s.qstats).forEach(id=>{ const q=s.qstats[id]; if(q && typeof q==='object' && typeof q.fixed!=='boolean') q.fixed = !!(q.wrong>0 && !q.mastered && q.streak>0); });
+  s.pityM = (typeof s.pityM==='number' && isFinite(s.pityM)) ? Math.max(0, Math.floor(s.pityM)) : 0;
   return s;
 }
 
@@ -1088,6 +1236,7 @@ function applyTheme(pv){
   const sk = skinById(pv || STATE.skin);
   if(sk.id!=='default') root.setAttribute('data-skin', sk.id); else root.removeAttribute('data-skin');
   if(sk.dark) root.setAttribute('data-theme','dark');
+  else if(sk.light) root.setAttribute('data-theme','light');
   else if(STATE.theme==='dark') root.setAttribute('data-theme','dark');
   else if(STATE.theme==='light') root.setAttribute('data-theme','light');
   else root.removeAttribute('data-theme');
@@ -3092,13 +3241,14 @@ function renderEndlessResult(){
 /* ======================= DESIGN-GACHA ======================= */
 // Farbdesigns gibt es nur über das Gacha (nicht einzeln kaufbar). Münzen: jede verdiente XP gibt 1 Münze (addXP);
 // ältere Spielstände bekamen einmalig 1 Münze pro 10 XP (sanitizeState). XP und Level bleiben unberührt.
-const SKINS = [{"id": "default", "name": "Standard", "emoji": "🎣", "rarity": "common", "dark": false, "anim": false, "prev": ["#0b3d4c", "#116477", "#1a8ba3"]}, {"id": "rot", "name": "Rot", "emoji": "❤️", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1815", "#832421", "#b1332f"]}, {"id": "orange", "name": "Orange", "emoji": "🧡", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b3115", "#834821", "#b1632f"]}, {"id": "senf", "name": "Senf", "emoji": "💛", "rarity": "common", "dark": false, "anim": false, "prev": ["#4e3e12", "#725b1d", "#9d7e2a"]}, {"id": "limette", "name": "Limette", "emoji": "🍏", "rarity": "common", "dark": false, "anim": false, "prev": ["#314c12", "#486f1c", "#659929"]}, {"id": "gruen", "name": "Grün", "emoji": "💚", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b2d", "#218341", "#2fb15b"]}, {"id": "minze", "name": "Minze", "emoji": "🌿", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b46", "#218365", "#2fb18a"]}, {"id": "tuerkis", "name": "Türkis", "emoji": "🐚", "rarity": "common", "dark": false, "anim": false, "prev": ["#15595b", "#217f83", "#2fadb1"]}, {"id": "himmel", "name": "Himmelblau", "emoji": "☁️", "rarity": "common", "dark": false, "anim": false, "prev": ["#15405b", "#215d83", "#2f7fb1"]}, {"id": "blau", "name": "Blau", "emoji": "💙", "rarity": "common", "dark": false, "anim": false, "prev": ["#15365b", "#214e83", "#2f6cb1"]}, {"id": "indigo", "name": "Indigo", "emoji": "🔷", "rarity": "common", "dark": false, "anim": false, "prev": ["#151a5b", "#212783", "#2f38b1"]}, {"id": "lila", "name": "Lila", "emoji": "💜", "rarity": "common", "dark": false, "anim": false, "prev": ["#36155b", "#4e2183", "#6c2fb1"]}, {"id": "magenta", "name": "Magenta", "emoji": "🔮", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b155b", "#832183", "#b12fb1"]}, {"id": "pink", "name": "Pink", "emoji": "💗", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1536", "#83214e", "#b12f6c"]}, {"id": "rose", "name": "Rosé", "emoji": "🌹", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1523", "#832134", "#b12f49"]}, {"id": "schoko", "name": "Schokolade", "emoji": "🍫", "rarity": "common", "dark": false, "anim": false, "prev": ["#472e20", "#68442f", "#8e5f43"]}, {"id": "schiefer", "name": "Schiefer", "emoji": "⛰️", "rarity": "common", "dark": false, "anim": false, "prev": ["#303840", "#47525c", "#62707f"]}, {"id": "sonne", "name": "Sonnenuntergang", "emoji": "🌅", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5b2a15", "#833e21", "#b1562f"]}, {"id": "eis", "name": "Eis", "emoji": "🧊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#154d5b", "#216f83", "#2f97b1"]}, {"id": "lavendel", "name": "Lavendel", "emoji": "🌷", "rarity": "rare", "dark": false, "anim": false, "prev": ["#341b50", "#602b73", "#9e3d9e"]}, {"id": "kirsch", "name": "Kirschblüte", "emoji": "🌸", "rarity": "rare", "dark": false, "anim": false, "prev": ["#57142d", "#7d2138", "#ab3041"]}, {"id": "ozean", "name": "Ozean", "emoji": "🌊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#133858", "#206c7e", "#2eada5"]}, {"id": "wald", "name": "Wald", "emoji": "🌲", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a4b34", "#2a6c2c", "#66943d"]}, {"id": "wueste", "name": "Wüste", "emoji": "🏜️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#522e19", "#775228", "#a28339"]}, {"id": "koralle", "name": "Koralle", "emoji": "🐠", "rarity": "rare", "dark": false, "anim": false, "prev": ["#591912", "#803a1e", "#af692c"]}, {"id": "pfirsich", "name": "Pfirsich", "emoji": "🍑", "rarity": "rare", "dark": false, "anim": false, "prev": ["#582313", "#7e4920", "#ad7f2e"]}, {"id": "beere", "name": "Beere", "emoji": "🍇", "rarity": "rare", "dark": false, "anim": false, "prev": ["#2e1952", "#712877", "#a2396e"]}, {"id": "herbst", "name": "Herbstlaub", "emoji": "🍂", "rarity": "rare", "dark": false, "anim": false, "prev": ["#581f13", "#7e4720", "#ad832e"]}, {"id": "winter", "name": "Winter", "emoji": "❄️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a3751", "#294675", "#3b53a0"]}, {"id": "sommer", "name": "Sommer", "emoji": "☀️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5c3d0f", "#854119", "#b63925"]}, {"id": "zitrone", "name": "Zitrone", "emoji": "🍋", "rarity": "rare", "dark": false, "anim": false, "prev": ["#4a420f", "#606c19", "#669726"]}, {"id": "axolotl", "name": "Axolotl", "emoji": "🩷", "rarity": "epic", "dark": false, "anim": false, "prev": ["#b83a7a", "#e8609f", "#ff8fc0"]}, {"id": "weihnacht", "name": "Weihnachten", "emoji": "🎄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7a1020", "#b3202f", "#2f8f4e"]}, {"id": "dino", "name": "Dino", "emoji": "🦖", "rarity": "epic", "dark": false, "anim": false, "prev": ["#2e5a1f", "#4f8f2e", "#e07a1f"]}, {"id": "einhorn", "name": "Einhorn", "emoji": "🦄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7b4fb8", "#b05ac8", "#ff7fb0"]}, {"id": "halloween", "name": "Halloween", "emoji": "🎃", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a0f2e", "#6a2fb0", "#ff7a1a"]}, {"id": "zombie", "name": "Zombie", "emoji": "🧟", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0e1a10", "#3f7a32", "#7cb342"]}, {"id": "neon", "name": "Neon", "emoji": "⚡", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0a0620", "#7a2bd0", "#ff2fa8"]}, {"id": "weltraum", "name": "Weltraum", "emoji": "🚀", "rarity": "epic", "dark": true, "anim": false, "prev": ["#050a1e", "#2b44b0", "#7a5cff"]}, {"id": "vampir", "name": "Vampir", "emoji": "🧛", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14060a", "#8f1638", "#e0314f"]}, {"id": "pirat", "name": "Pirat", "emoji": "☠️", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a1208", "#7a5420", "#d9a43a"]}, {"id": "matrix", "name": "Matrix", "emoji": "💻", "rarity": "epic", "dark": true, "anim": false, "prev": ["#02120a", "#0e6a32", "#19d65c"]}, {"id": "synthwave", "name": "Synthwave", "emoji": "🌆", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14052e", "#7a24c8", "#ff3fa4"]}, {"id": "gold", "name": "Gold-Schimmer", "emoji": "✨", "rarity": "legend", "dark": false, "anim": true, "prev": ["#5c3f05", "#8f6508", "#e3b84a", "#8f6508", "#5c3f05"]}, {"id": "silber", "name": "Silber-Schimmer", "emoji": "🥈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#2f3640", "#5a6472", "#d9e0ea", "#5a6472", "#2f3640"]}, {"id": "diamant", "name": "Diamant", "emoji": "💎", "rarity": "legend", "dark": false, "anim": true, "prev": ["#0b4f6c", "#1a8bb3", "#bdeeff", "#1a8bb3", "#0b4f6c"]}, {"id": "regenbogen", "name": "Regenbogen", "emoji": "🌈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#d62f2f", "#e8822a", "#b8921a", "#2e9e4f", "#1f9bb8", "#3d5fd1", "#8a43c4", "#d62f8a", "#d62f2f"]}, {"id": "aurora", "name": "Polarlicht", "emoji": "🌌", "rarity": "legend", "dark": true, "anim": true, "prev": ["#0b6b5a", "#14a37f", "#2fd4a0", "#4a6ee0", "#8a5cff", "#2fd4a0", "#0b6b5a"]}, {"id": "lava", "name": "Lava", "emoji": "🔥", "rarity": "legend", "dark": true, "anim": true, "prev": ["#7a1208", "#c2310f", "#f0701a", "#c2310f", "#7a1208"]}, {"id": "galaxie", "name": "Galaxie", "emoji": "🪐", "rarity": "legend", "dark": true, "anim": true, "prev": ["#1a1050", "#4a1fa0", "#8a2fd0", "#c040a0", "#4a1fa0", "#1a1050"]}, {"id": "tiefsee", "name": "Tiefsee", "emoji": "🐙", "rarity": "legend", "dark": true, "anim": true, "prev": ["#03202e", "#06506a", "#0f8fa8", "#06506a", "#03202e"]}];
-const GX_COST1 = 50, GX_COST10 = 450, GX_PITY = 60;
+const SKINS = [{"id": "default", "name": "Standard", "emoji": "🎣", "rarity": "common", "dark": false, "anim": false, "prev": ["#0b3d4c", "#116477", "#1a8ba3"]}, {"id": "rot", "name": "Rot", "emoji": "❤️", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1815", "#832421", "#b1332f"]}, {"id": "orange", "name": "Orange", "emoji": "🧡", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b3115", "#834821", "#b1632f"]}, {"id": "senf", "name": "Senf", "emoji": "💛", "rarity": "common", "dark": false, "anim": false, "prev": ["#4e3e12", "#725b1d", "#9d7e2a"]}, {"id": "limette", "name": "Limette", "emoji": "🍏", "rarity": "common", "dark": false, "anim": false, "prev": ["#314c12", "#486f1c", "#659929"]}, {"id": "gruen", "name": "Grün", "emoji": "💚", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b2d", "#218341", "#2fb15b"]}, {"id": "minze", "name": "Minze", "emoji": "🌿", "rarity": "common", "dark": false, "anim": false, "prev": ["#155b46", "#218365", "#2fb18a"]}, {"id": "tuerkis", "name": "Türkis", "emoji": "🐚", "rarity": "common", "dark": false, "anim": false, "prev": ["#15595b", "#217f83", "#2fadb1"]}, {"id": "himmel", "name": "Himmelblau", "emoji": "☁️", "rarity": "common", "dark": false, "anim": false, "prev": ["#15405b", "#215d83", "#2f7fb1"]}, {"id": "blau", "name": "Blau", "emoji": "💙", "rarity": "common", "dark": false, "anim": false, "prev": ["#15365b", "#214e83", "#2f6cb1"]}, {"id": "indigo", "name": "Indigo", "emoji": "🔷", "rarity": "common", "dark": false, "anim": false, "prev": ["#151a5b", "#212783", "#2f38b1"]}, {"id": "lila", "name": "Lila", "emoji": "💜", "rarity": "common", "dark": false, "anim": false, "prev": ["#36155b", "#4e2183", "#6c2fb1"]}, {"id": "magenta", "name": "Magenta", "emoji": "🔮", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b155b", "#832183", "#b12fb1"]}, {"id": "pink", "name": "Pink", "emoji": "💗", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1536", "#83214e", "#b12f6c"]}, {"id": "rose", "name": "Rosé", "emoji": "🌹", "rarity": "common", "dark": false, "anim": false, "prev": ["#5b1523", "#832134", "#b12f49"]}, {"id": "schoko", "name": "Schokolade", "emoji": "🍫", "rarity": "common", "dark": false, "anim": false, "prev": ["#472e20", "#68442f", "#8e5f43"]}, {"id": "schiefer", "name": "Schiefer", "emoji": "⛰️", "rarity": "common", "dark": false, "anim": false, "prev": ["#303840", "#47525c", "#62707f"]}, {"id": "sonne", "name": "Sonnenuntergang", "emoji": "🌅", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5b2a15", "#833e21", "#b1562f"]}, {"id": "eis", "name": "Eis", "emoji": "🧊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#154d5b", "#216f83", "#2f97b1"]}, {"id": "lavendel", "name": "Lavendel", "emoji": "🌷", "rarity": "rare", "dark": false, "anim": false, "prev": ["#341b50", "#602b73", "#9e3d9e"]}, {"id": "kirsch", "name": "Kirschblüte", "emoji": "🌸", "rarity": "rare", "dark": false, "anim": false, "prev": ["#57142d", "#7d2138", "#ab3041"]}, {"id": "ozean", "name": "Ozean", "emoji": "🌊", "rarity": "rare", "dark": false, "anim": false, "prev": ["#133858", "#206c7e", "#2eada5"]}, {"id": "wald", "name": "Wald", "emoji": "🌲", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a4b34", "#2a6c2c", "#66943d"]}, {"id": "wueste", "name": "Wüste", "emoji": "🏜️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#522e19", "#775228", "#a28339"]}, {"id": "koralle", "name": "Koralle", "emoji": "🐠", "rarity": "rare", "dark": false, "anim": false, "prev": ["#591912", "#803a1e", "#af692c"]}, {"id": "pfirsich", "name": "Pfirsich", "emoji": "🍑", "rarity": "rare", "dark": false, "anim": false, "prev": ["#582313", "#7e4920", "#ad7f2e"]}, {"id": "beere", "name": "Beere", "emoji": "🍇", "rarity": "rare", "dark": false, "anim": false, "prev": ["#2e1952", "#712877", "#a2396e"]}, {"id": "herbst", "name": "Herbstlaub", "emoji": "🍂", "rarity": "rare", "dark": false, "anim": false, "prev": ["#581f13", "#7e4720", "#ad832e"]}, {"id": "winter", "name": "Winter", "emoji": "❄️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#1a3751", "#294675", "#3b53a0"]}, {"id": "sommer", "name": "Sommer", "emoji": "☀️", "rarity": "rare", "dark": false, "anim": false, "prev": ["#5c3d0f", "#854119", "#b63925"]}, {"id": "zitrone", "name": "Zitrone", "emoji": "🍋", "rarity": "rare", "dark": false, "anim": false, "prev": ["#4a420f", "#606c19", "#669726"]}, {"id": "axolotl", "name": "Axolotl", "emoji": "🩷", "rarity": "epic", "dark": false, "anim": false, "prev": ["#b83a7a", "#e8609f", "#ff8fc0"]}, {"id": "weihnacht", "name": "Weihnachten", "emoji": "🎄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7a1020", "#b3202f", "#2f8f4e"]}, {"id": "dino", "name": "Dino", "emoji": "🦖", "rarity": "epic", "dark": false, "anim": false, "prev": ["#2e5a1f", "#4f8f2e", "#e07a1f"]}, {"id": "einhorn", "name": "Einhorn", "emoji": "🦄", "rarity": "epic", "dark": false, "anim": false, "prev": ["#7b4fb8", "#b05ac8", "#ff7fb0"]}, {"id": "halloween", "name": "Halloween", "emoji": "🎃", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a0f2e", "#6a2fb0", "#ff7a1a"]}, {"id": "zombie", "name": "Zombie", "emoji": "🧟", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0e1a10", "#3f7a32", "#7cb342"]}, {"id": "neon", "name": "Neon", "emoji": "⚡", "rarity": "epic", "dark": true, "anim": false, "prev": ["#0a0620", "#7a2bd0", "#ff2fa8"]}, {"id": "weltraum", "name": "Weltraum", "emoji": "🚀", "rarity": "epic", "dark": true, "anim": false, "prev": ["#050a1e", "#2b44b0", "#7a5cff"]}, {"id": "vampir", "name": "Vampir", "emoji": "🧛", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14060a", "#8f1638", "#e0314f"]}, {"id": "pirat", "name": "Pirat", "emoji": "☠️", "rarity": "epic", "dark": true, "anim": false, "prev": ["#1a1208", "#7a5420", "#d9a43a"]}, {"id": "matrix", "name": "Matrix", "emoji": "💻", "rarity": "epic", "dark": true, "anim": false, "prev": ["#02120a", "#0e6a32", "#19d65c"]}, {"id": "synthwave", "name": "Synthwave", "emoji": "🌆", "rarity": "epic", "dark": true, "anim": false, "prev": ["#14052e", "#7a24c8", "#ff3fa4"]}, {"id": "gold", "name": "Gold-Schimmer", "emoji": "✨", "rarity": "legend", "dark": false, "anim": true, "prev": ["#5c3f05", "#8f6508", "#e3b84a", "#8f6508", "#5c3f05"]}, {"id": "silber", "name": "Silber-Schimmer", "emoji": "🥈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#2f3640", "#5a6472", "#d9e0ea", "#5a6472", "#2f3640"]}, {"id": "diamant", "name": "Diamant", "emoji": "💎", "rarity": "legend", "dark": false, "anim": true, "prev": ["#0b4f6c", "#1a8bb3", "#bdeeff", "#1a8bb3", "#0b4f6c"]}, {"id": "regenbogen", "name": "Regenbogen", "emoji": "🌈", "rarity": "legend", "dark": false, "anim": true, "prev": ["#d62f2f", "#e8822a", "#b8921a", "#2e9e4f", "#1f9bb8", "#3d5fd1", "#8a43c4", "#d62f8a", "#d62f2f"]}, {"id": "aurora", "name": "Polarlicht", "emoji": "🌌", "rarity": "legend", "dark": true, "anim": true, "prev": ["#0b6b5a", "#14a37f", "#2fd4a0", "#4a6ee0", "#8a5cff", "#2fd4a0", "#0b6b5a"]}, {"id": "lava", "name": "Lava", "emoji": "🔥", "rarity": "legend", "dark": true, "anim": true, "prev": ["#7a1208", "#c2310f", "#f0701a", "#c2310f", "#7a1208"]}, {"id": "galaxie", "name": "Galaxie", "emoji": "🪐", "rarity": "legend", "dark": true, "anim": true, "prev": ["#1a1050", "#4a1fa0", "#8a2fd0", "#c040a0", "#4a1fa0", "#1a1050"]}, {"id": "tiefsee", "name": "Tiefsee", "emoji": "🐙", "rarity": "legend", "dark": true, "anim": true, "prev": ["#03202e", "#06506a", "#0f8fa8", "#06506a", "#03202e"]}, {"id": "bordeaux", "name": "Bordeaux", "emoji": "🍷", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#4a1724", "#6c2335", "#94324b"]}, {"id": "terrakotta", "name": "Terrakotta", "emoji": "🏺", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#4c291e", "#6e3c2d", "#975440"]}, {"id": "olive", "name": "Olive", "emoji": "🌳", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#3b421e", "#57612e", "#788641"]}, {"id": "petrol", "name": "Petrol", "emoji": "🌀", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#17414a", "#23606c", "#328494"]}, {"id": "marine", "name": "Marine", "emoji": "⚓", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#162548", "#223769", "#314e91"]}, {"id": "lachs", "name": "Lachs", "emoji": "🍣", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#5d251d", "#84372b", "#b34d3d"]}, {"id": "flieder", "name": "Flieder", "emoji": "🦋", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#42254b", "#5f376d", "#824c94"]}, {"id": "sand", "name": "Sand", "emoji": "🏖️", "rarity": "common", "dark": false, "light": false, "anim": false, "prev": ["#443a26", "#625439", "#87744f"]}, {"id": "regenwald", "name": "Regenwald", "emoji": "🌴", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#175436", "#257932", "#4ca636"]}, {"id": "karamell", "name": "Karamell", "emoji": "🍮", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#513014", "#755321", "#a18330"]}, {"id": "segel", "name": "Segeltörn", "emoji": "⛵", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#152d56", "#23557b", "#328da9"]}, {"id": "bonbon", "name": "Bonbon", "emoji": "🍬", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#581333", "#7e2073", "#872ead"]}, {"id": "smaragd", "name": "Smaragd", "emoji": "💠", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#135843", "#207e51", "#2ead58"]}, {"id": "flamingo", "name": "Flamingo", "emoji": "🦩", "rarity": "rare", "dark": false, "light": false, "anim": false, "prev": ["#5b1029", "#831b22", "#b44427"]}, {"id": "ritter", "name": "Ritter", "emoji": "⚔️", "rarity": "epic", "dark": true, "light": false, "anim": false, "prev": ["#0c1220", "#3a5a8f", "#d6b04a"]}, {"id": "roboter", "name": "Roboter", "emoji": "🤖", "rarity": "epic", "dark": true, "light": false, "anim": false, "prev": ["#06141a", "#117a8b", "#ff8a1f"]}, {"id": "geist", "name": "Geisterhaus", "emoji": "👻", "rarity": "epic", "dark": true, "light": false, "anim": false, "prev": ["#120a1f", "#5b3b8a", "#b9a2e6"]}, {"id": "dschungel", "name": "Dschungel", "emoji": "🦜", "rarity": "epic", "dark": false, "light": false, "anim": false, "prev": ["#12532a", "#1f8f4a", "#e8a317"]}, {"id": "feuerwerk", "name": "Feuerwerk", "emoji": "🎆", "rarity": "legend", "dark": true, "light": false, "anim": true, "prev": ["#2b2f9a", "#ff3f7f", "#c77a14", "#1fa896", "#8a5cff", "#2b2f9a"]}, {"id": "sturm", "name": "Sturmfront", "emoji": "🌩️", "rarity": "legend", "dark": true, "light": false, "anim": true, "prev": ["#06101c", "#1d4f8f", "#bfe6ff", "#1d4f8f", "#06101c"]}, {"id": "perle", "name": "Perlmutt", "emoji": "🦪", "rarity": "legend", "dark": false, "light": false, "anim": true, "prev": ["#a35fb0", "#4f8fd6", "#3fae92", "#d9903a", "#a35fb0"]}, {"id": "glas", "name": "Kristallglas", "emoji": "🪟", "rarity": "mythic", "dark": false, "light": true, "anim": false, "prev": ["#8ec5ff", "#c9a7ff", "#ffb6d9"], "tp": "background:rgba(255,255,255,.5);border:1px solid rgba(255,255,255,.85);box-shadow:0 4px 12px rgba(70,50,150,.3);border-radius:10px;color:#1b1f4a"}, {"id": "neonrahmen", "name": "Neon-Rahmen", "emoji": "🕹️", "rarity": "mythic", "dark": true, "light": false, "anim": false, "prev": ["#07051a", "#5b21b6", "#ff2fa8"], "tp": "background:#0d0a24;border:1.5px solid #ff2fa8;box-shadow:0 0 10px rgba(255,47,168,.75),inset 0 0 8px rgba(255,47,168,.25);border-radius:8px;color:#fff"}, {"id": "pergament", "name": "Piratenkarte", "emoji": "🗺️", "rarity": "mythic", "dark": false, "light": true, "anim": false, "prev": ["#e6d2a0", "#c9a569", "#8a5a2b"], "tp": "background:linear-gradient(160deg,#f8edcc,#efdcae);border:2px solid #8a5a2b;border-radius:5px;box-shadow:inset 0 0 10px rgba(139,94,40,.45);color:#3b2410"}, {"id": "pixel", "name": "8-Bit", "emoji": "👾", "rarity": "mythic", "dark": true, "light": false, "anim": false, "prev": ["#12131f", "#3b5dc9", "#73eff7"], "tp": "background:#29366f;border:3px solid #73eff7;box-shadow:3px 3px 0 #0b0c16;border-radius:0;color:#fff"}, {"id": "royal", "name": "Königlich", "emoji": "👑", "rarity": "mythic", "dark": true, "light": false, "anim": false, "prev": ["#12062a", "#4b1d8f", "#d4a73a"], "tp": "background:linear-gradient(160deg,#2f1560,#231048);border:2px solid #d4a73a;box-shadow:inset 0 0 0 2px rgba(212,167,58,.25);border-radius:8px;color:#fff3d6"}, {"id": "magma", "name": "Magma-Kern", "emoji": "🌋", "rarity": "mythic", "dark": true, "light": false, "anim": false, "prev": ["#0d0605", "#8a2a0c", "#ff6a1a"], "tp": "background:linear-gradient(112deg,transparent 46%,rgba(255,110,30,.5) 47%,transparent 49%),linear-gradient(165deg,#241510,#170c08);border:1px solid #5a2a14;box-shadow:inset 0 -3px 0 rgba(255,90,20,.75);border-radius:9px;color:#ffeedd"}, {"id": "holo", "name": "Hologramm", "emoji": "🪩", "rarity": "mythic", "dark": false, "light": true, "anim": false, "prev": ["#eaf6ff", "#f6ecff", "#fff0f6"], "tp": "background:linear-gradient(#fff,#fff) padding-box,linear-gradient(120deg,#ff6ec7,#7873f5,#4ade80,#fde047,#fb7185) border-box;border:2px solid transparent;border-radius:9px;color:#1d1a45"}, {"id": "holz", "name": "Angelhütte", "emoji": "🪵", "rarity": "mythic", "dark": false, "light": true, "anim": false, "prev": ["#d9bd91", "#b9783a", "#6b4423"], "tp": "background:repeating-linear-gradient(180deg,rgba(255,255,255,.08) 0 2px,rgba(0,0,0,.05) 2px 5px),linear-gradient(#ecd3a8,#d9b985);border:3px solid #6b4423;border-radius:6px;box-shadow:0 3px 0 #4a2d14;color:#2b1a0c"}];
+const GX_COST1 = 50, GX_COST10 = 450, GX_PITY = 60, GX_PITY_M = 150;
 const GX_TIERS = [
-  {k:'common', name:'Gewöhnlich', w:50, dup:5},
-  {k:'rare',   name:'Selten',     w:30, dup:10},
-  {k:'epic',   name:'Episch',     w:15, dup:20},
-  {k:'legend', name:'Legendär',   w:5,  dup:40}
+  {k:'common', name:'Gewöhnlich', w:48},
+  {k:'rare',   name:'Selten',     w:30},
+  {k:'epic',   name:'Episch',     w:15},
+  {k:'legend', name:'Legendär',   w:5},
+  {k:'mythic', name:'Mythisch',   w:2}
 ];
 function skinById(id){ return SKINS.find(s=>s.id===id) || SKINS[0]; }
 function skinOwned(id){ return id==='default' || !!(STATE.skins && STATE.skins[id]); }
@@ -3107,14 +3257,14 @@ function gxPool(){ return SKINS.filter(s=>s.id!=='default'); }
 function gxOwned(){ return gxPool().filter(s=>skinOwned(s.id)).length; }
 
 function gxPickTier(minRare, force){
-  if(force==='legend') return GX_TIERS[3];
+  if(force) return GX_TIERS.find(t=>t.k===force) || GX_TIERS[0];
   const pool = minRare ? GX_TIERS.filter(t=>t.k!=='common') : GX_TIERS;
   let r = Math.random() * pool.reduce((a,t)=>a+t.w, 0);
   for(const t of pool){ r -= t.w; if(r<0) return t; }
   return pool[pool.length-1];
 }
-function gxPullOne(minRare){
-  const force = (STATE.pity||0) >= GX_PITY-1 ? 'legend' : null;   // spätestens die 60. Ziehung ohne Legendär ist legendär
+function gxPullOne(minRare, unit){
+  const force = (STATE.pityM||0) >= GX_PITY_M-1 ? 'mythic' : ((STATE.pity||0) >= GX_PITY-1 ? 'legend' : null);   // Garantien
   const tier = gxPickTier(minRare, force);
   let list = gxPool().filter(s=>s.rarity===tier.k);
   if(!list.length) list = gxPool();
@@ -3122,9 +3272,10 @@ function gxPullOne(minRare){
   const t = gxTierOf(sk), had = skinOwned(sk.id);
   if(!STATE.skins) STATE.skins = {};
   if(!had) STATE.skins[sk.id] = true;
-  const refund = had ? t.dup : 0;            // doppeltes Design -> Münzen zurück
+  const refund = had ? (unit===undefined ? GX_COST1 : unit) : 0;   // doppeltes Design: voller Preis der Ziehung zurück
   if(refund) STATE.coins = (STATE.coins||0) + refund;
-  STATE.pity = t.k==='legend' ? 0 : (STATE.pity||0) + 1;
+  STATE.pity = (t.k==='legend' || t.k==='mythic') ? 0 : (STATE.pity||0) + 1;
+  STATE.pityM = t.k==='mythic' ? 0 : (STATE.pityM||0) + 1;
   return {sk, tier:t, isNew:!had, refund};
 }
 function gxDraw(n){
@@ -3132,8 +3283,8 @@ function gxDraw(n){
   if((STATE.coins||0) < cost){ toast('Nicht genug Münzen – jede XP beim Lernen gibt 1 Münze.'); return; }
   STATE.coins -= cost;
   STATE.pulls = (STATE.pulls||0) + n;
-  const res = [];
-  for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common')));  // 10er: mind. 1x Selten oder besser
+  const unit = cost/n, res = [];
+  for(let i=0;i<n;i++) res.push(gxPullOne(n===10 && i===9 && !res.some(r=>r.tier.k!=='common'), unit));  // 10er: mind. 1x Selten oder besser
   saveState();
   if(ROUTE.screen==='gacha') render();
   gxSequence(res, n);
@@ -3146,8 +3297,9 @@ function gxPrev(sk){
 function dcardHtml(sk, o){
   o = o || {};
   const t = gxTierOf(sk), active = skinById(STATE.skin).id===sk.id;
+  const inner = sk.tp ? '<span class="dtile" style="'+sk.tp+'">'+sk.emoji+'</span>' : sk.emoji;   // mythisch: so sieht eine Kachel aus
   return '<div class="gcard dcard r-'+t.k+(active&&o.showActive?' active':'')+'"'+(o.delay?' style="animation-delay:'+o.delay+'s"':'')+(o.click?' onclick="'+o.click+'"':'')+'>'
-    + '<div class="gimg dprev'+(sk.anim?' anim':'')+'" style="background:'+gxPrev(sk)+';">'+sk.emoji+'</div>'
+    + '<div class="gimg dprev'+(sk.anim?' anim':'')+'" style="background:'+gxPrev(sk)+';">'+inner+'</div>'
     + '<div class="gname">'+esc(sk.name)+'</div><div class="gtier">'+(sk.id==='default'?'Standard':t.name)+(sk.dark?' · 🌙':'')+'</div>'
     + (o.isNew ? '<span class="gnew">NEU</span>' : '')
     + (o.showActive && active ? '<span class="gcount">✓ Aktiv</span>' : '')
@@ -3167,12 +3319,13 @@ function skinEquip(id){
 // Ablauf (Einzelziehung): Kurbel dreht -> Kapsel fällt (Farbe = Seltenheit) -> antippen -> Kapsel öffnet sich -> Farbwelle -> Live-Vorschau.
 // Alles wird im Browser erzeugt (CSS-Animationen, Web-Audio-Töne, Vibration); die Ziehung selbst steht schon vorher fest.
 const GXS = {run:0, t:[], preview:null, res:null, n:1, best:null, rc:'#b9c4cb', opened:false};
-const GX_RC = {common:'#b9c4cb', rare:'#3b82f6', epic:'#a855f7', legend:'#f5a623'};
+const GX_RC = {common:'#b9c4cb', rare:'#3b82f6', epic:'#a855f7', legend:'#f5a623', mythic:'#ff4fd8'};
 const GXR = {
   common:{wob:4,  parts:16, shake:0, cap:'Da fällt etwas heraus …',    vib:[40]},
   rare:  {wob:7,  parts:30, shake:0, cap:'Das glitzert blau …',        vib:[50,40,50]},
   epic:  {wob:11, parts:52, shake:1, cap:'Das leuchtet lila!',         vib:[60,40,60,40,120]},
-  legend:{wob:15, parts:96, shake:2, cap:'✨ Das glänzt golden! ✨',    vib:[80,40,80,40,80,40,260]}
+  legend:{wob:15, parts:96, shake:2, cap:'✨ Das glänzt golden! ✨',    vib:[80,40,80,40,80,40,260]},
+  mythic:{wob:18, parts:150, shake:3, cap:'🌈 Etwas Mythisches! 🌈',   vib:[100,40,100,40,100,40,100,40,420]}
 };
 const GX_CAPCOL = ['#ef4444','#3b82f6','#f59e0b','#22c55e','#ec4899','#a855f7'];
 const GX_CAPPOS = [[3,12],[8,15],[13.5,15.5],[17.5,11],[1.5,8],[6,9.5],[11,11],[14.5,7.5],[9,4.5],[4,17],[12,18.5],[15.5,16.5]];
@@ -3211,7 +3364,8 @@ const GXFX = {
     if(k==='common'){ this.tone(659.25, 0, 0.22, 'triangle', 0.12); }
     else if(k==='rare'){ this.tone(659.25, 0, 0.16, 'triangle', 0.13); this.tone(880, 0.12, 0.26, 'triangle', 0.13); this.noise(0.1, 0.25, 0.03, 5000); }
     else if(k==='epic'){ n.slice(0,4).forEach((f,i)=>this.tone(f, i*0.1, 0.3, 'triangle', 0.14)); this.noise(0.2, 0.5, 0.04, 4500); this.tone(130, 0, 0.5, 'sine', 0.2, 90); }
-    else { this.tone(200, 0, 0.7, 'sawtooth', 0.05, 1400); n.forEach((f,i)=>this.tone(f, 0.55+i*0.09, 0.9, 'triangle', 0.13)); [1568,2093,2637,3136].forEach((f,i)=>this.tone(f, 0.9+i*0.12, 0.25, 'sine', 0.06)); this.noise(0.55, 0.7, 0.05, 3500); this.tone(98, 0.5, 0.9, 'sine', 0.25, 70); }
+    else if(k==='legend'){ this.tone(200, 0, 0.7, 'sawtooth', 0.05, 1400); n.forEach((f,i)=>this.tone(f, 0.55+i*0.09, 0.9, 'triangle', 0.13)); [1568,2093,2637,3136].forEach((f,i)=>this.tone(f, 0.9+i*0.12, 0.25, 'sine', 0.06)); this.noise(0.55, 0.7, 0.05, 3500); this.tone(98, 0.5, 0.9, 'sine', 0.25, 70); }
+    else { this.tone(120, 0, 1.0, 'sawtooth', 0.06, 1800); [523.25,659.25,783.99,1046.5,1318.5,1568].forEach((f,i)=>this.tone(f, 0.6+i*0.1, 1.2, 'triangle', 0.13)); [261.6,329.6,392].forEach(f=>this.tone(f, 0.6, 1.4, 'sine', 0.12)); [2093,2637,3136,3951,4186].forEach((f,i)=>this.tone(f, 1.0+i*0.1, 0.3, 'sine', 0.06)); this.noise(0.6, 0.9, 0.06, 3000); this.tone(80, 0.55, 1.1, 'sine', 0.3, 60); }
   },
   vib(p){ try{ if(STATE.fx && STATE.fx.vibe===false) return; if(navigator.vibrate) navigator.vibrate(p); }catch(e){} }
 };
@@ -3250,7 +3404,7 @@ function gxSequence(res, n){
   GXS.rc = GX_RC[GXS.best.tier.k];
   GXFX.ac();   // Audio im Klick-Kontext starten
   const o = document.createElement('div');
-  o.id = 'gxOv'; o.className = 'gx-overlay gx-machine'; o.style.setProperty('--rc', GXS.rc);
+  o.id = 'gxOv'; o.className = 'gx-overlay gx-machine'+(GXS.best.tier.k==='mythic'?' gx-mythic':''); o.style.setProperty('--rc', GXS.rc);
   o.innerHTML = gxCtlsHtml()
     + '<div class="gx-box"><div id="gxStage" class="gx-stage">'+gxMachineHtml(GXS.rc)+'</div><div id="gxCap" class="gx-cap">&nbsp;</div><div id="gxResult" hidden></div></div>'
     + '<div id="gxFx" class="gx-fx"></div><div id="gxWave" class="gx-wave"></div><div id="gxFlash" class="gx-flash"></div>';
@@ -3263,7 +3417,7 @@ function gxSequence(res, n){
 function gxRun1(){
   const k = GXS.best.tier.k, R = GXR[k];
   const m = document.getElementById('gxm'), cap = document.getElementById('gxCap'), prize = document.getElementById('gxPrize'), inn = document.getElementById('gxPrizeIn'), crank = document.getElementById('gxCrank');
-  prize.style.setProperty('--wob', R.wob+'deg'); if(k==='legend') prize.classList.add('leg');
+  prize.style.setProperty('--wob', R.wob+'deg'); if(k==='legend') prize.classList.add('leg'); if(k==='mythic') prize.classList.add('leg','myth');
   gxAt(350, ()=>{ cap.textContent = 'Die Kurbel dreht sich …'; m.classList.add('cranking'); crank.classList.add('spin'); GXFX.vib([25,70,25,70,25]); for(let i=0;i<16;i++) gxAt(i*115, ()=>GXFX.tick(i)); });
   gxAt(2300, ()=>{ const w = m.querySelector('.gxm-cap.win'); if(w) w.classList.add('go'); GXFX.tone(300, 0, 0.25, 'sine', 0.08, 120); });
   gxAt(2700, ()=>{ m.classList.remove('cranking'); m.classList.add('glow'); prize.classList.add('show'); inn.classList.add('drop'); cap.textContent = R.cap; GXFX.thunk(); GXFX.vib([45]); });
@@ -3274,9 +3428,10 @@ function gxCenter(id){ const e = document.getElementById(id||'gxPrize'); if(!e) 
 function gxBurst(rc, n, big, id){
   const box = document.getElementById('gxFx'); if(!box) return;
   const c = gxCenter(id);
+  const PAL = (GXS.best && GXS.best.tier.k==='mythic') ? ['#ff6ec7','#7873f5','#4ade80','#fde047','#fb7185','#ffffff'] : ['#ffffff',rc,'#ffd54a',rc];
   for(let i=0;i<n;i++){
     const p = document.createElement('i'), a = Math.random()*Math.PI*2, d = (big?130:80)+Math.random()*(big?270:160);
-    p.style.cssText = 'left:'+c.x+'px;top:'+c.y+'px;--dx:'+(Math.cos(a)*d).toFixed(0)+'px;--dy:'+(Math.sin(a)*d-40).toFixed(0)+'px;--rot:'+(Math.random()*720-360).toFixed(0)+'deg;--c:'+['#ffffff',rc,'#ffd54a',rc][i%4]+';width:'+(5+Math.random()*7).toFixed(0)+'px;height:'+(5+Math.random()*9).toFixed(0)+'px;animation-delay:'+(Math.random()*0.08).toFixed(2)+'s;';
+    p.style.cssText = 'left:'+c.x+'px;top:'+c.y+'px;--dx:'+(Math.cos(a)*d).toFixed(0)+'px;--dy:'+(Math.sin(a)*d-40).toFixed(0)+'px;--rot:'+(Math.random()*720-360).toFixed(0)+'deg;--c:'+PAL[i%PAL.length]+';width:'+(5+Math.random()*7).toFixed(0)+'px;height:'+(5+Math.random()*9).toFixed(0)+'px;animation-delay:'+(Math.random()*0.08).toFixed(2)+'s;';
     box.appendChild(p);
   }
   setTimeout(()=>{ if(box) box.innerHTML = ''; }, 1900);
@@ -3311,7 +3466,7 @@ function gxRun10(){
   gxAt(350, ()=>{ cap.textContent = 'Die Kurbel dreht sich …'; m.classList.add('cranking'); crank.classList.add('spin','long'); GXFX.vib([25,60,25,60,25,60,25]); for(let i=0;i<24;i++) gxAt(i*105, ()=>GXFX.tick(i)); });
   gxAt(3100, ()=>{
     m.classList.remove('cranking'); m.classList.add('glow'); cap.textContent = '10 Kapseln purzeln heraus!'; GXFX.thunk();
-    balls.innerHTML = res.map(r=>'<div class="gxm-ball" style="--rc:'+GX_RC[r.tier.k]+';"></div>').join('');
+    balls.innerHTML = res.map(r=>'<div class="gxm-ball'+(r.tier.k==='mythic'?' myth':'')+'" style="--rc:'+GX_RC[r.tier.k]+';"></div>').join('');
     Array.from(balls.children).forEach((b,i)=>{
       gxAt(i*85, ()=>{ b.classList.add('out'); void b.offsetWidth; b.style.left = 'calc(var(--u)*'+(2.4+(i%5)*5.9)+')'; b.style.top = 'calc(var(--u)*'+(i<5?11.5:19.5)+')'; GXFX.tone(420+i*55, 0, 0.09, 'triangle', 0.1); GXFX.vib([18]); });
     });
@@ -3342,12 +3497,12 @@ function gxResultHtml(res, n){
   const coins = STATE.coins || 0;
   const nw = res.filter(r=>r.isNew).length, back = res.reduce((a,r)=>a+r.refund, 0);
   const best = res.reduce((b,r)=>GX_TIERS.indexOf(r.tier)>GX_TIERS.indexOf(b) ? r.tier : b, GX_TIERS[0]);
-  const titles = {common:'Neues Design', rare:'💙 Selten!', epic:'💜 Episch!', legend:'✨ Legendär! ✨'};
+  const titles = {common:'Neues Design', rare:'💙 Selten!', epic:'💜 Episch!', legend:'✨ Legendär! ✨', mythic:'🌈 MYTHISCH! 🌈'};
   let body;
   if(n===1){
     const r = res[0];
     body = '<div class="gx-title">'+titles[r.tier.k]+'</div><div class="gx-single">'+dcardHtml(r.sk,{isNew:r.isNew})+'</div>'
-      + '<div class="gx-sum">'+(r.isNew ? 'Neu freigeschaltet!' : 'Doppelt – +'+r.refund+' 🪙 zurück')+'</div>'
+      + '<div class="gx-sum">'+(r.isNew ? 'Neu freigeschaltet!' : 'Doppelt – Preis zurück: +'+r.refund+' 🪙')+'</div>'
       + '<div class="gx-sum" style="opacity:.8;">👁️ Live-Vorschau: so sieht die App mit diesem Design aus</div>'
       + ((r.isNew || skinById(STATE.skin).id!==r.sk.id) ? '<div class="gx-btns" style="margin-bottom:10px;"><button class="btn btn-primary" onclick="skinEquip(\''+r.sk.id+'\');gxClose()">🎨 Jetzt aktivieren</button></div>' : '');
   } else {
@@ -3391,7 +3546,7 @@ function renderGacha(){
         <button class="btn btn-gold" ${coins<GX_COST10?'disabled':''} onclick="gxDraw(10)">10× ziehen<br><small>${GX_COST10} 🪙</small></button>
       </div>
       ${daily}
-      <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;line-height:1.5;">Hier ziehst du Farbdesigns für die ganze App – sie sind nur über das Gacha zu bekommen. Tippe ein freigeschaltetes Design an, um es zu aktivieren. Jede verdiente XP gibt dir 1 Münze (XP und Level bleiben unberührt). Doppelte Designs geben Münzen zurück. Beim 10×-Ziehen ist mindestens ein „Selten“ oder besser dabei. Spätestens die ${GX_PITY}. Ziehung ohne Legendär ist legendär (aktuell ${STATE.pity||0}/${GX_PITY}).</p>
+      <p style="font-size:12px;color:var(--ink-soft);margin:10px 0 0;line-height:1.5;">Hier ziehst du Farbdesigns für die ganze App – sie sind nur über das Gacha zu bekommen. Tippe ein freigeschaltetes Design an, um es zu aktivieren. Jede verdiente XP gibt dir 1 Münze (XP und Level bleiben unberührt). Doppelte Designs bringen den vollen Preis der Ziehung zurück – du zahlst also nur für neue Designs. Beim 10×-Ziehen ist mindestens ein „Selten“ oder besser dabei. Spätestens die ${GX_PITY}. Ziehung ohne Legendär ist legendär (aktuell ${STATE.pity||0}/${GX_PITY}), spätestens die ${GX_PITY_M}. ohne Mythisch ist mythisch (aktuell ${STATE.pityM||0}/${GX_PITY_M}). Mythische Designs verändern auch die Kacheln.</p>
     </div>
     <div style="margin:4px 0 12px;">${chips}</div>
     <div class="gx-grid">${grid}</div>
@@ -3439,7 +3594,7 @@ function achMetrics(){
     exBest: eh.reduce((m,e)=>Math.max(m, e.score||0), 0),
     days: STATE.dayStreak||0,
     endless: endlessBest(),
-    designs: gxOwned(), epic: own('epic'), legend: own('legend'),
+    designs: gxOwned(), epic: own('epic'), legend: own('legend'), mythic: own('mythic'),
     pulls: STATE.pulls||0,
     daily: (STATE.daily&&STATE.daily.claims)||0,
     fish: fishMastered()
@@ -3480,6 +3635,8 @@ const ACH = [
   ['dzep','Designs','💜','Episches Design','Ein episches Design gezogen',1,60,M=>M.epic],
   ['dzlg','Designs','✨','Glückspilz','Ein legendäres Design gezogen',1,100,M=>M.legend],
   ['dzlg4','Designs','🌈','Legendensammler','4 legendäre Designs freigeschaltet',4,300,M=>M.legend],
+  ['dzmy','Designs','🌈','Mythisch','Ein mythisches Design gezogen',1,300,M=>M.mythic],
+  ['dzmy4','Designs','🌈','Mythen-Sammler','4 mythische Designs freigeschaltet',4,600,M=>M.mythic],
   ['p10','Designs','🎰','Erste Ziehungen','10 Ziehungen',10,30,M=>M.pulls],
   ['p50','Designs','🎰','Gacha-Fan','50 Ziehungen',50,80,M=>M.pulls],
   ['p100','Designs','🎰','Gacha-Profi','100 Ziehungen',100,150,M=>M.pulls],
